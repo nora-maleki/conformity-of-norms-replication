@@ -31,7 +31,7 @@ const generateID = function(len) {
 
 
 
-/* Hooks  
+/* Hooks
 *
 *
 */
@@ -54,6 +54,17 @@ check_response = function(data, next) {
     $('input[name=answer]').on('change', function(e) {
         if (e.target.value === data.correct) {
             alert('Your answer is correct! Yey!');
+        } else {
+            alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
+        }
+        next();
+    })
+}
+
+select_statement = function(data, next) {
+    $('input[name=answer]').on('change', function(e) {
+        if (e.target.value === data.option1) {
+            alert("You have guessed right!")
         } else {
             alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
         }
