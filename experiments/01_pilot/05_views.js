@@ -23,18 +23,18 @@ const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-  text: `This is a sample introduction view.
+  text: `This is a follow up study concerning the answer to moral dilemmas and political stance.
             <br />
             <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
+            On the following pages there you will have the choice between several political issues. Please select the one you that you are most interested in.
             <br />
             <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
+            The experiment is going to take about 3 minutes.`,
   buttonText: 'begin the experiment'
 });
 
 // For most tasks, you need instructions views
+/*
 const instructions = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions',
@@ -45,7 +45,7 @@ const instructions = magpieViews.view_generator("instructions", {
             Tell your participants what they are to do here.`,
   buttonText: 'go to trials'
 });
-
+*/
 
 // In the post test questionnaire you can ask your participants addtional questions
 const post_test = magpieViews.view_generator("post_test", {
@@ -114,6 +114,47 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice", {
   //     after_response_enabled: check_response
   // }
 });
+
+const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
+    {
+        trials: 1,
+        name: "choice_of_political_topic",
+        data: polit_choice,
+        hook:{
+            after_response_enabled: select_statement //implemented in custom functions
+        }
+    },
+    {
+        stimulus_container_generator: function(config, CT) {
+          return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'></p>
+                </div>`;
+        },
+        answer_container_generator: function(config, CT) {
+            return `<div class='magpie-view-answer-container'>
+                        <p class='magpie-view-question'>${config.data[CT].question}</p>
+                        <label for='s1' class='magpie-response-sentence'>${config.data[CT].option1}</label>
+                        <input type='radio' name='answer' id='s1' value="${config.data[CT].option1}" />
+                        <label for='s2' class='magpie-response-sentence'>${config.data[CT].option2}</label>
+                        <input type='radio' name='answer' id='s2' value="${config.data[CT].option2}" />
+                        <label for='s3' class='magpie-response-sentence'>${config.data[CT].option3}</label>
+                        <input type='radio' name='answer' id='s3' value="${config.data[CT].option3}" />
+                        <label for='s4' class='magpie-response-sentence'>${config.data[CT].option4}</label>
+                        <input type='radio' name='answer' id='s4' value="${config.data[CT].option4}" />
+                        <label for='s5' class='magpie-response-sentence'>${config.data[CT].option5}</label>
+                        <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
+                        <label for='s6' class='magpie-response-sentence'>${config.data[CT].option6}</label>
+                        <input type='radio' name='answer' id='s6' value="${config.data[CT].option6}" />
+                        <label for='s7' class='magpie-response-sentence'>${config.data[CT].option7}</label>
+                        <input type='radio' name='answer' id='s7' value="${config.data[CT].option7}" />
+                        <label for='s8' class='magpie-response-sentence'>${config.data[CT].option8}</label>
+                        <input type='radio' name='answer' id='s8' value="${config.data[CT].option8}" />
+                    </div>`;
+        }
+    }
+
+)
 
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
