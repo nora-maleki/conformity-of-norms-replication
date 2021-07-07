@@ -120,10 +120,10 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
         trials: 1,
         name: "choice_of_political_topic",
         data: polit_choice,
-        hook:
+        /*hook:
         {
             after_response_enabled: correct_statement_presentation //implemented in custom functions
-        }
+        }*/
     },
     {
         stimulus_container_generator: function(config, CT) {
@@ -132,19 +132,55 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
                     <p class='magpie-view-question'></p>
                 </div>`;
         },
-        answer_container_generator: select_statement
+        answer_container_generator: select_topic,
+        handle_response_function: select_statement
     }
 
 )
 
-const rate_statement_gun = magpieViews.view_generator("rating_scale",
+const rate_statement =test(
     {
         trials:1,
-        name: "rate_statement_gun",
-        data: "gun_statement"
+        name: "rate_statement",
+        title: "Test title",
+        /*if(topic == "gun_control")
+        {
+            data:
+        }*/
+        data: statements,
 
+    },
+    {
+        answer_container_generator: eleven_point_likert_scale
     }
 )
+
+/*
+const rate_statement = [
+    gun_control = magpieViews.view_generator("rating_scale",
+        {
+            trials:1,
+            name: "gun_control",
+            data: statements.gun_control,
+
+        },
+        {
+            answer_container_generator: eleven_point_likert_scale
+        }
+    ),
+    feminism = magpieViews.view_generator("rating_scale",
+        {
+            trials:1,
+            name: "feminism",
+            data: statements.feminism,
+
+        },
+        {
+            answer_container_generator: eleven_point_likert_scale
+        }
+    )
+]*/
+
 
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
