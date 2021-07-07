@@ -54,6 +54,7 @@ check_response = function(data, next) {
     $('input[name=answer]').on('change', function(e) {
         if (e.target.value === data.correct) {
             alert('Your answer is correct! Yey!');
+
         } else {
             alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
         }
@@ -61,7 +62,7 @@ check_response = function(data, next) {
     })
 }
 
-select_statement = function(data, next) {
+correct_statement_presentation = function(data, next) {
     $('input[name=answer]').on('change', function(e) {
         if (e.target.value === data.option1) {
             alert("You have guessed right!")
@@ -70,6 +71,29 @@ select_statement = function(data, next) {
         }
         next();
     })
+}
+
+//present 8 different topics to choose from
+select_statement = function(config, CT) {
+    return `<div class='magpie-view-answer-container'>
+                <p class='magpie-view-question'>${config.data[CT].question}</p>
+                <label for='s1' class='magpie-response-sentence'>${config.data[CT].option1}</label>
+                <input type='radio' name='answer' id='s1' value="${config.data[CT].option1}" />
+                <label for='s2' class='magpie-response-sentence'>${config.data[CT].option2}</label>
+                <input type='radio' name='answer' id='s2' value="${config.data[CT].option2}" />
+                <label for='s3' class='magpie-response-sentence'>${config.data[CT].option3}</label>
+                <input type='radio' name='answer' id='s3' value="${config.data[CT].option3}" />
+                <label for='s4' class='magpie-response-sentence'>${config.data[CT].option4}</label>
+                <input type='radio' name='answer' id='s4' value="${config.data[CT].option4}" />
+                <label for='s5' class='magpie-response-sentence'>${config.data[CT].option5}</label>
+                <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
+                <label for='s6' class='magpie-response-sentence'>${config.data[CT].option6}</label>
+                <input type='radio' name='answer' id='s6' value="${config.data[CT].option6}" />
+                <label for='s7' class='magpie-response-sentence'>${config.data[CT].option7}</label>
+                <input type='radio' name='answer' id='s7' value="${config.data[CT].option7}" />
+                <label for='s8' class='magpie-response-sentence'>${config.data[CT].option8}</label>
+                <input type='radio' name='answer' id='s8' value="${config.data[CT].option8}" />
+            </div>`;
 }
 
 // Declare your hooks here

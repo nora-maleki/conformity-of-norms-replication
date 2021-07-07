@@ -14,7 +14,16 @@ const polit_choice = [
 
     }
 ]
-
+const statements = {
+    gun_control:[
+        {
+            QUD: "Adults should have the right to carry a concealed handgun",
+            question:"Please indicate the extent to which you agree with the following statement:",
+            optionLeft: "strongly disagree",
+            optionRight: "strongly agree"
+        }
+    ]
+}
 const trial_info = {
     forced_choice: [
         {

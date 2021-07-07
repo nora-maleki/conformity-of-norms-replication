@@ -120,8 +120,9 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
         trials: 1,
         name: "choice_of_political_topic",
         data: polit_choice,
-        hook:{
-            after_response_enabled: select_statement //implemented in custom functions
+        hook:
+        {
+            after_response_enabled: correct_statement_presentation //implemented in custom functions
         }
     },
     {
@@ -131,29 +132,18 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
                     <p class='magpie-view-question'></p>
                 </div>`;
         },
-        answer_container_generator: function(config, CT) {
-            return `<div class='magpie-view-answer-container'>
-                        <p class='magpie-view-question'>${config.data[CT].question}</p>
-                        <label for='s1' class='magpie-response-sentence'>${config.data[CT].option1}</label>
-                        <input type='radio' name='answer' id='s1' value="${config.data[CT].option1}" />
-                        <label for='s2' class='magpie-response-sentence'>${config.data[CT].option2}</label>
-                        <input type='radio' name='answer' id='s2' value="${config.data[CT].option2}" />
-                        <label for='s3' class='magpie-response-sentence'>${config.data[CT].option3}</label>
-                        <input type='radio' name='answer' id='s3' value="${config.data[CT].option3}" />
-                        <label for='s4' class='magpie-response-sentence'>${config.data[CT].option4}</label>
-                        <input type='radio' name='answer' id='s4' value="${config.data[CT].option4}" />
-                        <label for='s5' class='magpie-response-sentence'>${config.data[CT].option5}</label>
-                        <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
-                        <label for='s6' class='magpie-response-sentence'>${config.data[CT].option6}</label>
-                        <input type='radio' name='answer' id='s6' value="${config.data[CT].option6}" />
-                        <label for='s7' class='magpie-response-sentence'>${config.data[CT].option7}</label>
-                        <input type='radio' name='answer' id='s7' value="${config.data[CT].option7}" />
-                        <label for='s8' class='magpie-response-sentence'>${config.data[CT].option8}</label>
-                        <input type='radio' name='answer' id='s8' value="${config.data[CT].option8}" />
-                    </div>`;
-        }
+        answer_container_generator: select_statement
     }
 
+)
+
+const rate_statement_gun = magpieViews.view_generator("rating_scale",
+    {
+        trials:1,
+        name: "rate_statement_gun",
+        data: "gun_statement"
+
+    }
 )
 
 // There are many more templates available:
