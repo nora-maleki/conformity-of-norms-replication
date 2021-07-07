@@ -13,7 +13,17 @@ const polit_choice = [
         option8: "Taxing religious organization"
 
     }
-]
+];
+
+const rating_scale_statement = [
+    {
+        question: "<br /> <br /> <br /> <br /> Whats the weather like at <br /> <br />" + chosen_topic,
+        optionLeft: 'strongly disagree',
+        optionRight: 'strongly agree'
+    }
+];
+
+
 
 const trial_info = {
     forced_choice: [

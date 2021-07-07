@@ -7,7 +7,7 @@
 const coin = _.sample(["head", "tail"]); // You can determine global (random) parameters here
 // Declare your variables here
 
-
+var chosen_topic;
 
 /* Helper functions
 *
@@ -59,16 +59,19 @@ check_response = function(data, next) {
         }
         next();
     })
-}
+};
+
 
 select_statement = function(data, next) {
     $('input[name=answer]').on('change', function(e) {
-        if (e.target.value === data.option1) {
-            alert("You have guessed right!")
-        } else {
-            alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
-        }
-        next();
+        //chosen_topic = "e.target.value";
+        alert(e.target.value);
+        //if (e.target.value === data.option1) {
+        //    alert("You have guessed right!")
+        //} else {
+        //    alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
+        //}
+        //next();
     })
 }
 
