@@ -29,7 +29,10 @@ const intro = magpieViews.view_generator("intro", {
             On the following pages there you will have the choice between several political issues. Please select the one you that you are most interested in.
             <br />
             <br />
-            The experiment is going to take about 3 minutes.`,
+            The experiment is going to take about 3 minutes.
+            <br />
+            <br />
+            By clicking on "begin the experiment" you declare your consent that this data will be analysed etc.`,
   buttonText: 'begin the experiment'
 });
 
@@ -151,10 +154,81 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
                         <label for='s8' class='magpie-response-sentence'>${config.data[CT].option8}</label>
                         <input type='radio' name='answer' id='s8' value="${config.data[CT].option8}" />
                     </div>`;
-        }
+        }//,
+        //handle_response_functions: function(config, CT, magpie, answer_container_generator, startingTime) {
+        //        $("input[name=answer]").on("change", function() {
+        //          chosen_topic = $("input[name=answer]:checked").val()
+        //        };
+        //      });
+        //    },
     }
 
-)
+);
+
+const statement_and_rating = magpieViews.view_generator('rating_scale',
+    {
+        trials: 1,
+        name: "statement_and_rating",
+        data: rating_scale_statement,
+        //hook:{
+        //    after_response_enabled: select_statement //implemented in custom functions
+        //}
+    },
+    {
+        stimulus_container_generator: function(config, CT) {
+          return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'></p>
+                </div>`;
+        },
+        answer_container_generator: function(config, CT) {
+            return `<p class='magpie-view-question'>${config.data[CT].question}</p>
+                    <div class='magpie-view-answer-container'>
+                        <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
+                        <label for="-5" class='magpie-response-rating'>-5</label>
+                        <input type="radio" name="answer" id="-5" value="-5" />
+                        <label for="-4" class='magpie-response-rating'>-4</label>
+                        <input type="radio" name="answer" id="-4" value="-4" />
+                        <label for="-3" class='magpie-response-rating'>-3</label>
+                        <input type="radio" name="answer" id="-3" value="-3" />
+                        <label for="-2" class='magpie-response-rating'>-2</label>
+                        <input type="radio" name="answer" id="-2" value="-2" />
+                        <label for="-1" class='magpie-response-rating'>-1</label>
+                        <input type="radio" name="answer" id="-1" value="-1" />
+                        <label for="0" class='magpie-response-rating'>0</label>
+                        <input type="radio" name="answer" id="0" value="0" />
+                        <label for="1" class='magpie-response-rating'>1</label>
+                        <input type="radio" name="answer" id="1" value="1" />
+                        <label for="-2" class='magpie-response-rating'>-2</label>
+                        <input type="radio" name="answer" id="-2" value="-2" />
+                        <label for="-3" class='magpie-response-rating'>-3</label>
+                        <input type="radio" name="answer" id="-3" value="-3" />
+                        <label for="-4" class='magpie-response-rating'>-4</label>
+                        <input type="radio" name="answer" id="-4" value="-4" />
+                        <label for="-5" class='magpie-response-rating'>-5</label>
+                        <input type="radio" name="answer" id="-5" value="-5" />
+                        <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
+                    </div>`;
+        },
+    }
+
+);
+
+const instructions = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions',
+  title: 'General Instructions',
+  text: `We are following up on a previously published paper that looked at how people feel about moral dilemmas.
+            <br />
+            <br />
+            In the previous paper, a moral dilemma was described that involved two possible courses of actions.
+            Participants chose which action they preferred and had to rate how they would feel about performing that action.
+            <br />
+            <br />
+            In this study, you will be presented with a scenario describing a moral dilemma.
+            You will choose which action you would take and then provide a rating of how good or bad you imagine you would feel after taking that action.`,
+  buttonText: 'proceed'
+});
 
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,

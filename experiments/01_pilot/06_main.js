@@ -17,6 +17,8 @@ $("document").ready(function() {
         views_seq: [
             intro,
             choice_of_political_topic,
+            statement_and_rating,
+            instructions,
             forced_choice_2A,
             post_test,
             thanks,
