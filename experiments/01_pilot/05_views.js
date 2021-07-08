@@ -123,9 +123,10 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
         trials: 1,
         name: "choice_of_political_topic",
         data: polit_choice,
-        hook:{
-            after_response_enabled: select_statement //implemented in custom functions
-        }
+        /*hook:
+        {
+            after_response_enabled: correct_statement_presentation //implemented in custom functions
+        }*/
     },
     {
         stimulus_container_generator: function(config, CT) {
@@ -134,82 +135,8 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
                     <p class='magpie-view-question'></p>
                 </div>`;
         },
-        answer_container_generator: function(config, CT) {
-            return `<div class='magpie-view-answer-container'>
-                        <p class='magpie-view-question'>${config.data[CT].question}</p>
-                        <label for='s1' class='magpie-response-sentence'>${config.data[CT].option1}</label>
-                        <input type='radio' name='answer' id='s1' value="${config.data[CT].option1}" />
-                        <label for='s2' class='magpie-response-sentence'>${config.data[CT].option2}</label>
-                        <input type='radio' name='answer' id='s2' value="${config.data[CT].option2}" />
-                        <label for='s3' class='magpie-response-sentence'>${config.data[CT].option3}</label>
-                        <input type='radio' name='answer' id='s3' value="${config.data[CT].option3}" />
-                        <label for='s4' class='magpie-response-sentence'>${config.data[CT].option4}</label>
-                        <input type='radio' name='answer' id='s4' value="${config.data[CT].option4}" />
-                        <label for='s5' class='magpie-response-sentence'>${config.data[CT].option5}</label>
-                        <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
-                        <label for='s6' class='magpie-response-sentence'>${config.data[CT].option6}</label>
-                        <input type='radio' name='answer' id='s6' value="${config.data[CT].option6}" />
-                        <label for='s7' class='magpie-response-sentence'>${config.data[CT].option7}</label>
-                        <input type='radio' name='answer' id='s7' value="${config.data[CT].option7}" />
-                        <label for='s8' class='magpie-response-sentence'>${config.data[CT].option8}</label>
-                        <input type='radio' name='answer' id='s8' value="${config.data[CT].option8}" />
-                    </div>`;
-        }//,
-        //handle_response_functions: function(config, CT, magpie, answer_container_generator, startingTime) {
-        //        $("input[name=answer]").on("change", function() {
-        //          chosen_topic = $("input[name=answer]:checked").val()
-        //        };
-        //      });
-        //    },
-    }
-
-);
-
-const statement_and_rating = magpieViews.view_generator('rating_scale',
-    {
-        trials: 1,
-        name: "statement_and_rating",
-        data: rating_scale_statement,
-        //hook:{
-        //    after_response_enabled: select_statement //implemented in custom functions
-        //}
-    },
-    {
-        stimulus_container_generator: function(config, CT) {
-          return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'></p>
-                </div>`;
-        },
-        answer_container_generator: function(config, CT) {
-            return `<p class='magpie-view-question'>${config.data[CT].question}</p>
-                    <div class='magpie-view-answer-container'>
-                        <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
-                        <label for="-5" class='magpie-response-rating'>-5</label>
-                        <input type="radio" name="answer" id="-5" value="-5" />
-                        <label for="-4" class='magpie-response-rating'>-4</label>
-                        <input type="radio" name="answer" id="-4" value="-4" />
-                        <label for="-3" class='magpie-response-rating'>-3</label>
-                        <input type="radio" name="answer" id="-3" value="-3" />
-                        <label for="-2" class='magpie-response-rating'>-2</label>
-                        <input type="radio" name="answer" id="-2" value="-2" />
-                        <label for="-1" class='magpie-response-rating'>-1</label>
-                        <input type="radio" name="answer" id="-1" value="-1" />
-                        <label for="0" class='magpie-response-rating'>0</label>
-                        <input type="radio" name="answer" id="0" value="0" />
-                        <label for="1" class='magpie-response-rating'>1</label>
-                        <input type="radio" name="answer" id="1" value="1" />
-                        <label for="-2" class='magpie-response-rating'>-2</label>
-                        <input type="radio" name="answer" id="-2" value="-2" />
-                        <label for="-3" class='magpie-response-rating'>-3</label>
-                        <input type="radio" name="answer" id="-3" value="-3" />
-                        <label for="-4" class='magpie-response-rating'>-4</label>
-                        <input type="radio" name="answer" id="-4" value="-4" />
-                        <label for="-5" class='magpie-response-rating'>-5</label>
-                        <input type="radio" name="answer" id="-5" value="-5" />
-                        <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
-                    </div>`;
-        },
+        answer_container_generator: select_topic,
+        handle_response_function: select_statement
     }
 
 );
@@ -229,7 +156,14 @@ const instructions = magpieViews.view_generator("instructions", {
             You will choose which action you would take and then provide a rating of how good or bad you imagine you would feel after taking that action.`,
   buttonText: 'proceed'
 });
-
+const rate_statement = rating(
+    {
+        trials:1,
+        name: "rate_statement",
+        data: statements,
+        title: "Test title",
+    },
+)
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
 // key_press, self_paced_reading and self_paced_reading_rating_scale

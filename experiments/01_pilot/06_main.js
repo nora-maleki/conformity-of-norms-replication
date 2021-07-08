@@ -7,7 +7,7 @@ $("document").ready(function() {
             e.preventDefault();
         }
     };
-
+    main.topic = "not_defined";
     // calls magpieInit
     // in debug mode this returns the magpie-object, which you can access in the console of your browser
     // e.g. >> window.magpie_monitor or window.magpie_monitor.findNextView()
@@ -17,7 +17,7 @@ $("document").ready(function() {
         views_seq: [
             intro,
             choice_of_political_topic,
-            statement_and_rating,
+            rate_statement,
             instructions,
             forced_choice_2A,
             post_test,
