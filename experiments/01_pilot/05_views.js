@@ -138,21 +138,17 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
 
 )
 
-const rate_statement =test(
+const rate_statement = rating(
     {
         trials:1,
         name: "rate_statement",
         title: "Test title",
-        /*if(topic == "gun_control")
-        {
-            data:
-        }*/
         data: statements,
-
     },
+    /*
     {
         answer_container_generator: eleven_point_likert_scale
-    }
+    }*/
 )
 
 /*

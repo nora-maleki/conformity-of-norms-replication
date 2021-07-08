@@ -8,7 +8,7 @@
 // and a render function, the render function gets CT and the magpie-object as input
 // and has to call magpie.findNextView() eventually to proceed to the next view (or the next trial in this view),
 // if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
-const test = function(config) {
+const rating = function(config) {
     const view = {
         name: config.name,
         CT: 0,
@@ -58,14 +58,29 @@ const test = function(config) {
                 // Now, we will continue with the next view
                 magpie.findNextView();
             };
+            rating_choice = function(config, CT, magpie) {
 
-            // We will add the handle_click functions to both buttons
-            $('#first').on("click", handle_click);
-            $('#second').on("click", handle_click);
+                // attaches an event listener to the yes / no radio inputs
+                // when an input is selected a response property with a value equal
+                // to the answer is added to the trial object
+                // as well as a readingTimes property with value
+                $("input[name=answer]").on("change", function() {
+                    let trial_data = {
+                        trial_name: config.name,
+                        trial_number: CT + 1,
+                        response: $("input[name=answer]:checked").val(),
+                    };
 
-            // That's everything for this view
+                    trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+
+                    magpie.trial_data.push(trial_data);
+                    magpie.findNextView();
+                });
+            },
+
+            //Add the rating choice function for all buttons
+            $('#response').on("click", rating_choice(config, CT, magpie));
         }
     };
-    // We have to return the view, so that it can be used in 05_views.js
     return view;
 };
