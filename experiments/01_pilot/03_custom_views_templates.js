@@ -84,3 +84,27 @@ const rating = function(config) {
     };
     return view;
 };
+
+
+const basic_information_function = function(config) {
+    const view = {
+        name: config.name,
+        CT: 0,
+        trials: config.trials,
+        // The render functions gets the magpie object as well as the current trial in view counter as input
+        render: function (CT, magpie) {
+            // Here, you can do whatever you want, eventually you should call magpie.findNextView()
+            // to proceed to the next view and if it is an trial type view,
+            // you should save the trial information with magpie.trial_data.push(trial_data)
+
+            // Normally, you want to display some kind of html, to do this you append your html to the main element
+            // You could use one of our predefined html-templates, with (magpie.)stimulus_container_generators["<view_name>"](config, CT)
+            $("#main").html(post_test_viewTemplate(config, CT));
+            $("#next").on("click", post_test_handler(config, CT, magpie, post_test_viewTemplate, startingTime))
+
+          }
+      };
+    // We have to return the view, so that it can be used in 05_views.js
+    return view;
+    //magpie.findNextView();
+};

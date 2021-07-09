@@ -164,6 +164,17 @@ const rate_statement = rating(
         title: "Test title",
     },
 )
+
+
+const basic_information = basic_information_function(
+    {   trials:1,
+        name: "basic_information",
+        title: "Super duper title",
+        //text: "what up ?",
+        button: "GO"
+    },
+    //answer_container_generator: answerContainerElem,
+)
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
 // key_press, self_paced_reading and self_paced_reading_rating_scale
