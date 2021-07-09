@@ -22,24 +22,26 @@ const rating = function(config) {
 
             // Normally, you want to display some kind of html, to do this you append your html to the main element
             // You could use one of our predefined html-templates, with (magpie.)stimulus_container_generators["<view_name>"](config, CT)
+            var index = 0;
+
             if(main.topic == "gun control"){
-                CT = 0;
+                index = 0;
             }else if(main.topic == "feminism"){
-                CT = 1;
+                index = 1;
             }else if(main.topic == "AfD"){
-                CT = 2;
+                index = 2;
             }else if(main.topic == "refugees"){
-                CT = 3;
+                index = 3;
             }else if(main.topic == "transgender rights"){
-                CT = 4;
+                index = 4;
             }else if(main.topic == "drug legalization"){
-                CT = 5;
+                index = 5;
             }else if(main.topic == "buying and wearing fur"){
-                CT = 6;
+                index = 6;
             }else if(main.topic == "taxing religious organizations"){
-                CT = 7;
+                index = 7;
             }
-            $("main").html(eleven_point_likert_scale(config, CT))
+            $("main").html(eleven_point_likert_scale(config, index))
 
             // This function will handle  the response
             const handle_click = function(e) {
@@ -100,7 +102,7 @@ const basic_information_function = function(config) {
             // Normally, you want to display some kind of html, to do this you append your html to the main element
             // You could use one of our predefined html-templates, with (magpie.)stimulus_container_generators["<view_name>"](config, CT)
             $("#main").html(post_test_viewTemplate(config, CT));
-            $("#next").on("click", post_test_handler(config, CT, magpie, post_test_viewTemplate, startingTime))
+            $("#next").on("click", post_test_handler(config, CT, magpie))
 
           }
       };

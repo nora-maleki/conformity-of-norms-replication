@@ -165,6 +165,19 @@ const rate_statement = rating(
     },
 )
 
+const experimental_trial = magpieViews.view_generator("sentence_choice",
+    {
+        trials: 1,
+        title: "Experimental trial",
+        name: "experimental_trial",
+        data: moral_dilemma
+    },
+    {
+        stimulus_container_generator: attribute_group,
+        answer_container_generator: select_response
+        //group number has to be saved in response handler
+    }
+)
 
 const basic_information = basic_information_function(
     {   trials:1,
