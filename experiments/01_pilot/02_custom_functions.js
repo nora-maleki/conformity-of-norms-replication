@@ -49,36 +49,10 @@ const time_limit = function(data, next) {
     next();
 };
 
-// compares the chosen answer to the value of `option1`
-check_response = function(data, next) {
-    $('input[name=answer]').on('change', function(e) {
-        if (e.target.value === data.correct) {
-            alert('Your answer is correct! Yey!');
+const getRandInt = function(min,max){
+    return Math.floor(Math.random() * (max - min +1)) + min;
+}
 
-        } else {
-            alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
-        }
-        next();
-    })
-};
-
-/*
-correct_statement_presentation = function(data, next) {
-    $('input[name=answer]').on('change', function(e) {
-        if (e.target.value === data.option1) {
-            //main.topic = "gun control";
-            alert("hier klappts");
-            //magpie.currentViewCounter += 1;
-        } else if(e.target.value === data.option2){
-            //alert("you chose feminism");
-            alert("magpie.currentViewCounter");
-            topic = "feminism";
-            magpie.currentViewCounter += 2;
-            alert(magpie.currentViewCounter);
-        }
-        next();
-    })
-}*/
 
 //present 8 different topics to choose from
 select_topic = function(config, CT) {
@@ -100,6 +74,24 @@ select_topic = function(config, CT) {
                 <input type='radio' name='answer' id='s7' value="${config.data[CT].option7}" />
                 <label for='s8' class='magpie-response-sentence'>${config.data[CT].option8}</label>
                 <input type='radio' name='answer' id='s8' value="${config.data[CT].option8}" />
+            </div>`;
+}
+
+select_response = function(){
+    return `<div class='magpie-view-answer-container'>
+                <p class='magpie-view-question'>Would you:</p>
+                <label for='s1' class='magpie-response-sentence'>Definitely call the police and report the robber</label>
+                <input type='radio' name='answer' id='s1' value="1_Definitely call the police" />
+                <label for='s2' class='magpie-response-sentence'>Very likely call the police and report the robber</label>
+                <input type='radio' name='answer' id='s2' value="2_Very likely call the police" />
+                <label for='s3' class='magpie-response-sentence'>Probably call the police and report the robber</label>
+                <input type='radio' name='answer' id='s3' value="3_Probably call the police" />
+                <label for='s4' class='magpie-response-sentence'>Probably do nothing and leave the robber alone</label>
+                <input type='radio' name='answer' id='s4' value="4_Probably do nothing" />
+                <label for='s5' class='magpie-response-sentence'>Very likely do nothing and leave the robber alone</label>
+                <input type='radio' name='answer' id='s5' value="5_Very likely do nothing" />
+                <label for='s6' class='magpie-response-sentence'>Definitely do nothing and leave the robber alone</label>
+                <input type='radio' name='answer' id='s6' value="6_Definitely do nothing" />
             </div>`;
 }
 
@@ -174,28 +166,35 @@ select_statement = function(config, CT, magpie, answer_container_generator, star
 // Declare your hooks here
 
 
-find_correct_statement = function() {
-    alert('function called! YEY!');
 
-    let currentView = magpie.views_seq[magpie.currentViewCounter];
-
-    if (magpie.currentTrialInViewCounter < currentView.trials) {
-        currentView.render(currentView.CT, magpie);
-    } else {
-        magpie.currentViewCounter++;
-        currentView = magpie.views_seq[magpie.currentViewCounter];
-        magpie.currentTrialInViewCounter = 0;
-        if (currentView !== undefined) {
-            currentView.render(currentView.CT, magpie);
-        } else {
-            $("#main").html(
-                `<div class='magpie-view'>
-                    <h1 class="title">Nothing more to show</h1>
-                </div>`
-            );
-            return;
+const attribute_group = function(config) {
+        main.group = getRandInt(1,4);
+        if(main.group == 1){
+            return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group1}</p>
+                </div>`;
         }
-    }
+        else if(main.group == 2){
+            return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group2}</p>
+                </div>`;
+        }else if(main.group == 3){
+            return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group3}</p>
+                </div>`;
+        }else if(main.group == 4){
+            return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group4}</p>
+                </div>`;
+        }
 }
 
 const post_test_viewTemplate = function(config, CT){

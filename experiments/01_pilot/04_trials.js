@@ -14,6 +14,26 @@ const polit_choice = [
 
     }
 ]
+
+const moral_dilemma = [
+    {
+    dilemma: `Imagine you have witnessed a man rob a bank.
+            However, you then saw him do something unexpected with the money.
+            He donated it all to a run-down orphanage that would benefit greatly from the money.
+            You must decide whether to call the police and report the robber or do nothing and leave the robber alone.
+            <br />
+            In the previous study:`,
+    group1: "approximately 60% of participants who agreed with you about gun restrictions chose to call the police and report the robber.",
+    group2: "approximately 60% of participants who agreed with you about gun restrictions do nothing and leave the robber alone.",
+    group3: `approximately 60% of participants who agreed with you about gun restrictions chose to call the police and report the robber.
+            <br />
+            approximately 85% of participants who disagreed with you about gun restrictions chose to do nothing and leave the robber alone.`,
+    group4:  `approximately 60% of participants who agreed with you about gun restrictions chose to do nothing and leave the robber alone.
+            <br />
+            approximately 85% of participants who disagreed with you about gun restrictions chose to call the police and report the robber.`
+    }
+]
+
 const statements = [
         {
             QUD: "Adults should have the right to carry a concealed handgun.",
