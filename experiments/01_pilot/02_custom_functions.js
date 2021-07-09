@@ -103,12 +103,12 @@ select_topic = function(config, CT) {
             </div>`;
 }
 
-eleven_point_likert_scale = function(config, CT){
+eleven_point_likert_scale = function(config, index){
     return `
-        <h1 class='magpie-view-question magpie-view-qud'>${config.data[CT].question}</h1>
-        <p class='magpie-view-question magpie-view-qud'>${config.data[CT].QUD}</p>
+        <h1 class='magpie-view-question magpie-view-qud'>${config.data[index].question}</h1>
+        <p class='magpie-view-question magpie-view-qud'>${config.data[index].QUD}</p>
             <div class='magpie-view-answer-container'>
-                <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
+                <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
                 <label for="1" class='magpie-response-rating'>1</label>
                 <input type="radio" name="answer" id="1" value="1" />
                 <label for="2" class='magpie-response-rating'>2</label>
@@ -131,7 +131,7 @@ eleven_point_likert_scale = function(config, CT){
                 <input type="radio" name="answer" id="10" value="10" />
                 <label for="11" class='magpie-response-rating'>11</label>
                 <input type="radio" name="answer" id="11" value="11" />
-                <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
+                <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>`;
 }
 
