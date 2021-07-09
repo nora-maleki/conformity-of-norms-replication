@@ -208,6 +208,7 @@ const post_test_viewTemplate = function(config, CT){
             <label for="age">${quest.age.title}:</label>
             <input type="number" name="age" min="18" max="110" id="age" />
         </p>
+        <br>
         <p class='magpie-view-text'>
             <label for="gender">${quest.gender.title}:</label>
             <select id="gender" name="gender">
@@ -217,6 +218,7 @@ const post_test_viewTemplate = function(config, CT){
                 <option value="${quest.gender.other}">${quest.gender.other}</option>
             </select>
         </p>
+        <br>
         <p class='magpie-view-text'>
             <label for="education">${quest.edu.title}:</label>
             <select id="education" name="education">
@@ -226,12 +228,15 @@ const post_test_viewTemplate = function(config, CT){
                 <option value="${quest.edu.higher_degree}">${quest.edu.higher_degree}</option>
             </select>
         </p>
+        <br>
         <p class='magpie-view-text'>
             <label for="languages" name="languages">${quest.langs.title}:<br /><span>${quest.langs.text}</</span></label>
             <input type="text" id="languages"/>
         </p>
+        <br>
         <p class="magpie-view-text">
             <label for="comments">${quest.comments.title}</label>
+            <br>
             <textarea name="comments" id="comments" rows="6" cols="40"></textarea>
         </p>
         <button id="next" class='magpie-view-button'>${config.button}</button>
@@ -241,9 +246,8 @@ const post_test_viewTemplate = function(config, CT){
 }
 
 
-const post_test_handler = function(config, CT, magpie, post_test_viewTemplate, startingTime) {
+const post_test_handler = function(config, CT, magpie) {
         $(".magpie-view").append(post_test_viewTemplate(config, CT));
-        alert("hehehe");
         $("#next").on("click", function(e) {
             // prevents the form from submitting
             e.preventDefault();

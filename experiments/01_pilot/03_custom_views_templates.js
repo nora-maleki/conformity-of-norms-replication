@@ -102,7 +102,7 @@ const basic_information_function = function(config) {
             // Normally, you want to display some kind of html, to do this you append your html to the main element
             // You could use one of our predefined html-templates, with (magpie.)stimulus_container_generators["<view_name>"](config, CT)
             $("#main").html(post_test_viewTemplate(config, CT));
-            $("#next").on("click", post_test_handler(config, CT, magpie, post_test_viewTemplate, startingTime))
+            $("#next").on("click", post_test_handler(config, CT, magpie))
 
           }
       };
