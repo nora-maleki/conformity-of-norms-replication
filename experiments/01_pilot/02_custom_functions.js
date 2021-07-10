@@ -164,7 +164,29 @@ select_statement = function(config, CT, magpie, answer_container_generator, star
     });
 }
 // Declare your hooks here
+const response_experimental_trial =  function(config, CT, magpie, answer_container_generator, startingTime) {
+    $(".magpie-view").append(answer_container_generator(config, CT));
 
+    // attaches an event listener to the yes / no radio inputs
+    // when an input is selected a response property with a value equal
+    // to the answer is added to the trial object
+    // as well as a readingTimes property with value
+    $("input[name=answer]").on("change", function() {
+        const RT = Date.now() - startingTime;
+        let trial_data = {
+            trial_name: config.name,
+            trial_number: CT + 1,
+            response: $("input[name=answer]:checked").val(),
+            RT: RT,
+            group: main.group
+        };
+
+        trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+
+        magpie.trial_data.push(trial_data);
+        magpie.findNextView();
+    });
+}
 
 
 const attribute_group = function(config) {
@@ -198,8 +220,8 @@ const attribute_group = function(config) {
 }
 
 const post_test_viewTemplate = function(config, CT){
-  const quest = magpieUtils.view.fill_defaults_post_test(config);
-  return `
+    const quest = magpieUtils.view.fill_defaults_post_test(config);
+    return `
         <form>
         <h1 class='magpie-view-title'>${config.title}</h1>
         <section class="magpie-text-container">
