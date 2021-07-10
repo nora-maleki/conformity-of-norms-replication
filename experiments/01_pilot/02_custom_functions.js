@@ -190,34 +190,58 @@ const response_experimental_trial =  function(config, CT, magpie, answer_contain
 
 
 const attribute_group = function(config) {
-        main.group = getRandInt(1,4);
-        if(main.group == 1){
-            return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
-                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group1}</p>
-                </div>`;
-        }
-        else if(main.group == 2){
-            return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
-                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group2}</p>
-                </div>`;
-        }else if(main.group == 3){
-            return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
-                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group3}</p>
-                </div>`;
-        }else if(main.group == 4){
-            return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'>${config.data[0].dilemma}</p>
-                    <p class='magpie-view-question magpie-view-qud'>${config.data[0].group4}</p>
-                </div>`;
-        }
+    main.group = getRandInt(1,4);
+    if(main.group == 1){
+        return `<div class='magpie-view'>
+                <h1 class='magpie-view-title'>${config.title}</h1>
+                <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                <p class='magpie-view-question magpie-view-qud'>${experimental_stimulus(main.group, main.topic)}</p>
+            </div>`;
+    }
+    else if(main.group == 2){
+        return `<div class='magpie-view'>
+                <h1 class='magpie-view-title'>${config.title}</h1>
+                <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                <p class='magpie-view-question magpie-view-qud'>${experimental_stimulus(main.group, main.topic)}</p>
+            </div>`;
+    }else if(main.group == 3){
+        return `<div class='magpie-view'>
+                <h1 class='magpie-view-title'>${config.title}</h1>
+                <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                <p class='magpie-view-question magpie-view-qud'>${experimental_stimulus(main.group, main.topic)}</p>
+            </div>`;
+    }else if(main.group == 4){
+        return `<div class='magpie-view'>
+                <h1 class='magpie-view-title'>${config.title}</h1>
+                <p class='magpie-view-question'>${config.data[0].dilemma}</p>
+                <p class='magpie-view-question magpie-view-qud'>${experimental_stimulus(main.group, main.topic)}</p>
+            </div>`;
+    }
 }
+
+const experimental_stimulus = function(group, topic){
+    if(group == 1){
+        return `approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.`
+    }
+
+    if(group == 2){
+        return `approximately 60% of participants who agreed with you about  ${topic} do nothing and leave the robber alone.`
+    }
+
+    if(group == 3){
+        return `approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
+                <br />
+                approximately 85% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.`
+    }
+
+    if(group == 4){
+        return `approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
+                <br />
+                approximately 85% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.`
+    }
+}
+
+
 
 const post_test_viewTemplate = function(config, CT){
     const quest = magpieUtils.view.fill_defaults_post_test(config);
