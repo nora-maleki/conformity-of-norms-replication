@@ -16,12 +16,15 @@ $("document").ready(function() {
     window.magpie_monitor = magpieInit({
         // You have to specify all views you want to use in this experiment and the order of them
         views_seq: [
-            basic_information,
             intro,
+            basic_information,
             choice_of_political_topic,
             rate_statement,
             instructions,
             experimental_trial,
+            fit_backstory_fake_rating,
+            understanding_check,
+            identity_check,
             forced_choice_2A,
             post_test,
             thanks,

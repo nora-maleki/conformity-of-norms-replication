@@ -95,3 +95,39 @@ const trial_info = {
         }
     ]
 };
+
+const understanding_questions = [
+    {
+        question: 'We were following up on a previous study in this task. Given what we described in the instructions, which of the following is true about the previous study?',
+        option1: "Participants chose which action they preferred",
+        option2: "Due to a computer error, participants were not allocated equally to imagine performing the different actions",
+        option3: "No data was saved during the experiment",
+        option4: "The participants completed the experiment with their eyes closed",
+
+
+    }
+]
+
+
+const fake_rating = [
+    {
+        QUD: `To fit with the backstory presented in the instructions,
+                participants were also asked to rate how good or bad they felt about their chosen action,
+                although these responses were not analysed.
+                <br>
+                <br>
+                How did you feel about your choice ?`,
+        optionLeft: 'very bad',
+        optionRight: 'very good',
+    }
+];
+
+const identity_data = [
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        QUD1: `I identify with`,
+        QUD2: `I identify with not`,
+        optionLeft: 'very bad',
+        optionRight: 'very good',
+    }
+];

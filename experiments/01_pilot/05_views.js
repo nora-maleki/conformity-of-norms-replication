@@ -188,6 +188,57 @@ const basic_information = basic_information_function(
     },
     //answer_container_generator: answerContainerElem,
 )
+
+const understanding_check = magpieViews.view_generator('sentence_choice',
+    {
+        trials: 1,
+        name: "understanding_check",
+        data: understanding_questions,
+        /*hook:
+        {
+            after_response_enabled: correct_statement_presentation //implemented in custom functions
+        }*/
+    },
+    {
+        stimulus_container_generator: function(config, CT) {
+          return `<div class='magpie-view'>
+                    <h1 class='magpie-view-title'>${config.title}</h1>
+                    <p class='magpie-view-question'></p>
+                </div>`;
+        },
+        answer_container_generator: select_understanding_question,
+        handle_response_function: handle_response_functions.button_choice,
+    }
+
+);
+
+const fit_backstory_fake_rating = magpieViews.view_generator('rating_scale',
+    {
+        trials: 1,
+        name: "fit_backstory_fake_rating",
+        data: fake_rating,
+        button: "Next"
+        /*hook:
+        {
+          after_response_enabled: correct_statement_presentation //implemented in custom functions
+        }*/
+      },
+);
+
+
+const identity_check = identity_check_function(
+    {
+        trials: 1,
+        name: "identity_check",
+        title: "what",
+        data: identity_data,
+        button: "ahoi",
+        /*hook:
+        {
+          after_response_enabled: correct_statement_presentation //implemented in custom functions
+        }*/
+      },
+);
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
 // key_press, self_paced_reading and self_paced_reading_rating_scale
