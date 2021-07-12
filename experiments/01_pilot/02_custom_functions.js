@@ -53,7 +53,12 @@ const getRandInt = function(min,max){
     return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
-
+const show_only_title = function(config, CT) {
+    return `<div class='magpie-view'>
+            <h1 class='magpie-view-title'>${config.title}</h1>
+            <p class='magpie-view-question'></p>
+        </div>`;
+}
 //present 8 different topics to choose from
 select_topic = function(config, CT) {
     return `<div class='magpie-view-answer-container'>
@@ -334,7 +339,7 @@ select_understanding_question = function(config, CT) {
 identity_check_viewTemplate = function(config, index){
     return `
         <h1 class='magpie-view-question magpie-view-qud'>${config.data[index].question}</h1>
-        <p class='magpie-view-question magpie-view-qud'>${config.data[index].QUD1}</p>
+        <p class='magpie-view-question magpie-view-qud'>I identify with ${config.data[index].Pro}</p>
             <div class='magpie-view-answer-container'>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
                 <label for="1" class='magpie-response-rating'>1</label>
@@ -347,7 +352,7 @@ identity_check_viewTemplate = function(config, index){
                 <input type="radio" name="answer" id="4" value="4" onchange="valueChanged()"/>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>
-          <p class='magpie-view-question magpie-view-qud'>${config.data[index].QUD2}</p>
+          <p class='magpie-view-question magpie-view-qud'>I identify with ${config.data[index].Anti}</p>
             <div class='magpie-view-answer-container'>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
                 <label for="1" class='magpie-response-rating'>1</label>

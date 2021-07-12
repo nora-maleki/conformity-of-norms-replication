@@ -129,12 +129,7 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
         }*/
     },
     {
-        stimulus_container_generator: function(config, CT) {
-          return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'></p>
-                </div>`;
-        },
+        stimulus_container_generator:show_only_title,
         answer_container_generator: select_topic,
         handle_response_function: select_statement
     }
@@ -194,18 +189,9 @@ const understanding_check = magpieViews.view_generator('sentence_choice',
         trials: 1,
         name: "understanding_check",
         data: understanding_questions,
-        /*hook:
-        {
-            after_response_enabled: correct_statement_presentation //implemented in custom functions
-        }*/
     },
     {
-        stimulus_container_generator: function(config, CT) {
-          return `<div class='magpie-view'>
-                    <h1 class='magpie-view-title'>${config.title}</h1>
-                    <p class='magpie-view-question'></p>
-                </div>`;
-        },
+        stimulus_container_generator: show_only_title,
         answer_container_generator: select_understanding_question,
         handle_response_function: handle_response_functions.button_choice,
     }
@@ -218,11 +204,10 @@ const fit_backstory_fake_rating = magpieViews.view_generator('rating_scale',
         name: "fit_backstory_fake_rating",
         data: fake_rating,
         button: "Next"
-        /*hook:
-        {
-          after_response_enabled: correct_statement_presentation //implemented in custom functions
-        }*/
       },
+      {
+          stimulus_container_generator: show_only_title
+      }
 );
 
 

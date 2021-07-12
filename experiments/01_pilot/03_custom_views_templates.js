@@ -1,6 +1,6 @@
 // In this file you can create your own custom view templates
 
-
+var index = 0;
 // A view template is a function that returns a view,
 // this functions gets some config (e.g. trial_data, name, etc.) information as input
 // A view is an object, that has a name, CT (the counter of how many times this view occurred in the experiment),
@@ -16,13 +16,7 @@ const rating = function(config) {
         data: config.data,
         // The render functions gets the magpie object as well as the current trial in view counter as input
         render: function (CT, magpie) {
-            // Here, you can do whatever you want, eventually you should call magpie.findNextView()
-            // to proceed to the next view and if it is an trial type view,
-            // you should save the trial information with magpie.trial_data.push(trial_data)
 
-            // Normally, you want to display some kind of html, to do this you append your html to the main element
-            // You could use one of our predefined html-templates, with (magpie.)stimulus_container_generators["<view_name>"](config, CT)
-            var index = 0;
 
             if(main.topic == "gun control"){
                 index = 0;
@@ -138,7 +132,7 @@ const identity_check_function = function(config) {
                     //magpie.findNextView();
                 });
             },
-            $("#main").html(identity_check_viewTemplate(config, CT));
+            $("#main").html(identity_check_viewTemplate(config, index));
             $('#response').on("click", rating_choice(config, CT, magpie));
             $("#next").on("click", one_button_click(config, CT, magpie));
 
