@@ -194,7 +194,7 @@ const response_experimental_trial =  function(config, CT, magpie, answer_contain
 }
 
 
-const attribute_group = function(config) {
+const assign_to_group = function(config) {
     main.group = getRandInt(1,4);
     if(main.group == 1){
         return `<div class='magpie-view'>
@@ -226,23 +226,25 @@ const attribute_group = function(config) {
 
 const experimental_stimulus = function(group, topic){
     if(group == 1){
-        return `approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.`
+        return `Approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.`
     }
 
     if(group == 2){
-        return `approximately 60% of participants who agreed with you about  ${topic} do nothing and leave the robber alone.`
+        return `Approximately 60% of participants who agreed with you about  ${topic} do nothing and leave the robber alone.`
     }
 
     if(group == 3){
-        return `approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
+        return `Approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
                 <br />
-                approximately 85% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.`
+                <br />
+                Approximately 85% of participants who <b>disagreed</b> with you about  ${topic} chose to do nothing and leave the robber alone.`
     }
 
     if(group == 4){
-        return `approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
+        return `Approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
                 <br />
-                approximately 85% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.`
+                <br />
+                Approximately 85% of participants who <b>disagreed</b> with you about  ${topic} chose to call the police and report the robber.`
     }
 }
 
@@ -343,13 +345,19 @@ identity_check_viewTemplate = function(config, index){
             <div class='magpie-view-answer-container'>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
                 <label for="1" class='magpie-response-rating'>1</label>
-                <input type="radio" name="answer" id="1" value="1" onchange="valueChanged()"/>
-                <label for="2" class='magpie-response-rating'>2</label>
-                <input type="radio" name="answer" id="2" value="2" onchange="valueChanged()"/>
+                <input type="radio" name="answer" id="first_1" value="1" onchange="valueChanged()"/>
+                <label for="2" name="2_label" class='magpie-response-rating'>2</label>
+                <input type="radio" name="answer" id="first_2" value="2" onchange="valueChanged()"/>
                 <label for="3" class='magpie-response-rating'>3</label>
-                <input type="radio" name="answer" id="3" value="3" onchange="valueChanged()"/>
+                <input type="radio" name="answer" id="first_3" value="3" onchange="valueChanged()"/>
                 <label for="4" class='magpie-response-rating'>4</label>
-                <input type="radio" name="answer" id="4" value="4" onchange="valueChanged()"/>
+                <input type="radio" name="answer" id="first_4" value="4" onchange="valueChanged()"/>
+                <label for="5" class='magpie-response-rating'>5</label>
+                <input type="radio" name="answer" id="first_5" value="5" onchange="valueChanged()"/>
+                <label for="6" class='magpie-response-rating'>6</label>
+                <input type="radio" name="answer" id="first_6" value="6" onchange="valueChanged()"/>
+                <label for="7" class='magpie-response-rating'>7</label>
+                <input type="radio" name="answer" id="first_7" value="7" onchange="valueChanged()"/>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>
           <p class='magpie-view-question magpie-view-qud'>I identify with ${config.data[index].Anti}</p>
@@ -363,6 +371,12 @@ identity_check_viewTemplate = function(config, index){
                 <input type="radio" name="answer" id="3" value="3" />
                 <label for="4" class='magpie-response-rating'>4</label>
                 <input type="radio" name="answer" id="4" value="4"/>
+                <label for="5" class='magpie-response-rating'>5</label>
+                <input type="radio" name="answer" id="5" value="5" />
+                <label for="6" class='magpie-response-rating'>6</label>
+                <input type="radio" name="answer" id="6" value="6" />
+                <label for="7" class='magpie-response-rating'>7</label>
+                <input type="radio" name="answer" id="7" value="7" />
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>
           <div>
@@ -372,7 +386,7 @@ identity_check_viewTemplate = function(config, index){
 
 
 one_button_click = function(config, CT, magpie){
-        $(".magpie-view").append(identity_check_viewTemplate(config, CT));
+        //$(".magpie-view").append(identity_check_viewTemplate(config, CT));
         $("#next").on("click", function(e) {
             e.preventDefault();
             magpie.findNextView();

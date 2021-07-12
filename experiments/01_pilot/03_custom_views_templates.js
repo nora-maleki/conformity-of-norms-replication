@@ -126,9 +126,11 @@ const identity_check_function = function(config) {
                         trial_number: CT + 1,
                         response: $("input[name=answer]:checked").val(),
                     };
+
                     trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
                     magpie.trial_data.push(trial_data);
-                    main.getElementById($("input[name=answer]:checked").val()).checked = true;
+                    //main.getElementById($("input[name=answer]:checked").val()).checked = true;
+
                     //magpie.findNextView();
                 });
             },

@@ -22,6 +22,7 @@ const moral_dilemma = [
             He donated it all to a run-down orphanage that would benefit greatly from the money.
             You must decide whether to call the police and report the robber or do nothing and leave the robber alone.
             <br />
+            <br />
             In the previous study:`
     }
 ]
@@ -77,24 +78,6 @@ const statements = [
         },
 
 ]
-const trial_info = {
-    forced_choice: [
-        {
-            question: "What's on the bread?",
-            picture: "images/question_mark_02.png",
-            option1: 'jam',
-            option2: 'ham',
-            correct: 'jam'
-        },
-        {
-            question: "What's the weather like?",
-            picture: "images/weather.jpg",
-            option1: "shiny",
-            option2: "rainbow",
-            correct: "shiny"
-        }
-    ]
-};
 
 const understanding_questions = [
     {
@@ -103,8 +86,6 @@ const understanding_questions = [
         option2: "Due to a computer error, participants were not allocated equally to imagine performing the different actions",
         option3: "No data was saved during the experiment",
         option4: "The participants completed the experiment with their eyes closed",
-
-
     }
 ]
 
@@ -128,7 +109,14 @@ const identity_data = [
     {
         question: `Please rate how much you agree or disagree with the following statements:`,
         Pro: `Pro-feminist advocates`,
-        Anti: `Femisim critics`,
+        Anti: `Feminism critics`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `AfD supporters`,
+        Anti: `Anti-AfD advocates`,
         optionLeft: 'not at all',
         optionRight: 'very strongly',
     },
