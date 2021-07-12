@@ -22,6 +22,7 @@ const moral_dilemma = [
             He donated it all to a run-down orphanage that would benefit greatly from the money.
             You must decide whether to call the police and report the robber or do nothing and leave the robber alone.
             <br />
+            <br />
             In the previous study:`
     }
 ]
@@ -77,24 +78,6 @@ const statements = [
         },
 
 ]
-const trial_info = {
-    forced_choice: [
-        {
-            question: "What's on the bread?",
-            picture: "images/question_mark_02.png",
-            option1: 'jam',
-            option2: 'ham',
-            correct: 'jam'
-        },
-        {
-            question: "What's the weather like?",
-            picture: "images/weather.jpg",
-            option1: "shiny",
-            option2: "rainbow",
-            correct: "shiny"
-        }
-    ]
-};
 
 const understanding_questions = [
     {
@@ -103,20 +86,13 @@ const understanding_questions = [
         option2: "Due to a computer error, participants were not allocated equally to imagine performing the different actions",
         option3: "No data was saved during the experiment",
         option4: "The participants completed the experiment with their eyes closed",
-
-
     }
 ]
 
 
 const fake_rating = [
     {
-        QUD: `To fit with the backstory presented in the instructions,
-                participants were also asked to rate how good or bad they felt about their chosen action,
-                although these responses were not analysed.
-                <br>
-                <br>
-                How did you feel about your choice ?`,
+        question: "How did you feel about your choice ?",
         optionLeft: 'very bad',
         optionRight: 'very good',
     }
@@ -125,9 +101,58 @@ const fake_rating = [
 const identity_data = [
     {
         question: `Please rate how much you agree or disagree with the following statements:`,
-        QUD1: `I identify with`,
-        QUD2: `I identify with not`,
-        optionLeft: 'very bad',
-        optionRight: 'very good',
-    }
+        Pro: `Pro-Gun enthusiasts`,
+        Anti: `Anti-Gun advocates`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `Pro-feminist advocates`,
+        Anti: `Feminism critics`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `AfD supporters`,
+        Anti: `Anti-AfD advocates`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `Pro Immigration proponents`,
+        Anti: `Anti-Immigration advocates`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `Transgender rights activists`,
+        Anti: `Transgender critics`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `Pro legalization advocates`,
+        Anti: `Anti legalization advocates`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `Pro fur wearing advocates`,
+        Anti: `Animal rights advocates`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
+    {
+        question: `Please rate how much you agree or disagree with the following statements:`,
+        Pro: `Advocates of taxing religious institutions`,
+        Anti: `Adversaries of taxing religious institutions`,
+        optionLeft: 'not at all',
+        optionRight: 'very strongly',
+    },
 ];

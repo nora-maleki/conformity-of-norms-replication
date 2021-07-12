@@ -25,8 +25,6 @@ $("document").ready(function() {
             fit_backstory_fake_rating,
             understanding_check,
             identity_check,
-            forced_choice_2A,
-            post_test,
             thanks,
         ],
         // Here, you can specify all information for the deployment
@@ -43,8 +41,6 @@ $("document").ready(function() {
         // Here, you can specify how the progress bar should look like
         progress_bar: {
             in: [
-                // list the view-names of the views for which you want a progress bar
-                forced_choice_2A.name,
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",
