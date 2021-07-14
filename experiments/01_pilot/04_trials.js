@@ -156,3 +156,17 @@ const identity_data = [
         optionRight: 'very strongly',
     },
 ];
+
+const understanding_question2 = [
+    {
+        question: 'Which of the following statements is true?'
+    }
+]
+
+const sympathy_question = [
+    {
+        question: `Please rate how much you agree with the following statement: <br />`,
+        optionRight: "very strongly",
+        optionLeft: "not at all"
+    }
+]

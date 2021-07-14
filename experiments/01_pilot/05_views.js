@@ -111,7 +111,6 @@ const fit_backstory_fake_rating = magpieViews.view_generator('rating_scale',
         trials: 1,
         name: "fit_backstory_fake_rating",
         data: fake_rating,
-        button: "Next"
       },
       {
           stimulus_container_generator: show_only_title
@@ -148,6 +147,38 @@ const identity_check = identity_check_function(
         button: "ahoi",
     },
 );
+
+const understanding_check2  = magpieViews.view_generator('sentence_choice',
+    //In this view the participants are confronted with a question about how the
+    //alleged previous study was conducted. This is done in order to check then
+    //participants level of attention.
+    {
+        trials: 1,
+        name: "understanding_check2",
+        data: understanding_question2,
+    },
+    {
+        stimulus_container_generator: show_only_title,
+        answer_container_generator: select_understanding_question2,
+        handle_response_function: handle_response_functions.button_choice,
+    }
+
+);
+
+const sympathy_rating = magpieViews.view_generator('rating_scale',
+    //In this view participants are asked to evalueate how good they feel about
+    //their decision in the previous view
+    {
+        trials: 1,
+        name: "sympathy_rating",
+        data: sympathy_question,
+      },
+      {
+          stimulus_container_generator: sympathy_stimulus,
+          answer_container_generator: sympathy_answer
+      }
+);
+
 
 const thanks = magpieViews.view_generator("thanks", {
   trials: 1,

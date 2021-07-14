@@ -237,14 +237,14 @@ const experimental_stimulus = function(group, topic){
         return `Approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
                 <br />
                 <br />
-                Approximately 85% of participants who <b>disagreed</b> with you about  ${topic} chose to do nothing and leave the robber alone.`
+                Approximately 85% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.`
     }
 
     if(group == 4){
         return `Approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
                 <br />
                 <br />
-                Approximately 85% of participants who <b>disagreed</b> with you about  ${topic} chose to call the police and report the robber.`
+                Approximately 85% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.`
     }
 }
 
@@ -327,16 +327,56 @@ select_understanding_question = function(config, CT) {
     return `<div class='magpie-view-answer-container'>
                 <p class='magpie-view-question'>${config.data[CT].question}</p>
                 <label for='s1' class='magpie-response-sentence'>${config.data[CT].option1}</label>
-                <input type='radio' name='answer' id='s1' value="${config.data[CT].option1}" />
+                <input type='radio' name='answer' id='s1' value="correct" />
                 <label for='s2' class='magpie-response-sentence'>${config.data[CT].option2}</label>
-                <input type='radio' name='answer' id='s2' value="${config.data[CT].option2}" />
+                <input type='radio' name='answer' id='s2' value="incorrect" />
                 <label for='s3' class='magpie-response-sentence'>${config.data[CT].option3}</label>
-                <input type='radio' name='answer' id='s3' value="${config.data[CT].option3}" />
+                <input type='radio' name='answer' id='s3' value="incorrect" />
                 <label for='s4' class='magpie-response-sentence'>${config.data[CT].option4}</label>
-                <input type='radio' name='answer' id='s4' value="${config.data[CT].option4}" />
+                <input type='radio' name='answer' id='s4' value="incorrect" />
 
             </div>`;
 };
+
+select_understanding_question2 = function(config, CT) {
+    if (main.group == 1)
+    {   return `<div class='magpie-view-answer-container'>
+                <p class='magpie-view-question'>${config.data[CT].question}</p>
+                <label for='s1' class='magpie-response-sentence'>The majority of people who agreed with you on ${main.topic} chose to leave the robber alone.</label>
+                <input type='radio' name='answer' id='s1' value="incorrect" />
+                <label for='s2' class='magpie-response-sentence'>The majority of people who agreed with you on ${main.topic} chose to call the police.</label>
+                <input type='radio' name='answer' id='s2' value="correct" />`
+    }
+    if (main.group == 2)
+    {
+        return `<div class='magpie-view-answer-container'>
+                    <p class='magpie-view-question'>${config.data[CT].question}</p>
+                    <label for='s1' class='magpie-response-sentence'>The majority of people who agreed with you on ${main.topic} chose to leave the robber alone.</label>
+                    <input type='radio' name='answer' id='s1' value="correct" />
+                    <label for='s2' class='magpie-response-sentence'>The majority of people who agreed with you on ${main.topic} chose to call the police.</label>
+                    <input type='radio' name='answer' id='s2' value="incorrect" />`
+    }
+    if (main.group == 3)
+    {
+        return `<div class='magpie-view-answer-container'>
+                    <p class='magpie-view-question'>${config.data[CT].question}</p>
+                    <label for='s1' class='magpie-response-sentence'>The majority of people who disagreed with you on ${main.topic} chose to leave the robber alone.</label>
+                    <input type='radio' name='answer' id='s1' value="correct" />
+                    <label for='s2' class='magpie-response-sentence'>The majority of people who disagreed with you on ${main.topic} chose to call the police.</label>
+                    <input type='radio' name='answer' id='s2' value="incorrect" />`
+    }
+    if (main.group == 4)
+    {
+        return `<div class='magpie-view-answer-container'>
+                    <p class='magpie-view-question'>${config.data[CT].question}</p>
+                    <label for='s1' class='magpie-response-sentence'>The majority of people who disagreed with you on ${main.topic} chose to leave the robber alone.</label>
+                    <input type='radio' name='answer' id='s1' value="correct" />
+                    <label for='s2' class='magpie-response-sentence'>The majority of people who disagreed with you on ${main.topic} chose to call the police.</label>
+                    <input type='radio' name='answer' id='s2' value="incorrect" />`
+    }
+}
+
+
 
 identity_check_viewTemplate = function(config, index){
     return `
@@ -384,6 +424,34 @@ identity_check_viewTemplate = function(config, index){
           </div>`;
 };
 
+const sympathy_stimulus = function(config, CT){
+    return `<div class='magpie-view'>
+            <h1 class='magpie-view-title'></h1>
+            <p class='magpie-view-question'>${config.data[CT].question}</p>
+            <p class='magpie-view-question'>I would prefer the company of someone who agrees with me on ${main.topic} over the company of someone who disagrees with me on ${main.topic}.</p>
+        </div>`;
+}
+
+const sympathy_answer = function(config, CT){
+       return  `<div class='magpie-view-answer-container'>
+                   <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
+                   <label for="1" class='magpie-response-rating'>1</label>
+                   <input type="radio" name="answer" id="1" value="1" />
+                   <label for="2" class='magpie-response-rating'>2</label>
+                   <input type="radio" name="answer" id="2" value="2" />
+                   <label for="3" class='magpie-response-rating'>3</label>
+                   <input type="radio" name="answer" id="3" value="3" />
+                   <label for="4" class='magpie-response-rating'>4</label>
+                   <input type="radio" name="answer" id="4" value="4" />
+                   <label for="5" class='magpie-response-rating'>5</label>
+                   <input type="radio" name="answer" id="5" value="5" />
+                   <label for="6" class='magpie-response-rating'>6</label>
+                   <input type="radio" name="answer" id="6" value="6" />
+                   <label for="7" class='magpie-response-rating'>7</label>
+                   <input type="radio" name="answer" id="7" value="7" />
+                   <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
+               </div>`;
+}
 
 one_button_click = function(config, CT, magpie){
         //$(".magpie-view").append(identity_check_viewTemplate(config, CT));
