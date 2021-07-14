@@ -26,6 +26,7 @@ $("document").ready(function() {
             understanding_check,
             identity_check,
             understanding_check2,
+            sympathy_rating,
             thanks,
         ],
         // Here, you can specify all information for the deployment

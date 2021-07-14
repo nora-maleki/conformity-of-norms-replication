@@ -111,7 +111,6 @@ const fit_backstory_fake_rating = magpieViews.view_generator('rating_scale',
         trials: 1,
         name: "fit_backstory_fake_rating",
         data: fake_rating,
-        button: "Next"
       },
       {
           stimulus_container_generator: show_only_title
@@ -164,6 +163,20 @@ const understanding_check2  = magpieViews.view_generator('sentence_choice',
         handle_response_function: handle_response_functions.button_choice,
     }
 
+);
+
+const sympathy_rating = magpieViews.view_generator('rating_scale',
+    //In this view participants are asked to evalueate how good they feel about
+    //their decision in the previous view
+    {
+        trials: 1,
+        name: "sympathy_rating",
+        data: sympathy_question,
+      },
+      {
+          stimulus_container_generator: sympathy_stimulus,
+          answer_container_generator: sympathy_answer
+      }
 );
 
 

@@ -424,6 +424,34 @@ identity_check_viewTemplate = function(config, index){
           </div>`;
 };
 
+const sympathy_stimulus = function(config, CT){
+    return `<div class='magpie-view'>
+            <h1 class='magpie-view-title'></h1>
+            <p class='magpie-view-question'>${config.data[CT].question}</p>
+            <p class='magpie-view-question'>I would prefer the company of someone who agrees with me on ${main.topic} over the company of someone who disagrees with me on ${main.topic}.</p>
+        </div>`;
+}
+
+const sympathy_answer = function(config, CT){
+       return  `<div class='magpie-view-answer-container'>
+                   <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
+                   <label for="1" class='magpie-response-rating'>1</label>
+                   <input type="radio" name="answer" id="1" value="1" />
+                   <label for="2" class='magpie-response-rating'>2</label>
+                   <input type="radio" name="answer" id="2" value="2" />
+                   <label for="3" class='magpie-response-rating'>3</label>
+                   <input type="radio" name="answer" id="3" value="3" />
+                   <label for="4" class='magpie-response-rating'>4</label>
+                   <input type="radio" name="answer" id="4" value="4" />
+                   <label for="5" class='magpie-response-rating'>5</label>
+                   <input type="radio" name="answer" id="5" value="5" />
+                   <label for="6" class='magpie-response-rating'>6</label>
+                   <input type="radio" name="answer" id="6" value="6" />
+                   <label for="7" class='magpie-response-rating'>7</label>
+                   <input type="radio" name="answer" id="7" value="7" />
+                   <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
+               </div>`;
+}
 
 one_button_click = function(config, CT, magpie){
         //$(".magpie-view").append(identity_check_viewTemplate(config, CT));
