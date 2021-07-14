@@ -156,3 +156,9 @@ const identity_data = [
         optionRight: 'very strongly',
     },
 ];
+
+const understanding_question2 = [
+    {
+        question: 'Which of the following statements is true?'
+    }
+]

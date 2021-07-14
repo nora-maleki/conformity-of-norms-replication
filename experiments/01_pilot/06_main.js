@@ -25,6 +25,7 @@ $("document").ready(function() {
             fit_backstory_fake_rating,
             understanding_check,
             identity_check,
+            understanding_check2,
             thanks,
         ],
         // Here, you can specify all information for the deployment
