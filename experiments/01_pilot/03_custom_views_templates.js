@@ -108,6 +108,8 @@ const basic_information_function = function(config) {
 
 var trial_data_first_question;
 var trial_data_second_question;
+var chosen_1 = 0;
+var chosen_2 = 0;
 const identity_check_function = function(config) {
     const view = {
         name: config.name,
@@ -120,26 +122,30 @@ const identity_check_function = function(config) {
                     let trial_data_first_question_info = {
                         trial_name: config.name + " Pro " + main.topic,
                         trial_number: CT + 1,
-                        response: $("input[name=first_answer]:checked").val() + " of 7",
+                        response: $("input[name=first_answer]:checked").val(),
                     };
                     trial_data_first_question = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data_first_question_info);
+                    chosen_1 = 1;
                 });
                 $("input[name=second_answer]").on("change", function() {
                     let trial_data_second_question_info = {
                         trial_name: config.name + " Anti " + main.topic,
                         trial_number: CT + 1,
-                        response: $("input[name=second_answer]:checked").val() + " of 7",
+                        response: $("input[name=second_answer]:checked").val(),
                     };
                     trial_data_second_question = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data_second_question_info);
+                    chosen_2 = 1;
                 });
             },
 
             next_and_submit = function(config, CT, magpie) {
               $("#next").on("click", function(e) {
-                  e.preventDefault();
-                  magpie.trial_data.push(trial_data_first_question);
-                  magpie.trial_data.push(trial_data_second_question);
-                  magpie.findNextView();
+                  if((chosen_1 == 1) && (chosen_2 == 1)){
+                    e.preventDefault();
+                    magpie.trial_data.push(trial_data_first_question);
+                    magpie.trial_data.push(trial_data_second_question);
+                    magpie.findNextView();
+                  }
                 });
             },
 

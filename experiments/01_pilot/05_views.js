@@ -30,8 +30,8 @@ const basic_information = basic_information_function(
         trials:1,
         name: "basic_information",
         title: "Super duper title",
-        //text: "what up ?",
-        button: "GO"
+        text: "Please answer the following questions if possible.",
+        button: "Next"
     },
     //answer_container_generator: answerContainerElem,
 )
@@ -81,7 +81,7 @@ const instructions = magpieViews.view_generator("instructions",
                 <br />
                 In this study, you will be presented with a scenario describing a moral dilemma.
                 You will choose which action you would take and then provide a rating of how good or bad you imagine you would feel after taking that action.`,
-        buttonText: 'proceed'
+        buttonText: 'Next'
     }
 );
 
@@ -142,9 +142,9 @@ const identity_check = identity_check_function(
     {
         trials: 1,
         name: "identity_check",
-        title: "what",
+        title: "Identity Check",
         data: identity_data,
-        button: "ahoi",
+        button: "Next",
     },
 );
 
