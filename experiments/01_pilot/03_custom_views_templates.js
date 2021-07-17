@@ -106,6 +106,8 @@ const basic_information_function = function(config) {
 };
 
 
+var trial_data_first_question;
+var trial_data_second_question;
 const identity_check_function = function(config) {
     const view = {
         name: config.name,
@@ -113,33 +115,39 @@ const identity_check_function = function(config) {
         trials: config.trials,
         // The render functions gets the magpie object as well as the current trial in view counter as input
         render: function (CT, magpie) {
-            // Here, you can do whatever you want, eventually you should call magpie.findNextView()
-            // to proceed to the next view and if it is an trial type view,
-            // you should save the trial information with magpie.trial_data.push(trial_data)
-
-            // Normally, you want to display some kind of html, to do this you append your html to the main element
-            // You could use one of our predefined html-templates, with (magpie.)stimulus_container_generators["<view_name>"](config, CT)
             rating_choice = function(config, CT, magpie) {
-                $("input[name=answer]").on("change", function() {
-                    let trial_data = {
-                        trial_name: config.name,
+                $("input[name=first_answer]").on("change", function() {
+                    let trial_data_first_question_info = {
+                        trial_name: config.name + " Pro " + main.topic,
                         trial_number: CT + 1,
-                        response: $("input[name=answer]:checked").val(),
+                        response: $("input[name=first_answer]:checked").val() + " of 7",
                     };
-
-                    trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
-                    magpie.trial_data.push(trial_data);
-                    //main.getElementById($("input[name=answer]:checked").val()).checked = true;
-
-                    //magpie.findNextView();
+                    trial_data_first_question = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data_first_question_info);
+                });
+                $("input[name=second_answer]").on("change", function() {
+                    let trial_data_second_question_info = {
+                        trial_name: config.name + " Anti " + main.topic,
+                        trial_number: CT + 1,
+                        response: $("input[name=second_answer]:checked").val() + " of 7",
+                    };
+                    trial_data_second_question = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data_second_question_info);
                 });
             },
+
+            next_and_submit = function(config, CT, magpie) {
+              $("#next").on("click", function(e) {
+                  e.preventDefault();
+                  magpie.trial_data.push(trial_data_first_question);
+                  magpie.trial_data.push(trial_data_second_question);
+                  magpie.findNextView();
+                });
+            },
+
             $("#main").html(identity_check_viewTemplate(config, index));
             $('#response').on("click", rating_choice(config, CT, magpie));
-            $("#next").on("click", one_button_click(config, CT, magpie));
-
-          }
-      };
+            $("#next").on("click", next_and_submit(config, CT, magpie));
+        }
+    };
     // We have to return the view, so that it can be used in 05_views.js
     return view;
     //magpie.findNextView();
