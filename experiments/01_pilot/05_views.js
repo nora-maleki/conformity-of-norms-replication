@@ -17,7 +17,7 @@ const intro = magpieViews.view_generator("intro",
                 The experiment is going to take about 3 minutes.
                 <br />
                 <br />
-                By clicking on "begin the experiment" you declare your consent that this data will be analysed etc.`,
+                By clicking the "begin the experiment" button you agree to participate in this experiment and that you have read the <a href="images/consent_form/consent_form.pdf" target="_blank">consent form</a>.`,
       buttonText: 'begin the experiment'
     }
 );
@@ -29,8 +29,8 @@ const basic_information = basic_information_function(
     {
         trials:1,
         name: "basic_information",
-        title: "Super duper title",
-        text: "Please answer the following questions if possible.",
+        title: "Personal information",
+        text: "Please fill in your personal information.",
         button: "Next"
     },
     //answer_container_generator: answerContainerElem,
