@@ -9,7 +9,7 @@ We are interested in this interplay of self-categorization and descriptive norms
 2.  **Alternative Hypothesis**: According to the descriptive norm effect, participants will choose the action that is the most popular, disregarding ingroups or outgroups.
 
 ## Design
-We will use a 2x2 between subjects design, so we will have two independent variables with two levels each.  
+We will use a 2x2 between subjects design, so we will have two independent variables with two levels each. (See: Table in Procedure)
 
 The first independent variable will be the presentation of the descriptive norm. On the first level we will only present the descriptive norm of the ingroup, on the second level we will present both the descriptive norm of ingroup and outgroup. If both descriptive norms are shown, the order in which they are presented will be random.  
 
@@ -27,20 +27,25 @@ We are going to exclude all participants who fail to pass the understanding chec
 (4) Presentation of moral dilemma  
 (5) Questionnaire  
 
-After the participants are welcomed and asked for general information (age, gender), they are able to choose from nine topics about social issues. After choosing, they are presented with a statement concerning their topic, which they can agree or disagree with, using an 11-point Likert scale. This is to assign the participants to their ingroup, depending on the rating of the chosen social issue. Some of the topics had to be altered, since they are only relevant to American politics. The topics in our experiment are:  
+After the participants are welcomed and asked for general information (age, gender), they are able to choose from nine topics about social issues. After choosing, they are presented with a statement concerning their topic, which they can agree or disagree with, using an 11-point Likert scale. This is to assign the participants to their ingroup, depending on the rating of the chosen social issue. Some of the topics had to be altered, since they are only relevant to American politics. When changing a topic our goal was to find a similar and equally controversial topic relevant to Germany. We kept in mind, that the questions are supposed to make participants strongly agree with one side.  
+The topics in our experiment are:  
 
 * **Gun control:** “Adults should have the right to carry a concealed handgun”  
 * **Feminism:** “Feminism is important and beneficial to modern society”  
 * **AfD:** "AfD winning the next federal election will be good for Germany"
     * Changed from: Donald Trump: “Donald Trump being president is good for the United States at this time”  
-* **Refugees:** “Should Refugees be allowed to stay in Germany?”
+    * Reason: Donald Trump is a very controversial American politician, but not everybody in Germany is interested in American politics and has a strong opinion on him, so we changed the question to what we think is the equally controversial German equivalent, the AfD.
+* **Refugees:** “Should Refugees be allowed come to Germany?”
     * Changed from: Immigration and Dreamers: "Dreamers (undocumented immigrants who came to the US as children) should be allowed to stay in the United States"
+    * Reason: The term "Dreamers" does not exist in Germany, but for the past years there where a lot of controversial discussions around the topic of refugees, which is similar the topic of immigration and Dreamers.
 * **Transgender rights:** “Transgender people should be allowed to use the bathrooms of the gender they identify as"
 * **Drug legalization:** "Possession of drugs should be legalized"
 * **Buying and wearing fur:** "Buying and wearing fur is wrong"
 * **Taxing religious organization:** "Religious organizations should be taxed"
+    * (maybe change to: "Should the Church still be financially supported by the government"?)
 * **Colin Kaepernick kneeling during the national anthem:** "Colin Kaepernick was wrong to kneel during the national anthem”
     * Left out entirely
+    * Reason: None of our group members had heard the name Colin Kaepernick before this, so we decided to not include it in our experiment, since we don't think most of the German population is familiar with this incident.
 
 
 
@@ -71,7 +76,7 @@ The last question the participants are presented with is a single-item social id
 2. “I identify with [outgroup]”  
 In the end participants will be thanked for their participation
 
-Exploratory ideas:
+The following are some exploratory ideas, that are not included in the original paper. We will implement these ideas only if we are finished with the main part and still have time left, so it might be, that none of these ideas will be part of our final report:
 * How important was the given information about the response of the other participants for your decision
 * How much was your decision influenced by the response of the other participants?
 * Is morality relative to society or does it have an objective foundation?
