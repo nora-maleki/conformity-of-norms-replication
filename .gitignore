@@ -42,3 +42,4 @@ node_modules/
 .idea/
 .vscode/
 .DS_Store/
+experiments/.DS_Store
