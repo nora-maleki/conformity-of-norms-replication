@@ -234,17 +234,38 @@ const experimental_stimulus = function(group, topic){
     }
 
     if(group == 3){
+      rnd = getRandInt(1,2);
+      if(rnd == 1){
         return `Approximately 60% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
                 <br />
                 <br />
                 Approximately 85% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.`
+      }
+
+      else{
+        return `Approximately 85% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
+                <br />
+                <br />
+                Approximately 60% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.`
+      }
+
     }
 
     if(group == 4){
+      rnd = getRandInt(1,2);
+      if(rnd == 1){
         return `Approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
                 <br />
                 <br />
                 Approximately 85% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.`
+      }
+
+      else{
+        return `Approximately 85% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
+                <br />
+                <br />
+                Approximately 60% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.`
+      }
     }
 }
 
@@ -286,6 +307,7 @@ const post_test_viewTemplate = function(config, CT){
             <label for="education">${quest.edu.title}:</label>
             <select id="education" name="education">
                 <option></option>
+                <option value="lower_high_school">Lower Than High School</option>
                 <option value="${quest.edu.graduated_high_school}">${quest.edu.graduated_high_school}</option>
                 <option value="${quest.edu.graduated_college}">${quest.edu.graduated_college}</option>
                 <option value="${quest.edu.higher_degree}">${quest.edu.higher_degree}</option>
@@ -302,6 +324,12 @@ const post_test_viewTemplate = function(config, CT){
         <p class='magpie-view-text'>
             <label for="city" name="city">City:</label>
             <input type="text" id="city"/>
+        </p>
+        <br>
+        <br>
+        <p class="magpie-view-text">
+            <label for="comments">How did you like the experiment and what would you improve ? :</label>
+            <textarea name="comments" id="comments" rows="8" cols="80"></textarea>
         </p>
         <br>
         <br>

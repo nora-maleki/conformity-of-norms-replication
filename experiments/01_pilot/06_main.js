@@ -16,9 +16,7 @@ $("document").ready(function() {
     window.magpie_monitor = magpieInit({
         // You have to specify all views you want to use in this experiment and the order of them
         views_seq: [
-            //identity_check,
             intro,
-            basic_information,
             choice_of_political_topic,
             rate_statement,
             instructions,
@@ -28,6 +26,7 @@ $("document").ready(function() {
             identity_check,
             understanding_check2,
             sympathy_rating,
+            basic_information,
             thanks,
         ],
         // Here, you can specify all information for the deployment

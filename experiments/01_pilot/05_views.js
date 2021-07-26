@@ -8,16 +8,17 @@ const intro = magpieViews.view_generator("intro",
     {
       trials: 1,
       name: 'intro',
-      text: `This is a follow up study concerning the answer to moral dilemmas and political stance.
+      title: 'Welcome and thank you for participating!',
+      text: `
+                This experiment is a follow up study concerning the answer to moral dilemmas and political stance. <br />
+                On the following pages you will be asked to choose between several political issues and to select the one that you are most interested in.
+                You will then be presented a moral dilemma to which you are asked to respond.
                 <br />
                 <br />
-                On the following pages there you will have the choice between several political issues. Please select the one you that you are most interested in.
-                <br />
-                <br />
-                The experiment is going to take about 3 minutes.
-                <br />
-                <br />
-                By clicking the "begin the experiment" button you agree to participate in this experiment and that you have read the <a href="images/consent_form/consent_form.pdf" target="_blank">consent form</a>.`,
+                Your participation is completely voluntary and you may refuse to participate or leave the experiment at any time. <br />
+                Data will not be stored if you chose to quit the experiment before completion.
+                If you complete the experiment your personal information and all responses will be kept anonymous, and the code numbers provided by the researchers will not be linked to you in any way. <br />
+                The whole experiment will take less than 5 minutes.`,
       buttonText: 'begin the experiment'
     }
 );
@@ -29,9 +30,14 @@ const basic_information = basic_information_function(
     {
         trials:1,
         name: "basic_information",
-        title: "Personal information",
-        text: "Please fill in your personal information.",
-        button: "Next"
+        title: "Demographic information",
+        text: `Well done, this is the last page. Please fill in these demographic information or leave them blank.
+                  <br />
+                  <br />
+                  Thank you for participating in this experiment!
+                  <br />
+                  <br />`,
+        button: "End"
     },
     //answer_container_generator: answerContainerElem,
 )
@@ -183,6 +189,6 @@ const sympathy_rating = magpieViews.view_generator('rating_scale',
 const thanks = magpieViews.view_generator("thanks", {
   trials: 1,
   name: 'thanks',
-  title: 'Thank you for taking part in this experiment!',
+  title: 'Thank you and have a great day!',
   prolificConfirmText: 'Press the button'
 });
