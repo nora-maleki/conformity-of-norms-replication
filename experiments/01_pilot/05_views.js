@@ -105,7 +105,7 @@ const experimental_trial = magpieViews.view_generator("sentence_choice",
     },
     {
         stimulus_container_generator: assign_to_group,
-        answer_container_generator: select_response,
+        answer_container_generator: six_point_likert_scale, //select_response,
         handle_response_function: response_experimental_trial
     }
 )
