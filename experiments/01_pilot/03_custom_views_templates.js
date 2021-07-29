@@ -97,7 +97,7 @@ const identity_check_function = function(config) {
             rating_choice = function(config, CT, magpie) {
                 $("input[name=first_answer]").on("change", function() {
                     trial_data_first_question = {
-                        trial_name: config.name + " Pro " + main.topic,
+                        trial_name: config.name + "_Pro ",
                         trial_number: CT + 1,
                         response: $("input[name=first_answer]:checked").val(),
                         question: config.data[index].question,
@@ -107,7 +107,7 @@ const identity_check_function = function(config) {
                 });
                 $("input[name=second_answer]").on("change", function() {
                     trial_data_second_question = {
-                        trial_name: config.name + " Anti " + main.topic,
+                        trial_name: config.name + "_Anti ",
                         trial_number: CT + 1,
                         response: $("input[name=second_answer]:checked").val(),
                         question: config.data[index].question,
