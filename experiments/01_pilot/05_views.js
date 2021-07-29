@@ -123,7 +123,7 @@ const understanding_check = magpieViews.view_generator('sentence_choice',
     {
         stimulus_container_generator: show_only_title,
         answer_container_generator: select_understanding_question,
-        handle_response_function: handle_response_functions.button_choice,
+        handle_response_function: understanding_handler,
     }
 );
 

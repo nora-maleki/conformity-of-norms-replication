@@ -58,9 +58,10 @@ const rating = function(config) {
                         trial_name: config.name,
                         trial_number: CT + 1,
                         response: $("input[name=answer]:checked").val(),
+                        question: config.data[index].QUD,
                     };
 
-                    trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+                    //trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
                     // Here, we save the trial_data
                     magpie.trial_data.push(trial_data);
                     // Now, we will continue with the next view
@@ -95,21 +96,23 @@ const identity_check_function = function(config) {
             // usual when the likert scale button is pressed
             rating_choice = function(config, CT, magpie) {
                 $("input[name=first_answer]").on("change", function() {
-                    let trial_data_first_question_info = {
+                    trial_data_first_question = {
                         trial_name: config.name + " Pro " + main.topic,
                         trial_number: CT + 1,
                         response: $("input[name=first_answer]:checked").val(),
+                        question: config.data[index].question,
                     };
-                    trial_data_first_question = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data_first_question_info);
+                    //trial_data_first_question = magpieUtils.view.save_config_trial_data(trial_data_first_question_info);
                     chosen_1 = 1;
                 });
                 $("input[name=second_answer]").on("change", function() {
-                    let trial_data_second_question_info = {
+                    trial_data_second_question = {
                         trial_name: config.name + " Anti " + main.topic,
                         trial_number: CT + 1,
                         response: $("input[name=second_answer]:checked").val(),
+                        question: config.data[index].question,
                     };
-                    trial_data_second_question = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data_second_question_info);
+                    //trial_data_second_question = magpieUtils.view.save_config_trial_data(trial_data_second_question_info);
                     chosen_2 = 1;
                 });
             },

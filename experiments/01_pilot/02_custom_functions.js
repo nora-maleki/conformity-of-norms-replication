@@ -73,15 +73,16 @@ const select_statement = function(config, CT, magpie, answer_container_generator
         }else if (e.target.value === config.data[CT].option8) {
             main.topic = "taxing religious organizations";
         }
-        const RT = Date.now() - startingTime;
+        //const RT = Date.now() - startingTime;
         let trial_data = {
             trial_name: config.name,
             trial_number: CT + 1,
             response: $("input[name=answer]:checked").val(),
-            RT: RT
+            question: "Please select the topic you care about the most"
+            //RT: RT
         };
 
-        trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+        //trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
 
         magpie.trial_data.push(trial_data);
         magpie.findNextView();
@@ -268,16 +269,17 @@ const response_experimental_trial =  function(config, CT, magpie, answer_contain
     // to the answer is added to the trial object
     // as well as a readingTimes property with value
     $("input[name=answer]").on("change", function() {
-        const RT = Date.now() - startingTime;
+        //const RT = Date.now() - startingTime;
         let trial_data = {
             trial_name: config.name,
             trial_number: CT + 1,
             response: $("input[name=answer]:checked").val(),
-            RT: RT,
-            group: main.group
+            question: "Call the police or do nothing ?",
+            //RT: RT,
+            //group: main.group
         };
 
-        trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+        //trial_data = magpieUtils.view.save_config_trial_data(config.data[CT],trial_data);
 
         magpie.trial_data.push(trial_data);
         magpie.findNextView();
@@ -303,6 +305,25 @@ const select_understanding_question = function(config, CT) {
             </div>`;
 };
 
+
+const understanding_handler = function(config, CT, magpie, answer_container_generator, startingTime) {
+        $(".magpie-view").append(answer_container_generator(config, CT));
+        $("input[name=answer]").on("change", function() {
+            //const RT = Date.now() - startingTime;
+            let trial_data = {
+                trial_name: config.name,
+                trial_number: CT + 1,
+                response: $("input[name=answer]:checked").val(),
+                question: "Which of the following is true about the previous study?",
+                //RT: RT
+            };
+
+            //trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+
+            magpie.trial_data.push(trial_data);
+            magpie.findNextView();
+        });
+};
 
 // displays two likert scales to see to which group the participant is identified with
 // first "halve" is the pro group likert scale and the second "halve" is the anti group likert scale
@@ -529,11 +550,7 @@ const post_test_handler = function(config, CT, magpie) {
             magpie.global_data.comments = $("#comments")
             .val()
             .trim();
-            magpie.global_data.endTime = Date.now();
-            magpie.global_data.timeSpent =
-                (magpie.global_data.endTime -
-                    magpie.global_data.startTime) /
-                60000;
+            magpie.global_data.condition = main.group;
             magpie.findNextView();
           });
 };
