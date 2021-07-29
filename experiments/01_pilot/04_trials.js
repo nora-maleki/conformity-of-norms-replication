@@ -1,5 +1,8 @@
-// In this file you can specify the trial data for your experiment
+// In this file is the trial data for our experiment
+//They are in order of their occurence in the experiment
 
+// data for the question "what topic you care about most"
+// contains the 8 ploitical topics
 const polit_choice = [
     {
         question: "Please choose the issue you care about most",
@@ -15,18 +18,11 @@ const polit_choice = [
     }
 ]
 
-const moral_dilemma = [
-    {
-    dilemma: `Imagine you have witnessed a man rob a bank.
-            However, you then saw him do something unexpected with the money.
-            He donated it all to a run-down orphanage that would benefit greatly from the money.
-            You must decide whether to call the police and report the robber or do nothing and leave the robber alone.
-            <br />
-            <br />
-            In the previous study:`
-    }
-]
 
+// contains the statements about the chosen topics for the likert scale
+// e.g. participant chose Feminism then the statemtent:
+// "Feminism is important and beneficial to modern society"
+// is shown and the participant has to choose if they agree or disagree
 const statements = [
         {
             QUD: "Adults should have the right to carry a concealed handgun.",
@@ -79,6 +75,37 @@ const statements = [
 
 ]
 
+
+// data for the moral dilemma
+// contains the statement with "you saw a man rob a bank ... do you call the police or not"
+const moral_dilemma = [
+    {
+    dilemma: `Imagine you have witnessed a man rob a bank.
+            However, you then saw him do something unexpected with the money.
+            He donated it all to a run-down orphanage that would benefit greatly from the money.
+            You must decide whether to call the police and report the robber or do nothing and leave the robber alone.
+            <br />
+            <br />
+            In the previous study:`
+    }
+]
+
+
+// to keep up the story about "following a previous study" the authors integrated
+// a rating with "How did you feel about your choice ?"
+// which is not going to be used for any analyses
+// implemented as likert scale
+const fake_rating = [
+    {
+        question: "How did you feel about your choice ?",
+        optionLeft: 'very bad',
+        optionRight: 'very good',
+    }
+];
+
+
+// data for understanding question taken from authors
+// first option is correct, rest is false
 const understanding_questions = [
     {
         question: 'We were following up on a previous study in this task. Given what we described in the instructions, which of the following is true about the previous study?',
@@ -90,14 +117,10 @@ const understanding_questions = [
 ]
 
 
-const fake_rating = [
-    {
-        question: "How did you feel about your choice ?",
-        optionLeft: 'very bad',
-        optionRight: 'very good',
-    }
-];
-
+// data for identity_check
+// "agree with following statemnets"
+// e.g. "I identify as a Pro-Gun enthusiast"
+// implemented as likert scale
 const identity_data = [
     {
         question: `Please rate how much you agree or disagree with the following statements:`,
@@ -157,12 +180,20 @@ const identity_data = [
     },
 ];
 
+
+// second understanding question invented by us
+// which is true based on the condition the participant was in
+// could be good since it is a measure of how much the participant took the
+// responses of the "other" people into account
 const understanding_question2 = [
     {
         question: 'Which of the following statements is true?'
     }
 ]
 
+
+// data for the exploratory question
+// "do you prefer the company of someone who agrees with you on [topic] ?"
 const sympathy_question = [
     {
         question: `Please rate how much you agree with the following statement: <br />`,

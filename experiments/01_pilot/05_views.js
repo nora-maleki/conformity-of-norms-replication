@@ -1,7 +1,8 @@
 // In this file you can find the instatiations of our views_seq
 //They are in order of their occurence in the experiment
 
-
+// introduction view
+// welcomes the participant and explains the procedure
 const intro = magpieViews.view_generator("intro",
     //In the intro view we give a very short information about the experiment
     //and about its assumed time scale
@@ -24,27 +25,10 @@ const intro = magpieViews.view_generator("intro",
 );
 
 
-const basic_information = basic_information_function(
-    //Here we display the pre-experiment background checked
-    //the function itself is defined in "03_custom_views_templates.js"
-    {
-        trials:1,
-        name: "basic_information",
-        title: "Demographic information",
-        text: `Well done, this is the last page. Please fill in these demographic information or leave them blank.
-                  <br />
-                  <br />
-                  Thank you for participating in this experiment!
-                  <br />
-                  <br />`,
-        button: "End"
-    },
-    //answer_container_generator: answerContainerElem,
-)
-
+//In this view the participants are supposed to select the political topic
+//they care about the most
+// to see the topics look at select_topic in "02_custom_functions.js"
 const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
-    //In this view the participants are supposed to select the political topic
-    //they care about the most
     {
         trials: 1,
         name: "choice_of_political_topic",
@@ -56,24 +40,24 @@ const choice_of_political_topic = magpieViews.view_generator('sentence_choice',
         answer_container_generator: select_topic,
         handle_response_function: select_statement
     }
-
 );
 
+
+//In this view the participants rate how much they agree/disagree with
+//a given statement. The function is implemented in "03_custom_views_templates.js"
 const rate_statement = rating(
-    //In this view the participants rate how much they agree/disagree with
-    //a given statement. The function is implemented in "03_custom_views_templates.js"
     {
         trials:1,
         name: "rate_statement",
         data: statements,
         title: "Test title",
     },
-)
+);
 
 
+//in this view we tell the participant that the study is a follow up and
+//that it is about a moral dilemma
 const instructions = magpieViews.view_generator("instructions",
-    //in this view we tell the participant that the study is a follow up and
-    //that it us about a moral dilemma
     {
         trials: 1,
         name: 'instructions',
@@ -91,15 +75,17 @@ const instructions = magpieViews.view_generator("instructions",
     }
 );
 
+
+//In this view the participant is asked how they would respond to the
+//moral dilemma. Additionally, the alleged response of their ingroup/outgroup
+//is presented according to which group they are assigned to.
+//For more information about the group assignement see the "assign_to_group"
+//function in "02_custom_functions.js".
 const experimental_trial = magpieViews.view_generator("sentence_choice",
-    //In this view the participant is asked how they would respond to the
-    //moral dilemma. Additionally, the alleged response of their ingroup/outgroup
-    //is presented according to which group they are assigned to.
-    //For more information about the group assignement see the "assign_to_group"
-    //function in "02_custom_functions.js".
+
     {
         trials: 1,
-        title: "Experimental trial",
+        //title: "Experimental trial",
         name: "experimental_trial",
         data: moral_dilemma
     },
@@ -110,23 +96,25 @@ const experimental_trial = magpieViews.view_generator("sentence_choice",
     }
 )
 
+
+//In this view participants are asked to evaluate how good they feel about
+//their decision in the previous view
 const fit_backstory_fake_rating = magpieViews.view_generator('rating_scale',
-    //In this view participants are asked to evalueate how good they feel about
-    //their decision in the previous view
     {
         trials: 1,
         name: "fit_backstory_fake_rating",
         data: fake_rating,
       },
-      {
+    {
           stimulus_container_generator: show_only_title
       }
 );
 
+
+//In this view the participants are confronted with a question about how the
+//alleged previous study was conducted. This is done in order to check then
+//participants level of attention.
 const understanding_check = magpieViews.view_generator('sentence_choice',
-    //In this view the participants are confronted with a question about how the
-    //alleged previous study was conducted. This is done in order to check then
-    //participants level of attention.
     {
         trials: 1,
         name: "understanding_check",
@@ -137,14 +125,13 @@ const understanding_check = magpieViews.view_generator('sentence_choice',
         answer_container_generator: select_understanding_question,
         handle_response_function: handle_response_functions.button_choice,
     }
-
 );
 
 
+//Here the participants are asked to rate how much they identify with their
+//"ingroup" (namely the people who have the same political opinion) and their
+//"outgroup (the people who have opposite political opinions)"
 const identity_check = identity_check_function(
-    //Here the participants are asked to rate how much they identify with their
-    //"ingroup" (namely the people who have the same political opinion) and their
-    //"outgroup (the people who have opposite political opinions)"
     {
         trials: 1,
         name: "identity_check",
@@ -154,10 +141,11 @@ const identity_check = identity_check_function(
     },
 );
 
+
+//In this view the participants are confronted with a question about how the
+//alleged previous study was conducted. This is done in order to check then
+//participants level of attention.
 const understanding_check2  = magpieViews.view_generator('sentence_choice',
-    //In this view the participants are confronted with a question about how the
-    //alleged previous study was conducted. This is done in order to check then
-    //participants level of attention.
     {
         trials: 1,
         name: "understanding_check2",
@@ -168,24 +156,45 @@ const understanding_check2  = magpieViews.view_generator('sentence_choice',
         answer_container_generator: select_understanding_question2,
         handle_response_function: handle_response_functions.button_choice,
     }
-
 );
 
+
+//In this view participants are asked to evaluate if they prefer
+//the company of someone who agrees with them or not
+// this is part of our exploratory investiagtion
 const sympathy_rating = magpieViews.view_generator('rating_scale',
-    //In this view participants are asked to evalueate how good they feel about
-    //their decision in the previous view
     {
         trials: 1,
         name: "sympathy_rating",
         data: sympathy_question,
       },
-      {
+    {
           stimulus_container_generator: sympathy_stimulus,
           answer_container_generator: sympathy_answer
       }
 );
 
 
+// post test view slightly changed to more demographical questions
+// tells the participant that is the last page and thanks again
+//the function itself is defined in "03_custom_views_templates.js"
+const basic_information = basic_information_function(
+    {
+        trials:1,
+        name: "basic_information",
+        text: `Well done, this is the last page. Please fill in these demographic information or leave them blank.
+                  <br />
+                  <br />
+                  Thank you for participating in this experiment!
+                  <br />
+                  <br />`,
+        button: "End"
+    },
+);
+
+
+// thank you view that submits the data and is triggered
+// automaticly after the basic_information view above is done
 const thanks = magpieViews.view_generator("thanks", {
   trials: 1,
   name: 'thanks',
