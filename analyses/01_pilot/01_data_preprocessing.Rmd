@@ -109,5 +109,111 @@ df_cleaned %>%
 
 df_cleaned %>% 
   glimpse()
+
+```
+
+
+### Removing participants who failed the understanding check
+
+```{r}
+
+df_cleaned <- df_cleaned %>% 
+  mutate(
+    invalid = case_when(
+      trial_name == "understanding_check" &
+        response == "incorrect" ~ TRUE,
+      TRUE ~ FALSE
+      )
+    )
+
+
+removed <- sum(df_cleaned$invalid)
+
+df_cleaned <- df_cleaned %>% 
+  filter(invalid == FALSE)
+
+
+print(
+  paste0(
+    "We excluded ", removed , " participant(s) for failing the understanding check."
+    )
+  )
+
+```
+
+
+### excluding neutral participants to their chosen social issue 
+
+```{r}
+
+df_cleaned <- df_cleaned %>% 
+  mutate(
+    neutral = case_when(
+      trial_name == "rate_statement" &
+        response == 6 ~ TRUE,
+      TRUE ~ FALSE
+      )
+    )
+
+
+removed <- sum(df_cleaned$neutral)
+
+df_cleaned <- df_cleaned %>% 
+  filter(neutral == FALSE)
+
+
+print(
+  paste0(
+    "We excluded ", removed , " participant(s) for being neutral about their chosen social activity."
+    )
+  )
+
+```
+
+
+```{r}
+
+# df_cleaned <- df_cleaned %>% 
+#   mutate(
+#     both_norms_shown = case_when(
+#       condition == 1 ||
+#         condition == 2 ~ "only_ingroup",
+#       condition == 3 ||
+#         condition == 4 ~ "both_in_and_outgroup"
+#     ),
+#     ingroup_descriptive_norm = case_when(
+#       condition == 1 ||
+#         condition == 
+#     )
+#     condition = case_when(
+#       condition == 1 ~ "ingroup_called",
+#       condition == 2 ~ "ingroup_did_nothing",
+#       condition == 3 ~ "both_in_called",
+#       condition == 4 ~ "both_in_did_nothing"
+#     ),
+#     groups = case_when(
+#       condition == "ingroup_called" ||
+#         condition == "ingroup_did_nothing"
+#       ~ "ingroup"
+#     )
+#   )
+# 
+# df_cleaned %>% 
+#   glimpse()
+
+```
+
+
+```{r}
+
+df_cleaned %>% 
+  filter(trial_name == "experimental_trial") %>% 
+  ggplot(aes(condition, response), fill = condition) +
+  geom_point(size = 3, 
+             alpha = 1, color = "turquoise") 
+  # labs(x = "proportion of correctness",
+  #      y = "reaction time",
+  #      title = "reaction time against proportion of correctness")
+
 ```
 
