@@ -10,82 +10,103 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+
 library(tidyverse)
 library(readr)
 library(dplyr)
+
 ```
 
 
 ### Importing the data
 
 ```{r}
-df <- read_csv("results_258_Conformity_Of_Norms_Replication_Group5_2021.csv")
+
+df <- read_csv("results_CoNRep.csv")
 
 df %>% 
   head()
+
 ```
 
 
 ### Glimps of the data
 
 ```{r}
+
 df %>% 
   glimpse()
-```
 
-
-### Number of data points
-
-```{r}
-df %>% 
-  nrow()
 ```
 
 
 ### Unique submission IDs with their counts
 
 ```{r}
+
 df %>%
   group_by(submission_id) %>% 
   count() %>% 
   unique()
+
 ```
 
 
 ### Unique trials according to names
 
 ```{r}
+
 df %>% 
   group_by(trial_name) %>% 
   count()
+
 ```
 
 
-### Selecting the necessary columns
+### Selecting the necessary columns for the analysis
 
 ```{r}
+
 df_cleaned <- df %>% 
   select(
     -c(
+      QUD,
       RT,
-     age,
-     city,
-     country,
-     education,
-     endTime,
-     experiment_id,
-     gender,
-     startDate,
-     startTime,
-     trial_number
+      age,
+      city,
+      comments,
+      country,
+      education,
+      experiment_id,
+      gender,
+      optionLeft,
+      optionRight,
+      startDate,
+      startTime,
+      trial_number
     )
+  ) %>% 
+  filter(
+    trial_name != "choice_of_political_topic" &
+      trial_name != "fit_backstory_fake_rating" &
+      trial_name != "understanding_check2"
   )
+
 ```
 
+
+```{r}
+
+df_cleaned %>% 
+  group_by(trial_name) %>% 
+  count()
+
+```
 
 ### Glimps after columns are removed
 
 ```{r}
+
 df_cleaned %>% 
   glimpse()
 ```
