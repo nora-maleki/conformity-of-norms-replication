@@ -171,35 +171,57 @@ print(
 ```
 
 
+### Dropping invalid and neutral columns
+
 ```{r}
 
-# df_cleaned <- df_cleaned %>% 
-#   mutate(
-#     both_norms_shown = case_when(
-#       condition == 1 ||
-#         condition == 2 ~ "only_ingroup",
-#       condition == 3 ||
-#         condition == 4 ~ "both_in_and_outgroup"
-#     ),
-#     ingroup_descriptive_norm = case_when(
-#       condition == 1 ||
-#         condition == 
-#     )
-#     condition = case_when(
-#       condition == 1 ~ "ingroup_called",
-#       condition == 2 ~ "ingroup_did_nothing",
-#       condition == 3 ~ "both_in_called",
-#       condition == 4 ~ "both_in_did_nothing"
-#     ),
-#     groups = case_when(
-#       condition == "ingroup_called" ||
-#         condition == "ingroup_did_nothing"
-#       ~ "ingroup"
-#     )
-#   )
-# 
-# df_cleaned %>% 
-#   glimpse()
+df_cleaned <- df_cleaned %>% 
+  select(
+    -c(
+      invalid,
+      neutral
+    )
+  )
+
+```
+
+
+
+### Encoding variables for analysis
+
+```{r}
+
+df_cleaned <- df_cleaned %>%
+  mutate(
+    both_norms_shown_cat = case_when(
+      condition == 1 |
+        condition == 2 ~ "only_ingroup",
+      condition == 3 |
+        condition == 4 ~ "both_in_and_outgroup"
+      ),
+    ingroup_descriptive_norm_cat = case_when(
+      condition == 1 |
+        condition == 3 ~ "reporting_robber",
+      condition == 2 |
+        condition == 4 ~ "leave_him_alone",
+    ),
+    both_norms_shown = case_when(
+      condition == 1 |
+        condition == 2 ~ 0,   # only ingroup
+      condition == 3 |
+        condition == 4 ~ 1    # both in and outgroup
+      ),
+    ingroup_descriptive_norm = case_when(
+      condition == 1 |
+        condition == 3 ~ -1,  # reporting robber
+      condition == 2 |
+        condition == 4 ~ 1    # leave_him_alone
+    )
+  )
+
+
+df_cleaned %>%
+  glimpse()
 
 ```
 
