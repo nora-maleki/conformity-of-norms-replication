@@ -12,33 +12,81 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 library(readr)
+library(dplyr)
 ```
+
+
+### Importing the data
 
 ```{r}
 df <- read_csv("results_258_Conformity_Of_Norms_Replication_Group5_2021.csv")
+
+df %>% 
+  head()
 ```
+
+
+### Glimps of the data
+
+```{r}
+df %>% 
+  glimpse()
+```
+
+
+### Number of data points
+
+```{r}
+df %>% 
+  nrow()
+```
+
+
+### Unique submission IDs with their counts
 
 ```{r}
 df %>%
   group_by(submission_id) %>% 
   count() %>% 
   unique()
-  # nrow()
 ```
 
-```{r}
-df$submission_id %>% 
-  unique()
-```
+
+### Unique trials according to names
 
 ```{r}
 df %>% 
   group_by(trial_name) %>% 
   count()
 ```
+
+
+### Selecting the necessary columns
+
 ```{r}
-df %>% 
-  glimpse()
+df_cleaned <- df %>% 
+  select(
+    -c(
+      RT,
+     age,
+     city,
+     country,
+     education,
+     endTime,
+     experiment_id,
+     gender,
+     startDate,
+     startTime,
+     trial_number
+    )
+  )
 ```
 
+
+### Glimps after columns are removed
+
+```{r}
+df_cleaned %>% 
+  glimpse()
+```
 
