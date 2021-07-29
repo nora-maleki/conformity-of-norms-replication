@@ -43,18 +43,6 @@ $("document").ready(function() {
         // Here, you can specify how the progress bar should look like
         progress_bar: {
             in: [
-              // intro.name,
-              // basic_information.name,
-              // choice_of_political_topic.name,
-              // rate_statement.name,
-              // instructions.name,
-              // experimental_trial.name,
-              // fit_backstory_fake_rating.name,
-              // understanding_check.name,
-              // identity_check.name,
-              // understanding_check2.name,
-              // sympathy_rating.name,
-              // thanks.name,
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "default",
