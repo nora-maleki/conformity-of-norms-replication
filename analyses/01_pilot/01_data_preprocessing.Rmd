@@ -1,0 +1,44 @@
+---
+title: "conformity_of_norms_replication_preprocessing"
+author: "Group_5"
+date: "7/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(readr)
+```
+
+```{r}
+df <- read_csv("results_258_Conformity_Of_Norms_Replication_Group5_2021.csv")
+```
+
+```{r}
+df %>%
+  group_by(submission_id) %>% 
+  count() %>% 
+  unique()
+  # nrow()
+```
+
+```{r}
+df$submission_id %>% 
+  unique()
+```
+
+```{r}
+df %>% 
+  group_by(trial_name) %>% 
+  count()
+```
+```{r}
+df %>% 
+  glimpse()
+```
+
+
