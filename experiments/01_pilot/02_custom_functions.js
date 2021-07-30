@@ -98,6 +98,18 @@ const eleven_point_likert_scale = function(config, index){
         <p class='magpie-view-question magpie-view-qud'>${config.data[index].QUD}</p>
             <div class='magpie-view-answer-container'>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
+                <label for="-5" class='magpie-response-rating'>-5</label>
+                <input type="radio" name="answer" id="-5" value="-5" />
+                <label for="-4" class='magpie-response-rating'>-4</label>
+                <input type="radio" name="answer" id="-4" value="-4" />
+                <label for="-3" class='magpie-response-rating'>-3</label>
+                <input type="radio" name="answer" id="-3" value="-3" />
+                <label for="-2" class='magpie-response-rating'>-2</label>
+                <input type="radio" name="answer" id="-2" value="-2" />
+                <label for="-1" class='magpie-response-rating'>-1</label>
+                <input type="radio" name="answer" id="-1" value="-1" />
+                <label for="0" class='magpie-response-rating'>0</label>
+                <input type="radio" name="answer" id="0" value="0" />
                 <label for="1" class='magpie-response-rating'>1</label>
                 <input type="radio" name="answer" id="1" value="1" />
                 <label for="2" class='magpie-response-rating'>2</label>
@@ -108,18 +120,6 @@ const eleven_point_likert_scale = function(config, index){
                 <input type="radio" name="answer" id="4" value="4" />
                 <label for="5" class='magpie-response-rating'>5</label>
                 <input type="radio" name="answer" id="5" value="5" />
-                <label for="6" class='magpie-response-rating'>6</label>
-                <input type="radio" name="answer" id="6" value="6" />
-                <label for="7" class='magpie-response-rating'>7</label>
-                <input type="radio" name="answer" id="7" value="7" />
-                <label for="8" class='magpie-response-rating'>8</label>
-                <input type="radio" name="answer" id="8" value="8" />
-                <label for="9" class='magpie-response-rating'>9</label>
-                <input type="radio" name="answer" id="9" value="9" />
-                <label for="10" class='magpie-response-rating'>10</label>
-                <input type="radio" name="answer" id="10" value="10" />
-                <label for="11" class='magpie-response-rating'>11</label>
-                <input type="radio" name="answer" id="11" value="11" />
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>`;
 };
@@ -175,7 +175,7 @@ const experimental_stimulus = function(group, topic){
     }
 
     if(group == 2){
-        return `Approximately 60% of participants who agreed with you about  ${topic} did nothing and leave the robber alone.`
+        return `Approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.`
     }
 
     if(group == 3){
@@ -199,17 +199,17 @@ const experimental_stimulus = function(group, topic){
     if(group == 4){
       rnd = getRandInt(1,2);
       if(rnd == 1){
-        return `Approximately 60% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.
+        return `Approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.
                 <br />
                 <br />
-                Approximately 85% of participants who agreed with you about  ${topic} chose to call the police and report the robber.`
+                Approximately 85% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.`
       }
 
       else{
-        return `Approximately 85% of participants who agreed with you about  ${topic} chose to call the police and report the robber.
+        return `Approximately 85% of participants who disagreed with you about  ${topic} chose to call the police and report the robber.
                 <br />
                 <br />
-                Approximately 60% of participants who disagreed with you about  ${topic} chose to do nothing and leave the robber alone.`
+                Approximately 60% of participants who agreed with you about  ${topic} chose to do nothing and leave the robber alone.`
       }
     }
 };
