@@ -1,0 +1,265 @@
+---
+title: "conformity_of_norms_replication_preprocessing"
+author: "Group_5"
+date: "7/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+```
+
+
+### Importing the data
+
+```{r, results='hide'}
+df <- read_csv("04_conformity_df_pilot.csv")
+```
+
+
+```{r}
+
+df %>% 
+  head()
+
+```
+
+
+### Glimps of the data
+
+```{r}
+
+df %>% 
+  glimpse()
+
+```
+
+
+### Unique submission IDs with their counts
+
+```{r}
+
+df %>%
+  group_by(submission_id) %>% 
+  count() %>% 
+  unique()
+
+```
+
+
+### Unique trials according to `trial_name`
+
+```{r}
+
+df %>% 
+  group_by(trial_name) %>% 
+  count()
+
+```
+
+
+### Omitting the unnecessary columns and trials for the analysis
+
+```{r}
+
+df_cleaned <- df %>% 
+  select(
+    -c(
+      QUD,
+      RT,
+      age,
+      city,
+      comments,
+      country,
+      education,
+      experiment_id,
+      gender,
+      optionLeft,
+      optionRight,
+      startDate,
+      startTime,
+      trial_number
+    )
+  ) %>% 
+  filter(
+    trial_name != "choice_of_political_topic" &
+      trial_name != "fit_backstory_fake_rating" &
+      trial_name != "understanding_check2"
+  )
+
+```
+
+
+```{r}
+
+df_cleaned %>% 
+  group_by(trial_name) %>% 
+  count()
+
+```
+
+### Glimps after columns are removed
+
+```{r}
+
+df_cleaned %>% 
+  glimpse()
+
+```
+
+
+### Removing participants who failed the understanding check
+
+```{r}
+
+df_cleaned <- df_cleaned %>% 
+  mutate(
+    invalid = case_when(
+      trial_name == "understanding_check" &
+        response == "incorrect" ~ TRUE,
+      TRUE ~ FALSE
+      ),
+    )
+
+invalid_ids <- df_cleaned$submission_id[which(df_cleaned$invalid == TRUE)]
+
+removed <- sum(df_cleaned$invalid)
+
+for (id in invalid_ids) {
+  df_cleaned <- df_cleaned %>% 
+    filter(
+      submission_id != id
+    )
+  }
+
+
+print(
+  paste0(
+    "We excluded ", removed , " participant(s) for failing the understanding check."
+    )
+  )
+
+```
+
+
+
+```{r}
+
+df_cleaned %>% 
+  group_by(submission_id) %>% 
+  count() %>% 
+  unique()
+
+```
+
+
+### excluding neutral participants to their chosen social issue 
+
+```{r}
+
+df_cleaned <- df_cleaned %>% 
+  mutate(
+    neutral = case_when(
+      trial_name == "rate_statement" &
+        response == 0 ~ TRUE,
+      TRUE ~ FALSE
+      )
+    )
+
+neutral_ids <- df_cleaned$submission_id[which(df_cleaned$neutral == TRUE)]
+
+removed <- sum(df_cleaned$neutral)
+
+for (id in neutral_ids) {
+  df_cleaned <- df_cleaned %>% 
+    filter(
+      submission_id != id
+    )
+  }
+
+
+print(
+  paste0(
+    "We excluded ", removed , " participant(s) for being neutral about their chosen social activity."
+    )
+  )
+
+```
+
+
+### Dropping invalid and neutral columns
+
+```{r}
+
+df_cleaned <- df_cleaned %>% 
+  select(
+    -c(
+      invalid,
+      neutral
+    )
+  )
+
+```
+
+
+
+### Encoding variables for analysis
+
+```{r}
+
+df_cleaned <- df_cleaned %>%
+  mutate(
+    both_norms_shown_cat = case_when(
+      condition == 1 |
+        condition == 2 ~ "only_ingroup",
+      condition == 3 |
+        condition == 4 ~ "both_in_and_outgroup"
+      ),
+    ingroup_descriptive_norm_cat = case_when(
+      condition == 1 |
+        condition == 3 ~ "reporting_robber",
+      condition == 2 |
+        condition == 4 ~ "leave_him_alone",
+    ),
+    both_norms_shown = case_when(
+      condition == 1 |
+        condition == 2 ~ 0,   # only ingroup
+      condition == 3 |
+        condition == 4 ~ 1    # both in and outgroup
+      ),
+    ingroup_descriptive_norm = case_when(
+      condition == 1 |
+        condition == 3 ~ -1,  # reporting robber
+      condition == 2 |
+        condition == 4 ~ 1    # leave_him_alone
+    )
+  )
+
+
+df_cleaned %>%
+  glimpse()
+
+```
+
+
+```{r, echo=FALSE}
+
+# df_cleaned %>% 
+#   filter(trial_name == "experimental_trial") %>% 
+#   ggplot(aes(condition, response), fill = condition) +
+#   geom_point(size = 3, 
+#              alpha = 1, color = "turquoise") 
+  # labs(x = "proportion of correctness",
+  #      y = "reaction time",
+  #      title = "reaction time against proportion of correctness")
+
+```
+
