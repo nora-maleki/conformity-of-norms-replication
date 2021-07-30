@@ -21,7 +21,7 @@ library(readr)
 
 ```{r, results='hide'}
 
-df_to_plot <- read.csv("https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/data/01_pilot/02_clean_data.csv")
+df_to_plot <- read_csv("02_clean_data.csv")
 
 ```
 

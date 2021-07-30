@@ -1,0 +1,25 @@
+"submission_id","condition","question","response","trial_name","both_norms_shown_cat","ingroup_descriptive_norm_cat","both_norms_shown","ingroup_descriptive_norm"
+2399,1,"Germany should open its borders for all refugees","-2","rate_statement","Only ingroup","Report",0,-1
+2399,1,"Call the police or do nothing ?","4","experimental_trial","Only ingroup","Report",0,-1
+2399,1,"Which of the following is true about the previous study?","correct","understanding_check","Only ingroup","Report",0,-1
+2399,1,"Please rate how much you agree or disagree with the following statements:","5","identity_check_Pro","Only ingroup","Report",0,-1
+2399,1,"Please rate how much you agree or disagree with the following statements:","2","identity_check_Anti","Only ingroup","Report",0,-1
+2399,1,"Please rate how much you agree with the following statement: <br />","5","sympathy_rating","Only ingroup","Report",0,-1
+2397,3,"Transgender people should be allowed to use the bathrooms of the gender they identify as","4","rate_statement","Both in- and outgroup","Report",1,-1
+2397,3,"Call the police or do nothing ?","3","experimental_trial","Both in- and outgroup","Report",1,-1
+2397,3,"Which of the following is true about the previous study?","correct","understanding_check","Both in- and outgroup","Report",1,-1
+2397,3,"Please rate how much you agree or disagree with the following statements:","6","identity_check_Pro","Both in- and outgroup","Report",1,-1
+2397,3,"Please rate how much you agree or disagree with the following statements:","1","identity_check_Anti","Both in- and outgroup","Report",1,-1
+2397,3,"Please rate how much you agree with the following statement: <br />","7","sympathy_rating","Both in- and outgroup","Report",1,-1
+2393,3,"Germany should open its borders for all refugees","-2","rate_statement","Both in- and outgroup","Report",1,-1
+2393,3,"Call the police or do nothing ?","4","experimental_trial","Both in- and outgroup","Report",1,-1
+2393,3,"Which of the following is true about the previous study?","correct","understanding_check","Both in- and outgroup","Report",1,-1
+2393,3,"Please rate how much you agree or disagree with the following statements:","5","identity_check_Pro","Both in- and outgroup","Report",1,-1
+2393,3,"Please rate how much you agree or disagree with the following statements:","1","identity_check_Anti","Both in- and outgroup","Report",1,-1
+2393,3,"Please rate how much you agree with the following statement: <br />","6","sympathy_rating","Both in- and outgroup","Report",1,-1
+2392,4,"Adults should have the right to carry a concealed handgun.","-4","rate_statement","Both in- and outgroup","Not Report",1,1
+2392,4,"Call the police or do nothing ?","4","experimental_trial","Both in- and outgroup","Not Report",1,1
+2392,4,"Which of the following is true about the previous study?","correct","understanding_check","Both in- and outgroup","Not Report",1,1
+2392,4,"Please rate how much you agree or disagree with the following statements:","1","identity_check_Pro","Both in- and outgroup","Not Report",1,1
+2392,4,"Please rate how much you agree or disagree with the following statements:","6","identity_check_Anti","Both in- and outgroup","Not Report",1,1
+2392,4,"Please rate how much you agree with the following statement: <br />","2","sympathy_rating","Both in- and outgroup","Not Report",1,1
