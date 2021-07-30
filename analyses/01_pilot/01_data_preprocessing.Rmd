@@ -21,7 +21,7 @@ library(dplyr)
 ### Importing the data
 
 ```{r, results='hide'}
-df <- read_csv("results_CoNRep.csv")
+df <- read_csv("04_conformity_df_pilot.csv")
 ```
 
 
