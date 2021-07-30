@@ -22,7 +22,7 @@ library(dplyr)
 
 ```{r, results='hide'}
 
-df <- read_csv("df_row_pilot_CoN.csv")
+df <- read.csv("https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/data/01_pilot/01_raw_data.csv")
 
 ```
 
@@ -256,7 +256,7 @@ df_cleaned %>%
 
 ```{r}
 
-write.csv(df_cleaned,"df_cleaned_CoN.csv", row.names = FALSE)
+write.csv(df_cleaned,"02_clean_data.csv", row.names = FALSE)
 
 ```
 
