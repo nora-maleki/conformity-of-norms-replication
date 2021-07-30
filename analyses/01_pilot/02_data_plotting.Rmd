@@ -44,21 +44,28 @@ df_to_plot %>%
     color = "darkred"
     ) +
   facet_wrap(
-    ~ both_norms_shown_cat,
-    labeller = labeller(
-      both_norms_shown_cat = both_norms_shown_cat_labels
-    )
+    ~ both_norms_shown_cat
   ) +
   labs(
     x = "Ingroup Norm",
     y = "Mean response",
     title = "Mean response in both norms shown condition") +
-  theme_bw() +
+  scale_y_continuous(labels = scales::number_format(accuracy = 0.05)) +
+  theme_gray() +
   theme(
-    plot.title = element_text(hjust = .5, margin = margin(b = 30)),
-    plot.margin = margin(t = 30, r = 35),
-    axis.title.y = element_text(margin = margin(r = 15, l = 20)),
-    axis.title.x = element_text(margin = margin(t = 15, b = 20))
+    plot.title = element_text(size = 16, 
+                              hjust = .5, 
+                              margin = margin(b = 20)
+                              ),
+    axis.title.y = element_text(size = 14
+                                , hjust = .5
+                                , margin = margin(r = 15, l = 20)
+                                ),
+    axis.title.x = element_text(size = 14, 
+                                hjust = .5,
+                                margin = margin(t = 15, b = 20)
+                                ),
+    plot.margin = margin(t = 15, r = 35)
   )
 
 ```
