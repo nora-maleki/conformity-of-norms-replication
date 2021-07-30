@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -20,9 +20,12 @@ library(dplyr)
 
 ### Importing the data
 
-```{r}
-
+```{r, results='hide'}
 df <- read_csv("results_CoNRep.csv")
+```
+
+
+```{r}
 
 df %>% 
   head()
@@ -52,7 +55,7 @@ df %>%
 ```
 
 
-### Unique trials according to names
+### Unique trials according to `trial_name`
 
 ```{r}
 
@@ -63,7 +66,7 @@ df %>%
 ```
 
 
-### Selecting the necessary columns for the analysis
+### Omitting the unnecessary columns and trials for the analysis
 
 ```{r}
 
@@ -123,14 +126,19 @@ df_cleaned <- df_cleaned %>%
       trial_name == "understanding_check" &
         response == "incorrect" ~ TRUE,
       TRUE ~ FALSE
-      )
+      ),
     )
 
+invalid_ids <- df_cleaned$submission_id[which(df_cleaned$invalid == TRUE)]
 
 removed <- sum(df_cleaned$invalid)
 
-df_cleaned <- df_cleaned %>% 
-  filter(invalid == FALSE)
+for (id in invalid_ids) {
+  df_cleaned <- df_cleaned %>% 
+    filter(
+      submission_id != id
+    )
+  }
 
 
 print(
@@ -138,6 +146,17 @@ print(
     "We excluded ", removed , " participant(s) for failing the understanding check."
     )
   )
+
+```
+
+
+
+```{r}
+
+df_cleaned %>% 
+  group_by(submission_id) %>% 
+  count() %>% 
+  unique()
 
 ```
 
@@ -150,16 +169,21 @@ df_cleaned <- df_cleaned %>%
   mutate(
     neutral = case_when(
       trial_name == "rate_statement" &
-        response == 6 ~ TRUE,
+        response == 0 ~ TRUE,
       TRUE ~ FALSE
       )
     )
 
+neutral_ids <- df_cleaned$submission_id[which(df_cleaned$neutral == TRUE)]
 
 removed <- sum(df_cleaned$neutral)
 
-df_cleaned <- df_cleaned %>% 
-  filter(neutral == FALSE)
+for (id in neutral_ids) {
+  df_cleaned <- df_cleaned %>% 
+    filter(
+      submission_id != id
+    )
+  }
 
 
 print(
@@ -226,13 +250,13 @@ df_cleaned %>%
 ```
 
 
-```{r}
+```{r, echo=FALSE}
 
-df_cleaned %>% 
-  filter(trial_name == "experimental_trial") %>% 
-  ggplot(aes(condition, response), fill = condition) +
-  geom_point(size = 3, 
-             alpha = 1, color = "turquoise") 
+# df_cleaned %>% 
+#   filter(trial_name == "experimental_trial") %>% 
+#   ggplot(aes(condition, response), fill = condition) +
+#   geom_point(size = 3, 
+#              alpha = 1, color = "turquoise") 
   # labs(x = "proportion of correctness",
   #      y = "reaction time",
   #      title = "reaction time against proportion of correctness")
