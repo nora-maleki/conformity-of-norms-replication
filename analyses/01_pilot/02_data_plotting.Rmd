@@ -9,23 +9,26 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
 
-### Creating labels
+library(tidyverse)
+library(readr)
 
-```{r}
-# creating a vector of changed labels to used them later in the plot
-both_norms_shown_cat_labels <- c(
-  "both_in_and_outgroup" = "Both in- and outgroup",
-  "only_ingroup" = "Only ingroup"
-)
 ```
 
 
+### Importing the data
 
-### Ploting mean response of the main trial
+```{r, results='hide'}
+
+df_to_plot <- read_csv("df_cleaned_CoN.csv")
+
+```
+
+### Plotting mean response of the main trial
 
 ```{r}
-df_cleaned %>%
+df_to_plot %>%
   filter(
     trial_name == "experimental_trial"
     ) %>%
