@@ -1,6 +1,6 @@
 ---
-title: "conformity_of_norms_replication_plotting"
-author: "Group_5"
+title: "Conformity of Norms Replication Plotting"
+author: "Group 5"
 date: "7/30/2021"
 output: html_document
 ---
