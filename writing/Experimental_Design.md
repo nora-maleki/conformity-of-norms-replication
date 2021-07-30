@@ -1,7 +1,8 @@
-# Design for “Conformity of Norms” replication
+# Experimental Design
+### Conformity to the Descriptive Norms of People with Opposing Political or Social Beliefs - Replication
 
 ## Background
-In group dynamics there are often two opposing effects at play. On one side urging an individual to conform to group norms and other people behaviors, called the descriptive norm effect, and on the other side the effect of an individual wanting or not wanting to conform to other groups standards based on their own beliefs, values and identification with a certain group, called the self-categorization theory. To see which effect is stronger and may outweigh the other, we will present participants with a moral dilemma, followed by the response of other people to that dilemma. This response will be manufactured and either comes from people the participant identifies or does not identify with. The identification of the participant will be determined beforehand, when the participant has to indicate their stance on a political topic they strongly care about, e.g gun control or drug legalization. This opinion will divide the topic of interest into ingroups, the group that the participant identifies with, and outgroups, the group the participant does not identify with.
+In group dynamics there are often two opposing effects at play. On one side is the descriptive norm effect urging an individual to conform to group norms and on the other side is the effect of an individual wanting or not wanting to conform to group norms based on their own beliefs called the self-categorization theory. To see which effect is stronger and may outweigh the other, we will present participants with a moral dilemma, followed by the responses of other people to that dilemma. The response's purpose is to then influence the participants choice to the moral dilemma. If the participant identifies themselves with a certain group and that group prefers a certain answer to the moral dilemma, then the participant may be inclined to choose the same answer. Another possibility is that the group the participant is identified with is outnumbered by the group the participant is not identified with and is then inclined to choose the same as the outgroup because more people choose the answer. The identification of the participant will be determined beforehand, when the participant has to indicate their stance on a political topic they strongly care about, e.g gun control or drug legalization. This opinion will divide the topic of interest into ingroups, the group that the participant identifies with, and outgroups, the group the participant does not identify with.
 ## Hypothesis
 We are interested in this interplay of self-categorization and descriptive norms and are going to test the following two research hypotheses:
 
@@ -11,13 +12,15 @@ We are interested in this interplay of self-categorization and descriptive norms
 ## Design
 We will use a 2x2 between subjects design, so we will have two independent variables with two levels each. (See: Table in Procedure)
 
-The first independent variable will be the presentation of the descriptive norm. On the first level we will only present the descriptive norm of the ingroup, on the second level we will present both the descriptive norm of ingroup and outgroup. If both descriptive norms are shown, the order in which they are presented will be random.  
+The first independent variable will be the presentation of the descriptive norm. Either we will present only the descriptive norm of the ingroup or we will present both the descriptive norm of ingroup and outgroup. If both descriptive norms are shown, the order in which they are presented will be random.  
 
-The second independent variable will be the content of the descriptive norm of the ingroup. On the first level we will display the ingroup as favouring the report of the robber, on the second level we will display the ingroup as favouring not reporting the robber.  
+The second independent variable will be the content of the descriptive norm of the ingroup. Either we will display the ingroup as favouring the report of the robber or we will display the ingroup as favouring not reporting the robber.
+
 
 The dependent variable will be the participants rating of their certainty with which they would perform one of the two possible actions (reporting or not reporting the robber). The rating will be conducted on a 6-point Likert scale.  
 
 We are going to exclude all participants who fail to pass the understanding check because this indicates that they did not pay enough attention. Additionally all participants who report to be neutral about their chosen social issue will be excluded since in this case we are not able to determine ingroup and outgroup.
+
 
 ## Procedure
 
@@ -76,11 +79,15 @@ The last question the participants are presented with is a single-item social id
 2. “I identify with [outgroup]”  
 In the end participants will be thanked for their participation
 
-The following are some exploratory ideas, that are not included in the original paper. We will implement these ideas only if we are finished with the main part and still have time left, so it might be, that none of these ideas will be part of our final report:
-* How important was the given information about the response of the other participants for your decision
-* How much was your decision influenced by the response of the other participants?
-* Is morality relative to society or does it have an objective foundation?
-* How much do you trust the choice of people agreeing with you on [the chosen topic]?
-* How much do you trust the choice of people disagreeing with you on [the chosen topic]?
-* Something like:
-People who disagree/agree with the statement [the chosen statement] are unlike
+
+
+
+Following the identity check we will be doing another understanding check that is exploratory and will be more directed towards the perception of the responses from the experimental trail. We will ask the participant “Which of the following statements is true?” and present to options:  
+1. The majority of people who agreed with you on [topic] chose to leave the robber alone.
+2. The majority of people who agreed with you on [topic] chose to call the police.  
+
+The correct answer depends on the condition the participant was in.  
+Next the participant will be presented another exploratory question where they have to rate on a likert scale from 1 to 7 how much they agree with the following statement:  
+1. I would prefer the company of someone who agrees with me on [topic] over the company of someone who disagrees with me on [topic].  
+
+Then the participant will have reached the last page on which they will provide demographic information about them including age, gender, education, location and for the pilot also a comment section. In the end participants will be thanked for their participation.
