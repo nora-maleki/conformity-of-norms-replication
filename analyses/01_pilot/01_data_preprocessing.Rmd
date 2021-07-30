@@ -221,15 +221,15 @@ df_cleaned <- df_cleaned %>%
   mutate(
     both_norms_shown_cat = case_when(
       condition == 1 |
-        condition == 2 ~ "only_ingroup",
+        condition == 2 ~ "Only ingroup",
       condition == 3 |
-        condition == 4 ~ "both_in_and_outgroup"
+        condition == 4 ~ "Both in- and outgroup"
       ),
     ingroup_descriptive_norm_cat = case_when(
       condition == 1 |
-        condition == 3 ~ "reporting_robber",
+        condition == 3 ~ "Report",
       condition == 2 |
-        condition == 4 ~ "leave_him_alone",
+        condition == 4 ~ "Not Report",
     ),
     both_norms_shown = case_when(
       condition == 1 |
