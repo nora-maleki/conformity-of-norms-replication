@@ -16,9 +16,7 @@ $("document").ready(function() {
     window.magpie_monitor = magpieInit({
         // You have to specify all views you want to use in this experiment and the order of them
         views_seq: [
-            //identity_check,
             intro,
-            basic_information,
             choice_of_political_topic,
             rate_statement,
             instructions,
@@ -28,6 +26,7 @@ $("document").ready(function() {
             identity_check,
             understanding_check2,
             sympathy_rating,
+            basic_information,
             thanks,
         ],
         // Here, you can specify all information for the deployment
@@ -44,18 +43,6 @@ $("document").ready(function() {
         // Here, you can specify how the progress bar should look like
         progress_bar: {
             in: [
-              // intro.name,
-              // basic_information.name,
-              // choice_of_political_topic.name,
-              // rate_statement.name,
-              // instructions.name,
-              // experimental_trial.name,
-              // fit_backstory_fake_rating.name,
-              // understanding_check.name,
-              // identity_check.name,
-              // understanding_check2.name,
-              // sympathy_rating.name,
-              // thanks.name,
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "default",

@@ -1,0 +1,34 @@
+Meeting with Tutor and Tjark, Nora, Steffen to obtain feedback on experiment
+
+Tutor Feedback on experiment:
+  -Doesn't always work (threw error 2/5 times)
+  -Intro
+    -Go more into what we are doing
+    -Thank participants
+    -Consent form: include into intro, that participation is voluntary (...)
+  -Ask demographics at the end
+  -Indicate end of experiment
+  -In general: Be more polite!
+  -Dilemma view:
+    -Recommended to use 6-point Likert-scale -> only use outmost numbers to put text
+    -Do only if they did it in final experiment
+  -Weird looking Likert scale is okay
+  -Second attention question maybe not necessary (?)
+
+Analysis:
+  -We don't have to finish our analysis this week
+  -Deadline July is not for code
+  -We don't HAVE to stick with what we put in our prereg, but we have to write about
+  and justify changes
+
+General:
+  -Submodule deployment of experiment will not be a problem
+  -Tobias agrees on giving us more time on the analysis, but will have to ask other Tutors first
+
+
+Meeting afterwards with Tjark, Nora, Steffen
+  -Try to keep the data as clean as possible in Magpie already
+  -Think about splitting weird Likert scales to two views, so its not weird anymore
+  -Implement Feedback view for Pilot at the end
+  -Probably start Pilot on thursday to have data on Friday
+  -Next meeting (probably): Friday 30.07.2021
