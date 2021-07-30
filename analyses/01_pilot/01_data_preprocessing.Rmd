@@ -251,3 +251,12 @@ df_cleaned %>%
 
 ```
 
+
+### Storing the cleaned dataset
+
+```{r}
+
+write.csv(df_cleaned,"df_cleaned_CoN.csv", row.names = FALSE)
+
+```
+
