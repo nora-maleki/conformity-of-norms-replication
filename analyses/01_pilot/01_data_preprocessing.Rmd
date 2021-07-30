@@ -22,7 +22,7 @@ library(dplyr)
 
 ```{r, results='hide'}
 
-df <- read_csv("data/01_pilot/01_raw_data.csv")
+df <- read_csv("01_raw_data.csv")
 
 ```
 
