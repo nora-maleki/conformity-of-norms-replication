@@ -1,6 +1,6 @@
 ---
-title: "conformity_of_norms_replication_preprocessing"
-author: "Group_5"
+title: "Conformity of Norms Replication Preprocessing"
+author: "Group 5"
 date: "7/28/2021"
 output: html_document
 ---
@@ -21,7 +21,9 @@ library(dplyr)
 ### Importing the data
 
 ```{r, results='hide'}
-df <- read_csv("04_conformity_df_pilot.csv")
+
+df <- read_csv("df_row_pilot_CoN.csv")
+
 ```
 
 
