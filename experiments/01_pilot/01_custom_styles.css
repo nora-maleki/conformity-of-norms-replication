@@ -4,20 +4,24 @@
    border: 1px solid powderblue;
 }
 
-/* Trying to get the radio buttons background colored when clicked */
-/* Does not work atm */
-.magpie-response-rating:checked {
-    background-color: #f00a34;
-    border: 1px solid #f00a34;
-}
 
+/* gives the title a nice blue color that fits to the background */
 .magpie-view-title {
     color: #5187BA;
 }
 
+
+/* gives the background a nice blue color thats easy on the eyes */
 body{
     color: #303030;
     background-color: rgba(215, 249, 253, 0.79);
     font-family: 'Roboto', sans-serif;
     text-align:center;
+}
+
+
+/* gets rid of the default "input[name=answer]" so we can use other formats */
+/* used in 03_ line 98 for example */
+input[type="radio"]{
+  display: none;
 }
