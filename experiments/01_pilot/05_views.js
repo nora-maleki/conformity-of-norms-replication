@@ -175,19 +175,19 @@ const sympathy_rating = magpieViews.view_generator('rating_scale',
 );
 
 
-// post test view slightly changed to more demographical questions
+// built from post test view, slightly changed to more demographical questions
 // tells the participant that is the last page and thanks again
 //the function itself is defined in "03_custom_views_templates.js"
 const basic_information = basic_information_function(
     {
         trials:1,
-        name: "basic_information",
-        text: `Well done, this is the last page. Please fill in these demographic information or leave them blank.
-                  <br />
-                  <br />
-                  Thank you for participating in this experiment!
-                  <br />
-                  <br />`,
+        name:   "basic_information",
+        text:   `Well done, this is the last page.
+                <br />
+                Please fill in these demographic information or leave them blank.
+                <br />
+                <br />
+                <br />`,
         button: "End"
     },
 );

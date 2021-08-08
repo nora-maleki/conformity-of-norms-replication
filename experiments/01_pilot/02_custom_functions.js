@@ -498,35 +498,11 @@ const post_test_viewTemplate = function(config, CT){
         </p>
         <br>
         <br>
-        <p class='magpie-view-text'>
-            <label for="education">${quest.edu.title}:</label>
-            <select id="education" name="education">
-                <option></option>
-                <option value="lower_high_school">Lower Than High School</option>
-                <option value="${quest.edu.graduated_high_school}">${quest.edu.graduated_high_school}</option>
-                <option value="${quest.edu.graduated_college}">${quest.edu.graduated_college}</option>
-                <option value="${quest.edu.higher_degree}">${quest.edu.higher_degree}</option>
-            </select>
-        </p>
         <br>
         <br>
         <p class='magpie-view-text'>
-            <label for="country" name="country">Country:</label>
-            <input type="text" id="country"/>
+            <label>Thank you for participating in this experiment!</label>
         </p>
-        <br>
-        <br>
-        <p class='magpie-view-text'>
-            <label for="city" name="city">City:</label>
-            <input type="text" id="city"/>
-        </p>
-        <br>
-        <br>
-        <p class="magpie-view-text">
-            <label for="comments">How did you like the experiment and what would you improve ? :</label>
-            <textarea name="comments" id="comments" rows="8" cols="80"></textarea>
-        </p>
-        <br>
         <button id="next" class='magpie-view-button'>${config.button}</button>
         </form>
         </section>
