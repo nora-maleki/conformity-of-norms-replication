@@ -20,8 +20,17 @@ body{
 }
 
 
+/*gives the button a dark blue background color if checked */
+input[type= "radio"]:checked + label{
+    background-color: #324D93;
+    border: 1px solid #324D93;
+    color: white;
+}
+
+
 /* gets rid of the default "input[name=answer]" so we can use other formats */
 /* used in 03_ line 98 for example */
+
 input[type="radio"]{
   display: none;
 }
