@@ -1,0 +1,22 @@
+Meeting with Nora, Felix and Steffen
+
+Experiment is ready to be deployed
+  -Experiment will be deployed today (12.08)
+    -Reset experiment on server
+    -Merge experiment into experiment/main
+
+Data Analysis:
+  -We may have problems interpreting our results, because we don't have
+  a big enough sample size
+  -Thoughts about using Anova instead of ordinal logistical regression
+    -Anova is  less complicated
+    -OLR is easier to interpret and compare, because we have the interpretation of
+    the original experiment
+    -OLR is easier to justify since its in the original analysis
+    -We don't need any priors for ANOVA
+  -Meet again on Monday (16.08) 13 o'clock to talk about analysis in depth
+    -Beforehand: Look into analysis individually
+      -Try to understand whats happening in the original paper
+      -Try to implement
+    -Can we find the priors?
+  -Also meet afterwards with TUTOR 15 o'clock to talk about problems
