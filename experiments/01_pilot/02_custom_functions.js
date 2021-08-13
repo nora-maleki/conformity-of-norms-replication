@@ -335,51 +335,51 @@ const identity_check_viewTemplate = function(config, index){
             <div class='magpie-view-answer-container'>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
 
-                <label for="first_1" class='magpie-response-rating'>1</label>
                 <input type="radio" name="first_answer" id="first_1" value="1"/>
+                <label for="first_1" class='magpie-response-rating'>1</label>
 
-                <label for="first_2" class='magpie-response-rating'>2</label>
                 <input type="radio" name="first_answer" id="first_2" value="2"/>
+                <label for="first_2" class='magpie-response-rating'>2</label>
 
-                <label for="first_3" class='magpie-response-rating'>3</label>
                 <input type="radio" name="first_answer" id="first_3" value="3"/>
+                <label for="first_3" class='magpie-response-rating'>3</label>
 
-                <label for="first_4" class='magpie-response-rating'>4</label>
                 <input type="radio" name="first_answer" id="first_4" value="4"/>
+                <label for="first_4" class='magpie-response-rating'>4</label>
 
-                <label for="first_5" class='magpie-response-rating'>5</label>
                 <input type="radio" name="first_answer" id="first_5" value="5"/>
+                <label for="first_5" class='magpie-response-rating'>5</label>
 
-                <label for="first_6" class='magpie-response-rating'>6</label>
                 <input type="radio" name="first_answer" id="first_6" value="6"/>
+                <label for="first_6" class='magpie-response-rating'>6</label>
 
-                <label for="first_7" class='magpie-response-rating'>7</label>
                 <input type="radio" name="first_answer" id="first_7" value="7"/>
+                <label for="first_7" class='magpie-response-rating'>7</label>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>
           <p class='magpie-view-question magpie-view-qud'>I identify with ${config.data[index].Anti}</p>
             <div class='magpie-view-answer-container'>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionLeft}</strong>
-                <label for="second_1" class='magpie-response-rating'>1</label>
                 <input type="radio" name="second_answer" id="second_1" value="1" />
+                <label for="second_1" class='magpie-response-rating'>1</label>
 
-                <label for="second_2" class='magpie-response-rating'>2</label>
                 <input type="radio" name="second_answer" id="second_2" value="2" />
+                <label for="second_2" class='magpie-response-rating'>2</label>
 
-                <label for="second_3" class='magpie-response-rating'>3</label>
                 <input type="radio" name="second_answer" id="second_3" value="3" />
+                <label for="second_3" class='magpie-response-rating'>3</label>
 
-                <label for="second_4" class='magpie-response-rating'>4</label>
                 <input type="radio" name="second_answer" id="second_4" value="4"/>
+                <label for="second_4" class='magpie-response-rating'>4</label>
 
-                <label for="second_5" class='magpie-response-rating'>5</label>
                 <input type="radio" name="second_answer" id="second_5" value="5" />
+                <label for="second_5" class='magpie-response-rating'>5</label>
 
-                <label for="second_6" class='magpie-response-rating'>6</label>
                 <input type="radio" name="second_answer" id="second_6" value="6" />
+                <label for="second_6" class='magpie-response-rating'>6</label>
 
-                <label for="second_7" class='magpie-response-rating'>7</label>
                 <input type="radio" name="second_answer" id="second_7" value="7" />
+                <label for="second_7" class='magpie-response-rating'>7</label>
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[index].optionRight}</strong>
             </div>
           <div>
@@ -498,35 +498,11 @@ const post_test_viewTemplate = function(config, CT){
         </p>
         <br>
         <br>
-        <p class='magpie-view-text'>
-            <label for="education">${quest.edu.title}:</label>
-            <select id="education" name="education">
-                <option></option>
-                <option value="lower_high_school">Lower Than High School</option>
-                <option value="${quest.edu.graduated_high_school}">${quest.edu.graduated_high_school}</option>
-                <option value="${quest.edu.graduated_college}">${quest.edu.graduated_college}</option>
-                <option value="${quest.edu.higher_degree}">${quest.edu.higher_degree}</option>
-            </select>
-        </p>
         <br>
         <br>
         <p class='magpie-view-text'>
-            <label for="country" name="country">Country:</label>
-            <input type="text" id="country"/>
+            <label>Thank you for participating in this experiment!</label>
         </p>
-        <br>
-        <br>
-        <p class='magpie-view-text'>
-            <label for="city" name="city">City:</label>
-            <input type="text" id="city"/>
-        </p>
-        <br>
-        <br>
-        <p class="magpie-view-text">
-            <label for="comments">How did you like the experiment and what would you improve ? :</label>
-            <textarea name="comments" id="comments" rows="8" cols="80"></textarea>
-        </p>
-        <br>
         <button id="next" class='magpie-view-button'>${config.button}</button>
         </form>
         </section>

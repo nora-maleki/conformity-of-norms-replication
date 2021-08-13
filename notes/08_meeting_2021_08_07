@@ -1,0 +1,47 @@
+Meeting with Felix, Tjark, Steffen
+
+Discussion about feedback from Tutor on prereg:
+  Study Design:
+    -Do we use Levels or groups?
+    -TODO: Give the variables names in study design
+  Data Collection procedures:
+    -TODO: Give the names of the software and hosting services we use
+  Sample size & rationale:
+    -We can't really give a reason for a minimum participant number, ask Tutor next meeting
+  Statistical Models:
+    -TODO: Give full name of model and formula
+    -We need to ask Nora about that
+
+Feedback from participants on experiment:
+  Difference between immigrants and Refugees not clear defined:
+    -We decided to leave it as refugees since it was probably a lack of English
+    vocabulary and this is not the point of the study, instead we only want them
+    to strongly agree with on side
+  There is a lot to read and it gets confusing:
+    -Idea: Use color coding and bold, but we are not sure if that biases
+    -Ask TUTOR if we can change the stimulus
+  Give more motivation in introduction, maybe a picture:
+    -We are not a fan of visual stimuli. The experiment looks boring but it
+    is a scientific experiment after all
+    -Give motivation on what the participant can learn by doing the experiment
+  Identity check buttons looks weird:
+    -Already fixed
+
+Basic information view:
+  -We decided to delete city, country and education
+
+Randomization:
+  -Right now the participant are distributed randomly to groups, so we could have on group
+  with 10 participants and another with 5. maybe it makes sense to randomize in
+  a way that the groups are equally filled. Ask TUTOR.
+
+Work distribution:
+  -Implement Prereg Feedback after meeting with Tutor: Steffen
+  -Implement Feedback and changes to experiment: Felix, Tjark
+  -Help Nora with Data analysis: Everyone
+
+TODO:
+  -Finish data analysis
+  -Run main experiment
+  -Write final report
+  -Clean up repository (e.g. update READMEs)

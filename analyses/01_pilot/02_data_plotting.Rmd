@@ -1,0 +1,71 @@
+---
+title: "Conformity of Norms Replication Plotting"
+author: "Group 5"
+date: "July 30, 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
+```
+
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+```
+
+
+### Importing the data
+
+```{r, results='hide'}
+
+df_to_plot <- read_csv("02_clean_data.csv")
+
+```
+
+### Plotting mean response of the main trial
+
+```{r}
+df_to_plot %>%
+  filter(
+    trial_name == "experimental_trial"
+    ) %>%
+  ggplot(
+    aes(
+      ingroup_descriptive_norm_cat,
+      mean(as.numeric(response))
+      ), 
+    ) +
+  geom_boxplot(
+    size = 3,
+    alpha = .8, 
+    color = "darkred"
+    ) +
+  facet_wrap(
+    ~ both_norms_shown_cat
+  ) +
+  labs(
+    x = "Ingroup Norm",
+    y = "Mean response",
+    title = "Mean response in both norms shown condition") +
+  scale_y_continuous(labels = scales::number_format(accuracy = 0.05)) +
+  theme_gray() +
+  theme(
+    plot.title = element_text(size = 16, 
+                              hjust = .5, 
+                              margin = margin(b = 20)
+                              ),
+    axis.title.y = element_text(size = 14
+                                , hjust = .5
+                                , margin = margin(r = 15, l = 20)
+                                ),
+    axis.title.x = element_text(size = 14, 
+                                hjust = .5,
+                                margin = margin(t = 15, b = 20)
+                                ),
+    plot.margin = margin(t = 15, r = 35)
+  )
+
+```
