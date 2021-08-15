@@ -520,12 +520,6 @@ const post_test_handler = function(config, CT, magpie) {
             // records the post test info
             magpie.global_data.age = $("#age").val();
             magpie.global_data.gender = $("#gender").val();
-            magpie.global_data.education = $("#education").val();
-            magpie.global_data.country = $("#country").val();
-            magpie.global_data.city = $("#city").val();
-            magpie.global_data.comments = $("#comments")
-            .val()
-            .trim();
             magpie.global_data.condition = main.group;
             magpie.findNextView();
           });
