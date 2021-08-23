@@ -77,8 +77,6 @@ df_cleaned <- df %>%
     -c(
       QUD,
       RT,
-      age,
-      experiment_id,
       gender,
       optionLeft,
       optionRight,
@@ -212,35 +210,56 @@ df_cleaned <- df_cleaned %>%
 ### Encoding variables for analysis
 
 ```{r}
-
-df_cleaned <- df_cleaned %>%
+df_cleaned <- 
+  df_cleaned %>%
   mutate(
-    both_norms_shown_cat = case_when(
+    ingroupNorm = case_when(
       condition == 1 |
-        condition == 2 ~ "Only ingroup",
-      condition == 3 |
-        condition == 4 ~ "Both in- and outgroup"
-      ),
-    ingroup_descriptive_norm_cat = case_when(
-      condition == 1 |
-        condition == 3 ~ "Report",
+        condition == 3 
+      ~ -1,   # reporting robber
       condition == 2 |
-        condition == 4 ~ "Not Report",
+        condition == 4 
+      ~ 1    # leave him alone
     ),
-    both_norms_shown = case_when(
+    bothShown = case_when(
       condition == 1 |
-        condition == 2 ~ 0,   # only ingroup
+        condition == 2 
+      ~ 0,   # only ingroup
       condition == 3 |
-        condition == 4 ~ 1    # both in and outgroup
-      ),
-    ingroup_descriptive_norm = case_when(
-      condition == 1 |
-        condition == 3 ~ -1,  # reporting robber
-      condition == 2 |
-        condition == 4 ~ 1    # leave_him_alone
-    )
+        condition == 4 
+      ~ 1    # both in and outgroup
+      )
   )
+```
 
+```{r}
+df_cleaned %>% as.numeric(df_cleaned$response) 
+```
+
+
+```{r}
+df_cleaned <- df_cleaned %>% 
+  mutate(
+    ingroupAgree = ifelse(
+      trial_name == "identity_check_Pro" &
+        as.numeric(response) >= 5, 1, 0
+      ),
+    outgroupDisagree = ifelse(
+      trial_name == "identity_check_Anti" &
+        as.numeric(response) <= 3, 1, 0
+      )
+    )
+```
+
+
+```{r}
+df_cleaned <- df_cleaned %>% 
+  mutate(
+    ingroupAgree = ifelse(
+      trial_name == "identity_check_Anti" &
+      as.numeric(response) >= 5, 1, 0
+      )
+    )
 
 df_cleaned %>%
   glimpse()
