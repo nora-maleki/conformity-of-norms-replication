@@ -233,11 +233,6 @@ df_cleaned <-
 ```
 
 ```{r}
-df_cleaned %>% as.numeric(df_cleaned$response) 
-```
-
-
-```{r}
 df_cleaned <- df_cleaned %>% 
   mutate(
     ingroupAgree = ifelse(
@@ -253,13 +248,6 @@ df_cleaned <- df_cleaned %>%
 
 
 ```{r}
-df_cleaned <- df_cleaned %>% 
-  mutate(
-    ingroupAgree = ifelse(
-      trial_name == "identity_check_Anti" &
-      as.numeric(response) >= 5, 1, 0
-      )
-    )
 
 df_cleaned %>%
   glimpse()
