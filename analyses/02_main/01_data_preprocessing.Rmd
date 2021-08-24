@@ -206,6 +206,44 @@ df_cleaned <- df_cleaned %>%
 ```
 
 
+# ```{r}
+# df_cleaned <- df_cleaned %>% 
+#   mutate(
+#     ingroupAgree = ifelse(
+#       trial_name == "identity_check_Pro" &
+#         as.numeric(response) >= 5, 1, 0
+#       ),
+#     outgroupDisagree = ifelse(
+#       trial_name == "identity_check_Anti" &
+#         as.numeric(response) <= 3, 1, 0
+#       )
+#     )
+# ```
+
+```{r}
+df_cleaned %>% 
+  glimpse()
+```
+
+```{r}
+df_cleaned <- 
+  df_cleaned %>% 
+  pivot_wider(
+    id_cols = c(
+      submission_id, 
+      age,
+      condition
+      ),
+    names_from = trial_name,
+    values_from = response
+  ) %>% 
+  select(
+    -c(
+      understanding_check
+    )
+  )
+
+```
 
 ### Encoding variables for analysis
 
@@ -229,19 +267,19 @@ df_cleaned <-
         condition == 4 
       ~ 1    # both in and outgroup
       )
-  )
+    )
 ```
 
+
 ```{r}
-df_cleaned <- df_cleaned %>% 
+df_cleaned <- 
+  df_cleaned %>% 
   mutate(
     ingroupAgree = ifelse(
-      trial_name == "identity_check_Pro" &
-        as.numeric(response) >= 5, 1, 0
+      identity_check_Pro >= 5, 1, 0
       ),
     outgroupDisagree = ifelse(
-      trial_name == "identity_check_Anti" &
-        as.numeric(response) <= 3, 1, 0
+      identity_check_Anti <= 3, 1, 0
       )
     )
 ```
