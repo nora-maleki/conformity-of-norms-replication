@@ -160,9 +160,30 @@ fit_herding
 
 ```{r}
 
-marg_lik_SCT <- bridge_sampler(samples = fit_SCT)
-marg_lik_herding <- bridge_sampler(samples = fit_herding)
-bf(marg_lik_herding,marg_lik_SCT)
+marg_lik_SCT <- 
+  bridge_sampler(
+    samples = fit_SCT
+    )
+
+```
+
+
+```{r}
+
+marg_lik_herding <- 
+  bridge_sampler(
+    samples = fit_herding
+    )
+
+```
+
+
+```{r}
+
+bf(
+  marg_lik_herding, 
+  marg_lik_SCT
+  )
 
 ```
 
