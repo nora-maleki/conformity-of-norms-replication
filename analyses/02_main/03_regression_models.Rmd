@@ -52,7 +52,9 @@ df_cleaned %>%
 #Demographics---------------
 
 ```{r}
-demographics_summary <- df_cleaned %>% 
+
+demographics_summary <- 
+  df_cleaned %>% 
   drop_na() %>% 
   group_by(condition) %>% 
   summarize(mean_age = signif(mean(age), 1),
@@ -68,7 +70,99 @@ demographics_summary <- df_cleaned %>%
   )
 
 demographics_summary
+
+```
+
+#Frequentist Analysis----------------
+
+```{r}
+
+(ordinal_1 <- clm(as.factor(experimental_trial)~ingroupNorm*bothShown, data=df_cleaned))
+
 ```
 
 
+# Bayesian analysis------------
+#--Set up data for stan.
+
+```{r}
+
+useable_data <- 
+  df_cleaned %>%
+  select(
+    experimental_trial, 
+    ingroupNorm, 
+    bothShown, 
+    ingroupAgree, 
+    outgroupDisagree
+    ) %>% #select relevant columns
+  mutate(
+    ingroupAgree = 
+      ifelse(is.na(ingroupAgree), 1, ingroupAgree), 
+    outgroupDisagree = 
+      ifelse(is.na(outgroupDisagree), 1, outgroupDisagree)
+    ) # We assumed that participants identified with the ingroup and not with the outgroup.
+
+stan_data <- as.list(
+  c(
+    useable_data, 
+    N = dim(useable_data)[1]
+    )
+  )
+
+```
+
+
+#--Fit models
+
+```{r}
+
+fit_SCT <- 
+  stan(
+    file = "stan_models/SCT.stan", 
+    data=stan_data, 
+    iter=10000, 
+    chains=4, 
+    seed=123, 
+    control=
+      list(
+        adapt_delta = 0.99
+        )
+    )
+
+fit_SCT
+
+```
+
+
+```{r}
+
+fit_herding <- 
+  stan(
+    file = "stan_models/herding.stan", 
+    data=stan_data, 
+    iter=10000, 
+    chains=4, 
+    control=
+      list(
+        adapt_delta = 0.99
+        )
+    )
+
+fit_herding
+
+```
+
+#----Check diagnostics
+#launch_shinystan(fit_SCT)
+
+#--Compare models using Bayes Factors
+
+```{r}
+
+marg_lik_SCT <- bridge_sampler(samples = fit_SCT)
+marg_lik_herding <- bridge_sampler(samples = fit_herding)
+bf(marg_lik_herding,marg_lik_SCT)
+
+```
 
