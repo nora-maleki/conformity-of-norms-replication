@@ -1,0 +1,17 @@
+---
+title: "Conformity of Norms Replication Visualizations"
+author: "Group 5"
+date: "August 24,2021"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
+```
+
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+library(ggplot2)
+
+```
