@@ -77,7 +77,7 @@ demographics_summary
 
 ```{r}
 
-(ordinal_1 <- clm(as.factor(experimental_trial)~ingroupNorm*bothShown, data=df_cleaned))
+(ordinal <- clm(as.factor(experimental_trial)~ingroupNorm*bothShown, data=df_cleaned))
 
 ```
 
