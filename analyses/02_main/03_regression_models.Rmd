@@ -1,0 +1,74 @@
+---
+title: "Conformity of Norms Replication Analysis"
+author: "Group 5"
+date: "July 28,2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
+```
+
+# analysis based on the original analysis scripts of 
+
+Pryor C, Perfors A, Howe PDL (2019)
+Conformity to the descriptive norms of people with
+opposing political or social beliefs. PLoS ONE 14
+(7): e0219464. https://doi.org/10.1371/journal.
+pone.0219464
+
+# to be found [here](https://osf.io/tgf96/?view_only=7dc67fcc0c1f4fdea8fe1dfe5d492480)
+
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+
+library(ordinal)
+library(tidyverse)
+library(rstan)
+library(bridgesampling)
+library(shinystan)
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+set.seed(123)
+
+```
+
+
+### Importing the data
+
+```{r, results='hide'}
+
+df_cleaned <- read_csv("02_clean_data.csv")
+
+```
+
+
+```{r}
+
+df_cleaned %>% 
+  head()
+
+```
+
+#Demographics---------------
+
+```{r}
+demographics_summary <- df_cleaned %>% 
+  drop_na() %>% 
+  group_by(condition) %>% 
+  summarize(mean_age = signif(mean(age), 1),
+            min_age = min(age),
+            max_age = max(age),
+            sd_age = signif(sd(age), 1),
+            median_ag = median(age),
+            N = length(age),
+            prop_males = signif(sum(gender=="male")/N, 1),
+            prop_females = signif(sum(gender=="female")/N, 1),
+            prop_nonBinary = signif(sum(gender == "non-binary")/N, 1),
+            prop_notSaid = signif(sum(gender == "prefer_not_to_say")/N, 1)
+  )
+
+demographics_summary
+```
+
+
+
