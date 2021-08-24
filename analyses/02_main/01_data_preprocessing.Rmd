@@ -77,7 +77,6 @@ df_cleaned <- df %>%
     -c(
       QUD,
       RT,
-      gender,
       optionLeft,
       optionRight,
       startDate,
@@ -205,21 +204,6 @@ df_cleaned <- df_cleaned %>%
 
 ```
 
-
-# ```{r}
-# df_cleaned <- df_cleaned %>% 
-#   mutate(
-#     ingroupAgree = ifelse(
-#       trial_name == "identity_check_Pro" &
-#         as.numeric(response) >= 5, 1, 0
-#       ),
-#     outgroupDisagree = ifelse(
-#       trial_name == "identity_check_Anti" &
-#         as.numeric(response) <= 3, 1, 0
-#       )
-#     )
-# ```
-
 ```{r}
 df_cleaned %>% 
   glimpse()
@@ -232,7 +216,8 @@ df_cleaned <-
     id_cols = c(
       submission_id, 
       age,
-      condition
+      condition,
+      gender
       ),
     names_from = trial_name,
     values_from = response
