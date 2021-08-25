@@ -257,6 +257,7 @@ df_cleaned <-
 
 
 ```{r}
+
 df_cleaned <- 
   df_cleaned %>% 
   mutate(
@@ -266,7 +267,9 @@ df_cleaned <-
     outgroupDisagree = ifelse(
       identity_check_Anti <= 3, 1, 0
       )
-    )
+    ) %>% 
+  rename(response = experimental_trial)
+
 ```
 
 
