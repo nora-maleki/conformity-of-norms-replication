@@ -1,6 +1,6 @@
 data{
     int<lower=1> N;
-    int experimental_trial[N];
+    int response[N];
     int bothShown[N];
     real ingroupNorm[N];
 }
@@ -19,7 +19,7 @@ model{
     bBoth ~ normal( 0 , 0.5 );
     for ( i in 1:N ) {
         phi[i] = bIn * ingroupNorm[i] + bBoth * bothShown[i] + bOut * bothShown[i] * ingroupNorm[i];
-        experimental_trial[i] ~ ordered_logistic( phi[i] , cutpoints );
+        response[i] ~ ordered_logistic( phi[i] , cutpoints );
     }
 }
 generated quantities{
@@ -29,7 +29,7 @@ generated quantities{
     dev = 0;
     for ( i in 1:N ) {
         phi[i] = bIn * ingroupNorm[i] + bBoth * bothShown[i] + bOut * bothShown[i] * ingroupNorm[i];
-    dev = dev + (-2)*ordered_logistic_lpmf( experimental_trial[i] | phi[i] , cutpoints );
-    log_lik[i] = ordered_logistic_lpmf( experimental_trial[i] | phi[i] , cutpoints );
+    dev = dev + (-2)*ordered_logistic_lpmf( response[i] | phi[i] , cutpoints );
+    log_lik[i] = ordered_logistic_lpmf( response[i] | phi[i] , cutpoints );
     }
 }
