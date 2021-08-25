@@ -79,7 +79,7 @@ plot_replica
 
 ```{r}
 
-ggsave(file="plot_replica.png", plot=plot_replica, width=190, height = 110, units="mm")  
+ggsave(file="plot_replica_ingroupNorm-Preference.png", plot=plot_replica, width=190, height = 110, units="mm")  
 ggsave(file="plot_rate_statement.png", plot=plot_rate_statement, width=190, height = 110, units="mm")  
 
 ```
