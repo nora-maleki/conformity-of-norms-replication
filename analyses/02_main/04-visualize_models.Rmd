@@ -59,9 +59,10 @@ df_groups <- df_proc %>%
 ggplot(df_groups, aes(x = "", y = n, fill = factor(condition))) +
     geom_bar(stat = "identity", width = 1, col = "white") +
     #scale_fill_manual("condition",values=c("yellow", "blue", "red", "green")) +
-    scale_fill_brewer(palette = "Set1")+
+    scale_fill_brewer("condition",palette = "Set1")+
     coord_polar("y", start=0) +
-    theme_void()
+    theme_void()+
+    ggtitle("Count")
 
         
 ```
@@ -111,3 +112,26 @@ ggplot(df_proc, aes(x = condition, y = as.numeric(experimental_trial) , fill = f
 
 ```
 The higher the rating in the experimental trial the more the participant tends to leave the robber alone. In groups 2 and 4 the participant 
+
+```{r}
+#just for fun, no use intended
+
+df_age <- df_proc %>% 
+  drop_na()
+
+df_age <- df_age[df_age$age < 100,]
+
+df_age["Pro_Contra"] = case_when(
+                        df_age$rate_statement > 0 ~ "Pro",
+                        df_age$rate_statement < 0 ~ "Contra"
+                        )
+
+
+#View(df_age)
+ggplot(df_age, aes(x = age, 
+                   y = as.numeric(experimental_trial), 
+                   col = choice_of_political_topic))+
+  geom_point()+
+  geom_smooth(method='lm', formula= y~x, col = "black")#+
+  #scale_x_discrete("Age", limits= c(0,100))
+```
