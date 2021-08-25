@@ -1,0 +1,136 @@
+---
+title: "Conformity of Norms Replication Plotting - main analysis"
+author: "Group 5"
+date: "August 25, 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
+```
+
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+```
+
+
+### Importing the data
+
+```{r, results='hide'}
+
+df_to_plot <- read_csv("02_clean_data.csv")
+
+```
+
+### Plotting the distribution of the ratings of the chosen topic statement
+
+```{r}
+plot_rate_statement <- 
+  df_to_plot %>%
+  ggplot(
+    aes(
+      rate_statement
+      ), 
+    ) +
+  geom_bar(
+    size = 3,
+    alpha = .7, 
+    fill = "#1c9099"
+    ) +
+  labs(
+    x = "Rating",
+    y = "Count",
+    title = "Rating the statement of the chosen topic") +
+  scale_x_discrete(limits = -5:5, labels = c("Strongly \n disagree", "", "", "", "",
+                                              "", "", "", "", "", "Strongly \n agree")) +
+  scale_y_discrete(limits = seq(0, 14, by=2)) +
+  theme_default() +
+  theme(
+    plot.title = element_text(size = 16, 
+                              hjust = .5, 
+                              margin = margin(b = 20)
+                              ),
+    axis.title.y = element_text(size = 14
+                                , hjust = .5
+                                , margin = margin(r = 15, l = 20)
+                                ),
+    axis.title.x = element_text(size = 14, 
+                                hjust = .5,
+                                margin = margin(t = 15, b = 20)
+                                ),
+    plot.margin = margin(t = 15, r = 35)
+  )
+
+plot_rate_statement
+```
+
+### Plotting mean response of the main trial
+
+```{r}
+plot_replica <- produce_mean_and_count_bar_plot(df_to_plot, bar_width_means=1, bar_width_response=0.3)
+
+plot_replica
+```
+
+# Saving the plots
+
+```{r}
+
+ggsave(file="plot_replica_ingroupNorm-Preference.png", plot=plot_replica, width=190, height = 110, units="mm")  
+ggsave(file="plot_rate_statement.png", plot=plot_rate_statement, width=190, height = 110, units="mm")  
+
+```
+
+
+```{r}
+# This function is taken from the original study's OSF repository and went through minor aesthetic modifications 
+
+produce_mean_and_count_bar_plot <- function(df, bar_width_means=0.5, bar_width_response=0.4){
+  #--Find the higher response proportion so that I can rescale the other proportions relative to that. 
+  response_counts = group_by(df, ingroupNorm, bothShown, response)%>%
+    summarize(count = length(response))%>%ungroup()
+  max_response_count <- max(response_counts)
+  #--Set the dimensions of rectangles to add in to plot representing proportions of responses
+  props <- group_by(df, ingroupNorm, bothShown, response) %>%
+    summarize(count = length(response), 
+              relative_proportion = count/max_response_count,
+              xmin = ingroupNorm[1] - bar_width_means/1.5,
+              xmax = xmin + relative_proportion*bar_width_means,
+              ymin = response[1] - bar_width_response, 
+              ymax = response[1] + bar_width_response) %>%ungroup()
+  props$bothShown = factor(props$bothShown, labels=c("Only ingroup norm shown", "Both norms shown"))
+  
+  
+  #--Find mean responses for each condition
+  means <- group_by(df, ingroupNorm, bothShown) %>%
+    summarize(meanResponse = mean(response),
+              stdErrResponse = sd(response)/sqrt(length(response)),
+              boundLower = meanResponse - stdErrResponse,
+              boundUpper = meanResponse + stdErrResponse
+    ) %>% ungroup()
+  means$bothShown = factor(means$bothShown, labels=c("Only ingroup norm shown", "Both norms shown"))
+  
+  
+  library(scales) #Needed to give rescale_none function to oob. 
+  return_plot <- ggplot()+
+    geom_col(data=means, aes(x=ingroupNorm, y=meanResponse, fill=factor(ingroupNorm)), width=bar_width_means, alpha=0.5) +
+    geom_rect(data=props, aes(xmin=xmin, ymin=ymin, xmax=xmax, ymax=ymax, group=ingroupNorm), fill = "#9c9d9e", alpha = 0.8) +
+    scale_y_continuous(name="Preference", limits=c(1,6), oob = rescale_none, breaks = 1:6, labels=c("Definitely \n Report", "","","","", "Definitely \n leave alone")) + 
+    scale_x_continuous(name = "Ingroup Norm", breaks=c(-1,1), labels=c("Report", "Not Report"))+
+    scale_fill_manual(labels=c("Report", "Not Report"), values = c("#1c9099", "#7fcdbb")) +
+    facet_wrap(~bothShown) + 
+    #geom_segment(data=arrows, aes(x = arrowx, xend = arrowxend, y = arrowy, yend = arrowyend, colour = factor(theory), alpha=arrowAlpha), size=2, arrow=arrow(length=unit(0.2, "inches"))) +
+    #scale_colour_manual(name = "Predicted change when \nboth norms shown", labels = c("Self-categorization", "Herding"), values = c("#6c278e", "#9bea7e")) +
+    scale_alpha(range = c(0, 1)) +
+    theme_default() +
+    theme(panel.spacing = unit(4, "lines"),
+          strip.text = element_text(size = 14),
+          panel.spacing.x = unit(3, "cm")) +
+    guides(fill=FALSE, group=FALSE, alpha=FALSE)
+  return(return_plot)
+}
+```
+
