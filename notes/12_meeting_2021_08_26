@@ -1,0 +1,19 @@
+Meeting with everyone
+
+Analysis:
+  -First model gives output, but we are not sure how to interpret them
+  -Try to use brms instead of stan, because we know how to interpret brms results
+  -We only really have to analyse the Model comparison (BF) and not the models itself,
+  so we can use the stan models
+  -We then tried to compare their results of the frequentist analysis with ours
+
+Next steps:
+  -Work on plots
+  -Understand effect size and how they got CI
+  -Afterwards finish the Final report
+    -Make list of software used with versions
+    -Make list of references
+  -Clean repository
+    -Update README files so they explain what the files are
+
+Next Meeting: Sunday, 29.08.2021 15:00 o'clock to work on the final report
