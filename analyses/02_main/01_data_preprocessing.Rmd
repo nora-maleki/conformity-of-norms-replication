@@ -24,15 +24,10 @@ library(dplyr)
 
 df <- read_csv("01_raw_data.csv")
 
-```
-
-
-```{r}
-
 df %>% 
   head()
-
 ```
+
 
 
 ### Glimps of the data
@@ -63,7 +58,7 @@ df %>%
 
 df %>% 
   group_by(trial_name) %>% 
-  count()
+  tally()
 
 ```
 
@@ -97,7 +92,7 @@ df_cleaned <- df %>%
 
 df_cleaned %>% 
   group_by(trial_name) %>% 
-  count()
+  tally()
 
 ```
 
@@ -205,11 +200,14 @@ df_cleaned <- df_cleaned %>%
 ```
 
 ```{r}
+
 df_cleaned %>% 
   glimpse()
+
 ```
 
 ```{r}
+
 df_cleaned <- 
   df_cleaned %>% 
   pivot_wider(
@@ -228,6 +226,111 @@ df_cleaned <-
     )
   )
 
+```
+
+# Demographics
+
+```{r}
+
+# this chunk is taken from the original study and is modified for the replication study
+df_cleaned_no_na <-
+  df_cleaned %>%
+  drop_na()
+  # select(age, gender) %>%
+  
+demographics_summary <- 
+  tibble(mean_age = signif(mean(df_cleaned_no_na$age), 1),
+            min_age = min(df_cleaned_no_na$age),
+            max_age = max(df_cleaned_no_na$age),
+            sd_age = signif(sd(df_cleaned_no_na$age), 1),
+            median_ag = median(df_cleaned_no_na$age),
+            N = length(df_cleaned_no_na$age),
+            prop_males = signif(sum(df_cleaned_no_na$gender=="male")/N, 1),
+            prop_females = signif(sum(df_cleaned_no_na$gender=="female")/N, 1),
+            prop_rest = signif(1-(prop_males+prop_females), 1),
+  )
+
+demographics_summary
+
+```
+
+```{r}
+
+df_cleaned %>% 
+  ggplot(aes(age)) +
+  geom_bar()
+
+```
+```{r}
+df_cleaned %>% 
+  group_by(gender) %>%
+  tally()
+```
+
+```{r}
+
+df_cleaned$gender <-
+  ifelse(is.na(df_cleaned$gender), "prefer_not_to_say", df_cleaned$gender)
+
+```
+
+```{r}
+df_cleaned %>% 
+  group_by(gender) %>%
+  tally()
+```
+
+```{r}
+df_cleaned %>% 
+  group_by(age) %>%
+  tally()
+```
+
+```{r}
+
+mean_age <- 
+  df_cleaned %>% 
+  filter(
+    age < 100, 
+    !is.na(age)
+    ) %>% 
+  summarise(
+    value = round(mean(age))
+  )
+
+
+df_cleaned$age <-
+  if_else(df_cleaned$age > 100 , mean_age$value, df_cleaned$age, missing = mean_age$value)
+
+```
+
+```{r}
+df_cleaned %>% 
+  group_by(age) %>%
+  tally()
+```
+
+```{r}
+
+df_cleaned %>% 
+  ggplot(aes(age)) +
+  geom_bar()
+
+```
+```{r}
+demographics_summary <- 
+  tibble(mean_age = signif(mean(df_cleaned$age), 1),
+            min_age = min(df_cleaned$age),
+            max_age = max(df_cleaned$age),
+            sd_age = signif(sd(df_cleaned$age), 1),
+            median_ag = median(df_cleaned$age),
+            N = length(df_cleaned$age),
+            prop_males = signif(sum(df_cleaned$gender=="male")/N, 1),
+            prop_females = signif(sum(df_cleaned$gender=="female")/N, 1),
+            prop_rest = signif(1-(prop_males+prop_females), 1),
+  )
+
+demographics_summary
 ```
 
 ### Encoding variables for analysis
