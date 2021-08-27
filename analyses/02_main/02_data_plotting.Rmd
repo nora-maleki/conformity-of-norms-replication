@@ -122,13 +122,13 @@ produce_mean_and_count_bar_plot <- function(df, bar_width_means=0.5, bar_width_r
     scale_x_continuous(name = "Ingroup Norm", breaks=c(-1,1), labels=c("Report", "Not Report"))+
     scale_fill_manual(labels=c("Report", "Not Report"), values = c("#1c9099", "#7fcdbb")) +
     facet_wrap(~bothShown) + 
-    #geom_segment(data=arrows, aes(x = arrowx, xend = arrowxend, y = arrowy, yend = arrowyend, colour = factor(theory), alpha=arrowAlpha), size=2, arrow=arrow(length=unit(0.2, "inches"))) +
-    #scale_colour_manual(name = "Predicted change when \nboth norms shown", labels = c("Self-categorization", "Herding"), values = c("#6c278e", "#9bea7e")) +
+    labs(title = "Replication study")+
     scale_alpha(range = c(0, 1)) +
     theme_default() +
     theme(panel.spacing = unit(4, "lines"),
           strip.text = element_text(size = 14),
-          panel.spacing.x = unit(3, "cm")) +
+          panel.spacing.x = unit(3, "cm"),
+          plot.title = element_text(hjust = .5)) +
     guides(fill=FALSE, group=FALSE, alpha=FALSE)
   return(return_plot)
 }
