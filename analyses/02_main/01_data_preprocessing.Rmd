@@ -377,7 +377,7 @@ demographics_summary
 
 ```
 
-### Encoding variables for analysis according to the `2019 Pryor et al.`
+### Encoding variables for analysis according to the [`2019 Pryor et al.`](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0219464)
 
 ```{r}
 
