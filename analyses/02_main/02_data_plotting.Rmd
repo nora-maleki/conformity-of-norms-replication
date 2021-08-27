@@ -14,6 +14,21 @@ knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
 library(tidyverse)
 library(readr)
 
+# global color scheme / non-optimized
+project_colors = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+# setting theme colors globally
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = project_colors)
+}
+scale_fill_discrete <- function(...) {
+   scale_fill_manual(..., values = project_colors)
+} 
+
+# nicer global knitr options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      cache = TRUE, fig.align = 'center')
+
 ```
 
 
