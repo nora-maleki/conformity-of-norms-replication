@@ -1,7 +1,7 @@
 ---
 title: "Conformity of Norms Replication Preprocessing"
 author: "Group 5"
-date: "July 28,2021"
+date: "August 27,2021"
 output: html_document
 ---
 
@@ -15,8 +15,22 @@ library(tidyverse)
 library(readr)
 library(dplyr)
 
-```
+# global color scheme / non-optimized
+project_colors = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
 
+# setting theme colors globally
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = project_colors)
+}
+scale_fill_discrete <- function(...) {
+   scale_fill_manual(..., values = project_colors)
+} 
+
+# nicer global knitr options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      cache = TRUE, fig.align = 'center')
+
+```
 
 ### Importing the data
 
@@ -24,14 +38,17 @@ library(dplyr)
 
 df <- read_csv("01_raw_data.csv")
 
+```
+
+
+### Glimps at the data
+
+```{r}
+
 df %>% 
   head()
 
 ```
-
-
-
-### Glimps of the data
 
 ```{r}
 
@@ -41,7 +58,7 @@ df %>%
 ```
 
 
-### Unique submission IDs with their counts
+### Unique `submission_id`s with their counts
 
 ```{r}
 
@@ -142,7 +159,7 @@ print(
 ```
 
 
-### excluding neutral participants to their chosen social issue 
+### Excluding participants who were neutral about their chosen social issue 
 
 ```{r}
 
@@ -176,7 +193,7 @@ print(
 ```
 
 
-### Dropping invalid and neutral columns
+### Dropping temporary made `invalid` and `neutral` columns
 
 ```{r}
 
@@ -197,7 +214,7 @@ df_cleaned %>%
 
 ```
 
-# Changing the shape of the dataset to make it tidy
+### Changing the shape of the dataset from long to wide to make it tidy
 
 ```{r}
 
@@ -221,7 +238,7 @@ df_cleaned <-
 
 ```
 
-# Demographics with NAs dropped
+### Demographics with `NA`s dropped
 
 ```{r}
 
@@ -246,10 +263,10 @@ demographics_summary <-
 demographics_summary
 
 ```
->> NOTE: odd max_age
+> NOTE: odd `max_age`
 
 
-# Plotting the `age` distribution and getting their counts
+### Plotting the `age` distribution and getting their counts
 
 ```{r}
 
@@ -267,7 +284,7 @@ df_cleaned %>%
 
 ```
 
-# Getting the mean of age without `NA`s and `age > 100`
+### Getting the mean of `age` without `NA`s and `age > 100`
 
 ```{r}
 
@@ -283,7 +300,7 @@ mean_age <-
 
 ```
 
-# Replacing the `NA`s and `age > 100` in age with the mean of the rest of ages
+### Replacing the `NA`s and `age > 100` in `age` with the `mean` of the rest of ages
 
 ```{r}
 
@@ -304,7 +321,7 @@ df_cleaned %>%
   tally()
 
 ```
-# Plotting age distribution after replacements
+### Plotting `age` distribution after replacements
 
 ```{r}
 
@@ -314,7 +331,7 @@ df_cleaned %>%
 
 ```
 
-# Checking whether there are `NA`s in `gender`
+### Checking whether there are `NA`s in `gender`
 
 ```{r}
 
@@ -323,7 +340,7 @@ df_cleaned %>%
   tally()
 
 ```
-# Replacing `NA`s in `gender` with `prefer_not_to_say`
+### Replacing `NA`s in `gender` with `prefer_not_to_say`
 
 ```{r}
 
@@ -340,7 +357,7 @@ df_cleaned %>%
 
 ```
 
-# Demographics after replacements
+### Demographics after replacements
 
 ```{r}
 
@@ -360,7 +377,7 @@ demographics_summary
 
 ```
 
-### Encoding variables for analysis
+### Encoding variables for analysis according to the `2019 Pryor et al.`
 
 ```{r}
 
@@ -384,7 +401,7 @@ df_cleaned <-
 ```
 
 
-# Creating variables `ingroupAgree` and `outgroupDisagree` for the alternative model
+### Creating variables `ingroupAgree` and `outgroupDisagree` for the alternative model
 
 ```{r}
 
@@ -420,3 +437,10 @@ write.csv(df_cleaned,"02_clean_data.csv", row.names = FALSE)
 ```
 
 
+## Refrence
+
+Pryor C, Perfors A, Howe PDL (2019)
+Conformity to the descriptive norms of people with
+opposing political or social beliefs. PLoS ONE 14
+(7): e0219464. https://doi.org/10.1371/journal.
+pone.0219464
