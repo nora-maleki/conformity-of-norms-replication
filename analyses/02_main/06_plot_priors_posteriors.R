@@ -1,5 +1,5 @@
 #This script is from the original study and is just adjusted for the replication
-#NOTE: Run 03_regression_models.Rmd first in order to get posterior parameter estimates.
+#NOTE on dependencies: Run 03_regression_models.Rmd first in order to get posterior parameter estimates.
 
 #Extract priors
 model_SCT_prior = "parameters{
