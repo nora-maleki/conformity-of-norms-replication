@@ -1,7 +1,7 @@
 ---
 title: "Conformity of Norms Replication Analysis"
 author: "Group 5"
-date: "July 28,2021"
+date: "August 27,2021"
 output: html_document
 ---
 
@@ -9,15 +9,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
 ```
 
-# analysis based on the original analysis scripts of 
+### Analysis based on the original analysis scripts of 
 
-Pryor C, Perfors A, Howe PDL (2019)
+> Pryor C, Perfors A, Howe PDL (2019)
 Conformity to the descriptive norms of people with
 opposing political or social beliefs. PLoS ONE 14
 (7): e0219464. https://doi.org/10.1371/journal.
 pone.0219464
 
-# to be found [here](https://osf.io/tgf96/?view_only=7dc67fcc0c1f4fdea8fe1dfe5d492480)
+### Their original repository can be found [here](https://osf.io/tgf96/?view_only=7dc67fcc0c1f4fdea8fe1dfe5d492480)
 
 ```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
 
@@ -32,6 +32,21 @@ rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 set.seed(123)
 
+# global color scheme / non-optimized
+project_colors = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+# setting theme colors globally
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = project_colors)
+}
+scale_fill_discrete <- function(...) {
+   scale_fill_manual(..., values = project_colors)
+} 
+
+# nicer global knitr options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      cache = TRUE, fig.align = 'center')
+
 ```
 
 
@@ -43,6 +58,7 @@ df_cleaned <- read_csv("02_clean_data.csv")
 
 ```
 
+### Glimps at the data
 
 ```{r}
 
@@ -50,14 +66,24 @@ df_cleaned %>%
   head()
 
 ```
+```{r}
 
-#Frequentist Analysis----------------
+df_cleaned %>% 
+  glimpse()
+
+```
+
+### Frequentist Analysis: ` Effect sizes `
 
 ```{r}
 
+# cumulative link models
 ordinal <- clm(as.factor(response)~ingroupNorm*bothShown, data=df_cleaned)
 
+# coefficients
 coefs <- exp(coef(ordinal))
+
+# confidence intervals
 CI <- exp(confint(ordinal))
 
 ```
@@ -73,8 +99,8 @@ CI
 
 ```
 
-# Bayesian analysis------------
-#--Set up data for stan.
+### Bayesian analysis
+#### Setting up data for stan
 
 ```{r}
 
@@ -104,7 +130,7 @@ stan_data <- as.list(
 ```
 
 
-#--Fit models
+### Fitting ` Self-categorization theory ` model
 
 ```{r}
 
@@ -123,6 +149,7 @@ fit_SCT <-
 
 ```
 
+### Fitting the ` alternative ` model
 
 ```{r}
 
@@ -140,10 +167,7 @@ fit_herding <-
 
 ```
 
-#----Check diagnostics
-#launch_shinystan(fit_SCT)
-
-#--Compare models using Bayes Factors
+### ` Model comparison ` using Bayes Factors
 
 ```{r}
 
@@ -152,20 +176,10 @@ marg_lik_SCT <-
     samples = fit_SCT
     )
 
-```
-
-
-```{r}
-
 marg_lik_herding <- 
   bridge_sampler(
     samples = fit_herding
     )
-
-```
-
-
-```{r}
 
 bridgesampling::bf(
   marg_lik_herding,
@@ -173,5 +187,4 @@ bridgesampling::bf(
   )
 
 ```
-
 
