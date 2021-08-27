@@ -14,6 +14,21 @@ knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
 library(tidyverse)
 library(readr)
 
+# global color scheme / non-optimized
+project_colors = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+# setting theme colors globally
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = project_colors)
+}
+scale_fill_discrete <- function(...) {
+   scale_fill_manual(..., values = project_colors)
+} 
+
+# nicer global knitr options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      cache = TRUE, fig.align = 'center')
+
 ```
 
 
@@ -122,13 +137,13 @@ produce_mean_and_count_bar_plot <- function(df, bar_width_means=0.5, bar_width_r
     scale_x_continuous(name = "Ingroup Norm", breaks=c(-1,1), labels=c("Report", "Not Report"))+
     scale_fill_manual(labels=c("Report", "Not Report"), values = c("#1c9099", "#7fcdbb")) +
     facet_wrap(~bothShown) + 
-    #geom_segment(data=arrows, aes(x = arrowx, xend = arrowxend, y = arrowy, yend = arrowyend, colour = factor(theory), alpha=arrowAlpha), size=2, arrow=arrow(length=unit(0.2, "inches"))) +
-    #scale_colour_manual(name = "Predicted change when \nboth norms shown", labels = c("Self-categorization", "Herding"), values = c("#6c278e", "#9bea7e")) +
+    labs(title = "Replication study")+
     scale_alpha(range = c(0, 1)) +
     theme_default() +
     theme(panel.spacing = unit(4, "lines"),
           strip.text = element_text(size = 14),
-          panel.spacing.x = unit(3, "cm")) +
+          panel.spacing.x = unit(3, "cm"),
+          plot.title = element_text(hjust = .5)) +
     guides(fill=FALSE, group=FALSE, alpha=FALSE)
   return(return_plot)
 }
