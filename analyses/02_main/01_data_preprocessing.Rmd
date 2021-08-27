@@ -26,6 +26,7 @@ df <- read_csv("01_raw_data.csv")
 
 df %>% 
   head()
+
 ```
 
 
@@ -52,7 +53,7 @@ df %>%
 ```
 
 
-### Unique trials according to `trial_name`
+### Trials and their count according to `trial_name`
 
 ```{r}
 
@@ -87,6 +88,7 @@ df_cleaned <- df %>%
 
 ```
 
+### Trials and their count according to `trial_name` after cleaning
 
 ```{r}
 
@@ -136,17 +138,6 @@ print(
     "We excluded ", removed_invalid, " participant(s) for failing the understanding check."
     )
   )
-
-```
-
-
-
-```{r}
-
-df_cleaned %>% 
-  group_by(submission_id) %>% 
-  count() %>% 
-  unique()
 
 ```
 
@@ -206,6 +197,8 @@ df_cleaned %>%
 
 ```
 
+# Changing the shape of the dataset to make it tidy
+
 ```{r}
 
 df_cleaned <- 
@@ -228,7 +221,7 @@ df_cleaned <-
 
 ```
 
-# Demographics
+# Demographics with NAs dropped
 
 ```{r}
 
@@ -253,6 +246,10 @@ demographics_summary <-
 demographics_summary
 
 ```
+>> NOTE: odd max_age
+
+
+# Plotting the `age` distribution and getting their counts
 
 ```{r}
 
@@ -261,30 +258,16 @@ df_cleaned %>%
   geom_bar()
 
 ```
-```{r}
-df_cleaned %>% 
-  group_by(gender) %>%
-  tally()
-```
 
 ```{r}
 
-df_cleaned$gender <-
-  ifelse(is.na(df_cleaned$gender), "prefer_not_to_say", df_cleaned$gender)
-
-```
-
-```{r}
-df_cleaned %>% 
-  group_by(gender) %>%
-  tally()
-```
-
-```{r}
 df_cleaned %>% 
   group_by(age) %>%
-  tally()
+  count()
+
 ```
+
+# Getting the mean of age without `NA`s and `age > 100`
 
 ```{r}
 
@@ -298,17 +281,30 @@ mean_age <-
     value = round(mean(age))
   )
 
+```
+
+# Replacing the `NA`s and `age > 100` in age with the mean of the rest of ages
+
+```{r}
 
 df_cleaned$age <-
-  if_else(df_cleaned$age > 100 , mean_age$value, df_cleaned$age, missing = mean_age$value)
+  if_else(
+    df_cleaned$age > 100 , 
+    mean_age$value, 
+    df_cleaned$age, 
+    missing = mean_age$value)
 
 ```
 
+
 ```{r}
+
 df_cleaned %>% 
   group_by(age) %>%
   tally()
+
 ```
+# Plotting age distribution after replacements
 
 ```{r}
 
@@ -317,7 +313,37 @@ df_cleaned %>%
   geom_bar()
 
 ```
+
+# Checking whether there are `NA`s in `gender`
+
 ```{r}
+
+df_cleaned %>% 
+  group_by(gender) %>%
+  tally()
+
+```
+# Replacing `NA`s in `gender` with `prefer_not_to_say`
+
+```{r}
+
+df_cleaned$gender <-
+  ifelse(is.na(df_cleaned$gender), "prefer_not_to_say", df_cleaned$gender)
+
+```
+
+```{r}
+
+df_cleaned %>% 
+  group_by(gender) %>%
+  tally()
+
+```
+
+# Demographics after replacements
+
+```{r}
+
 demographics_summary <- 
   tibble(mean_age = signif(mean(df_cleaned$age), 1),
             min_age = min(df_cleaned$age),
@@ -327,37 +353,38 @@ demographics_summary <-
             N = length(df_cleaned$age),
             prop_males = signif(sum(df_cleaned$gender=="male")/N, 1),
             prop_females = signif(sum(df_cleaned$gender=="female")/N, 1),
-            prop_rest = signif(1-(prop_males+prop_females), 1),
+            prop_rest = signif(1-(prop_males+prop_females), 1) # proportion of all options that are neither female nor male
   )
 
 demographics_summary
+
 ```
 
 ### Encoding variables for analysis
 
 ```{r}
+
 df_cleaned <- 
   df_cleaned %>%
   mutate(
     ingroupNorm = case_when(
       condition == 1 |
-        condition == 3 
-      ~ -1,   # reporting robber
+        condition == 3 ~ -1,   # reporting robber
       condition == 2 |
-        condition == 4 
-      ~ 1    # leave him alone
+        condition == 4 ~ 1    # leave him alone
     ),
     bothShown = case_when(
       condition == 1 |
-        condition == 2 
-      ~ 0,   # only ingroup
+        condition == 2 ~ 0,   # only ingroup
       condition == 3 |
-        condition == 4 
-      ~ 1    # both in and outgroup
+        condition == 4 ~ 1    # both in and outgroup
       )
     )
+
 ```
 
+
+# Creating variables `ingroupAgree` and `outgroupDisagree` for the alternative model
 
 ```{r}
 
@@ -365,10 +392,10 @@ df_cleaned <-
   df_cleaned %>% 
   mutate(
     ingroupAgree = ifelse(
-      identity_check_Pro >= 5, 1, 0
+      identity_check_Pro >= 5, 1, 0   # 1 for participant identifying with the ingroup
       ),
     outgroupDisagree = ifelse(
-      identity_check_Anti <= 3, 1, 0
+      identity_check_Anti <= 3, 1, 0   # 1 for participant not identifying with the outgroup
       )
     ) %>% 
   rename(response = experimental_trial)
