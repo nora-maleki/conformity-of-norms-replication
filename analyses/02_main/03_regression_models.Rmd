@@ -51,38 +51,27 @@ df_cleaned %>%
 
 ```
 
-#Demographics---------------
-
-```{r}
-
-demographics_summary <- 
-  df_cleaned %>% 
-  drop_na() %>% 
-  group_by(condition) %>% 
-  summarize(mean_age = signif(mean(age), 1),
-            min_age = min(age),
-            max_age = max(age),
-            sd_age = signif(sd(age), 1),
-            median_ag = median(age),
-            N = length(age),
-            prop_males = signif(sum(gender=="male")/N, 1),
-            prop_females = signif(sum(gender=="female")/N, 1),
-            prop_nonBinary = signif(sum(gender == "non-binary")/N, 1),
-            prop_notSaid = signif(sum(gender == "prefer_not_to_say")/N, 1)
-  )
-
-demographics_summary
-
-```
-
 #Frequentist Analysis----------------
 
 ```{r}
 
-(ordinal <- clm(as.factor(response)~ingroupNorm*bothShown, data=df_cleaned))
+ordinal <- clm(as.factor(response)~ingroupNorm*bothShown, data=df_cleaned)
+
+coefs <- exp(coef(ordinal))
+CI <- exp(confint(ordinal))
 
 ```
 
+```{r}
+
+coefs
+
+```
+```{r}
+
+CI
+
+```
 
 # Bayesian analysis------------
 #--Set up data for stan.
@@ -132,8 +121,6 @@ fit_SCT <-
         )
     )
 
-fit_SCT
-
 ```
 
 
@@ -150,8 +137,6 @@ fit_herding <-
         adapt_delta = 0.99
         )
     )
-
-fit_herding
 
 ```
 
