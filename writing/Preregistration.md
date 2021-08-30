@@ -50,11 +50,11 @@ analysis.
 to complete the understanding check correctly and/or reports to
 be neutral about their chosen social issue.
 
-**Missing data(optional):** If the results of the variables used in the
+**Missing data:** If the results of the variables used in the
 analysis are missing, we will remove the data of that session from
 the dataset.
 
-**Exploratory analysis(optional):** The following are some
+**Exploratory analysis:** The following are some
 exploratory ideas that are not included in the original paper.
 We will implement these ideas only if we are finished with the
 main part and still have time left, so it might be, that none
