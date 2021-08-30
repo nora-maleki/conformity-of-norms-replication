@@ -439,31 +439,11 @@ write.csv(df_cleaned,"02_clean_data.csv", row.names = FALSE)
 
 # --- ` Exploration ` ---
 
-### Omitting the unnecessary columns and trials for the analysis
-
-```{r}
-
-df_exploration <- df %>% 
-  select(
-    -c(
-      QUD,
-      RT,
-      optionLeft,
-      optionRight,
-      startDate,
-      startTime,
-      trial_number
-    )
-  )
-
-```
-
-
 ### Counting the participants who failed the understanding checks
 
 ```{r}
 
-df_exploration <- df_exploration %>% 
+df_exploration <- df %>% 
   mutate(
     invalid_U1 = case_when(
       trial_name == "understanding_check" &
