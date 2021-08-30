@@ -80,6 +80,7 @@ df %>%
 
 ```
 
+## --- ` For Main Analysis ` ---
 
 ### Omitting the unnecessary columns and trials for the analysis
 
@@ -436,6 +437,59 @@ write.csv(df_cleaned,"02_clean_data.csv", row.names = FALSE)
 
 ```
 
+# --- ` Exploration ` ---
+
+### Counting the participants who failed the understanding checks
+
+```{r}
+
+df_exploration <- df %>% 
+  mutate(
+    invalid_U1 = case_when(
+      trial_name == "understanding_check" &
+        response == "incorrect" ~ TRUE,
+      TRUE ~ FALSE
+      ),
+    invalid_U2 = case_when(
+      trial_name == "understanding_check2" &
+        response == "incorrect" ~ TRUE,
+      TRUE ~ FALSE
+      ),
+    invalid_both = case_when(
+      trial_name == "understanding_check" &
+      trial_name == "understanding_check2" &
+        response == "incorrect" ~ TRUE,
+      TRUE ~ FALSE
+      )
+    )
+
+invalid_ids_U1 <- df_exploration$submission_id[which(df_exploration$invalid_U1 == TRUE)]
+invalid_ids_U2 <- df_exploration$submission_id[which(df_exploration$invalid_U2 == TRUE)]
+invalid_ids_both <- df_exploration$submission_id[which(df_exploration$invalid_both == TRUE)]
+
+sum_invalid_U1 <- sum(df_exploration$invalid_U1)
+sum_invalid_U2 <- sum(df_exploration$invalid_U2)
+sum_invalid_both <- sum(df_exploration$invalid_both)
+
+
+cat(
+  paste0(
+    sum_invalid_U1, " participant(s) failed the first understanding check.\n",
+    sum_invalid_U2, " participant(s) failed the second understanding check.\n",
+    sum_invalid_both, " participant(s) failed both understanding checks."
+    )
+  )
+
+
+```
+
+### Storing the exploration dataset
+
+```{r}
+
+write.csv(df_cleaned,"03_exploratory_data.csv", row.names = FALSE)
+
+```
 
 ## Refrence
 
