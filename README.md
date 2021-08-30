@@ -25,19 +25,24 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 * The Final Report as well as the Preregistration and the Experimental Design
 
 ## Software and Versions
-* Analysis:
-  * R 4.0.3
-  * RStudio 1.4.1103
-  * Packages:
-    * tidyverse	1.3.0
-    * readr 			1.4.0
-    * dplyr 			1.0.3
-    * ordinal 		2019.12.10
-    * rstan 			2.21.2
-    * bridgesampling 	1.0.0
-    * shinystan 		2.5.0
-* Implementation of experiment:
-  * _magpie 0.2.3
+
+![R version](https://img.shields.io/badge/R-4.0.3-brightgreen.svg)
+![RStudio version](https://img.shields.io/badge/RStudio-1.4.1103-brightgreen.svg)
+
+  * R Packages for Analysis:
+
+  ![tidyverse version](https://img.shields.io/badge/tidyverse-1.3.0-yellow.svg)
+  ![readr version](https://img.shields.io/badge/readr-1.4.0-yellow.svg)
+  ![dplyr version](https://img.shields.io/badge/dplyr-1.0.3-yellow.svg)
+  ![ordinal version](https://img.shields.io/badge/ordinal-2019.12.10-yellow.svg)
+  ![rstan version](https://img.shields.io/badge/rstan-2.21.2-yellow.svg)
+  ![bridgesampling version](https://img.shields.io/badge/bridgesampling-1.0.0-yellow.svg)
+  ![shinystan version](https://img.shields.io/badge/shinystan-2.5.0-yellow.svg)
+
+* Implementation of the experiment:
+
+ ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-orange.svg)
+  
 * Git was used as the version control system
 
 ## References
