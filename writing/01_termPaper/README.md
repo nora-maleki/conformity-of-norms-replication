@@ -1,1 +1,0 @@
-# *writing/01_termPaper* folder
