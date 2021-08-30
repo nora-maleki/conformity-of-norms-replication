@@ -10,16 +10,16 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 * All the analysis scripts that where used for the statistical analysis
 
 #### data
-* Raw and preprocessed data of our experiment
+* Raw and preprocessed data of our experiment and pilot
 
 #### experiments
-* Code for our experiment written in HTML and JavaScript using of _magpie
+* Code for our experiment written in HTML and JavaScript using [_magpie](https://magpie-ea.github.io/magpie-site/ "_magpie Homepage")
 
 #### notes
 * All the notes that were taken during our meetings
 
 #### supplementary_material
-* Supplementary material like plots, graphics and html outputs of analysis scripts
+* Supplementary materials like plots, graphics and html outputs of analysis scripts
 
 #### writing
 * The Final Report as well as the Preregistration and the Experimental Design
@@ -42,7 +42,7 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 * Implementation of the experiment:
 
  ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-orange.svg)
-  
+
 * Git was used as the version control system
 
 ## References
