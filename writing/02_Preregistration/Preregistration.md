@@ -57,9 +57,9 @@ log<sub>e</sub>(odds of responding higher) = b<sub>in</sub> _I_ + b<sub>both</su
 b<sub>in</sub> ~ normal( 0.6/0.75 * 1.02, 0.5 )      <br>
 b<sub>both</sub> ~ normal( 0, 0.5 )    <br>
 >
->|Self-Categorization Theory Model  | Descriptive Norm Model (alternative model)  |
+>| Self-Categorization Theory Model  | Descriptive Norm Model (alternative model)  |
 |---|---|
-|b<sub>out</sub> ~ normal( 0, 0.5 ) | - (0.85 / 0.6) * b<sub>in</sub> |
+| b<sub>out</sub> ~ normal( 0, 0.5 ) | - (0.85 / 0.6) * b<sub>in</sub> |
 
 
 We utilize the programming language R for our
