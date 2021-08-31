@@ -20,7 +20,7 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 
 #### [![experiments](https://img.shields.io/badge/experiments--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/experiments)
 >Code for our experiment [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-teal.svg)](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)
-and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.shields.io/badge/HTML-1f425f.svg) using [![_magpie](https://img.shields.io/badge/_magpie-departure%20point-teal.svg)](https://github.com/magpie-ea/magpie-departure-point "departure point github repository")
+and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.shields.io/badge/HTML-1f425f.svg) using [![_magpie](https://img.shields.io/badge/__magpie-departure%20point-teal.svg)](https://github.com/magpie-ea/magpie-departure-point "departure point github repository")
 
 
 #### [![notes](https://img.shields.io/badge/notes--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/notes)
@@ -59,7 +59,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 
 * Implementation of the experiment:
 
- ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-purple.svg)
+ [![_magpie version](https://img.shields.io/badge/__magpie-0.2.3-purple.svg)](https://magpie-ea.github.io/magpie-site/ "_magpie Homepage")
 
 * [![git](https://img.shields.io/badge/--F05032?logo=git&logoColor=ffffff)](http://git-scm.com/)
 Git was used as the version control system
