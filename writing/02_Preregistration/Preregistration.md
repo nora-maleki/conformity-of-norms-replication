@@ -43,7 +43,7 @@ the robber). The rating will be conducted on a 6-point Likert scale.
 ## Analysis Plan
 **Statistical models:** Identically to the original study done by Pryor et al. (2019), we will be using Bayesian oridinal logistic regression and model comparison using Bayes Factor to asses which model is able to predict the obsereved data better and in which ratio.
 Our design would be also taken from the original study, a 2 ( `I: ingroup_descriptive_norm = {-1, 1}` ) x 2 (`B: both_norms_shown = {0, 1}` ) between subject design.
-The models to be used for the analysis are as follow:
+The models to be used for the analysis are as follows:
 
  **Self-Categorization Theory Model:** <br>
 log<sub>e</sub>(odds) = b<sub>in</sub> _I_ X INGROUP AGREE + b<sub>both</sub> _B_ + b<sub>out</sub> _I_ X _B_ X OUTGROUP DISAGREE
