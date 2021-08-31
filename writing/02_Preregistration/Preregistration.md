@@ -45,21 +45,21 @@ the robber). The rating will be conducted on a 6-point Likert scale.
 Our design would be also taken from the original study, a 2 ( `I: ingroup_descriptive_norm = {-1, 1}` ) x 2 (`B: both_norms_shown = {0, 1}` ) between subject design.
 The models to be used for the analysis are as follow:
 
-> **Self-Categorization Theory Model:** <br>
+ **Self-Categorization Theory Model:** <br>
 log<sub>e</sub>(odds) = b<sub>in</sub> _I_ X INGROUP AGREE + b<sub>both</sub> _B_ + b<sub>out</sub> _I_ X _B_ X OUTGROUP DISAGREE
->> `INGROUP AGREE = {0, 1}` <br>
+> `INGROUP AGREE = {0, 1}` <br>
 `OUTGROUP DISAGREE = {0, 1}`
 
-> **Descriptive Norm Model:** <br>
+ **Descriptive Norm Model:** <br>
 log<sub>e</sub>(odds of responding higher) = b<sub>in</sub> _I_ + b<sub>both</sub> _B_ + b<sub>out</sub> _I_ X _B_
 
-> **Priors and thier distributions are listed below:** <br>
+ **Priors and their distributions are listed below:** <br>
 b<sub>in</sub> ~ normal( 0.6/0.75 * 1.02, 0.5 )      <br>
 b<sub>both</sub> ~ normal( 0, 0.5 )    <br>
->
->| Self-Categorization Theory Model  | Descriptive Norm Model (alternative model)  |
+
+| Self-Categorization Theory Model  | Descriptive Norm Model (alternative model)  |
 |---|---|
-| b<sub>out</sub> ~ normal( 0, 0.5 ) | - (0.85 / 0.6) * b<sub>in</sub> |
+| b<sub>out</sub> ~ normal(0, 0.5) | - (0.85 / 0.6) * b<sub>in</sub> |
 
 
 We utilize the programming language R for our
