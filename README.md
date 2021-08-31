@@ -65,7 +65,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 Git was used as the version control system
 
 ## License
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://en.wikipedia.org/wiki/MIT_License)
 
 ## References
 
