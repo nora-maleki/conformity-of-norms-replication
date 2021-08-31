@@ -4,4 +4,4 @@
 * Experiment code for the pilot
 
 ### 02_main
-* experiment code for the main experiment
+* The link to the main version's Release is contained in the folder's readme
