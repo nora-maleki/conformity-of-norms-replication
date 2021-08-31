@@ -38,7 +38,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 
 
 
-[![running_experiment](https://img.shields.io/badge/go%20to%20experiment-Netlify-brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
+[![running_experiment](https://img.shields.io/badge/go%20to%20experiment-Netlify-brightgreen.svg)](https://conformity-of-norms-replication.netlify.app/)
 
 [![submodule](https://img.shields.io/badge/experiment%20is%20powered%20from%20the%20submodule-01_pilot-darkgreen.svg)](https://github.com/nora-maleki/01_pilot)
 
