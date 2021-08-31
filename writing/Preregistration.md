@@ -13,13 +13,13 @@
 
 **Blinding:** Participants will be randomly divided into four groups. Participants are not informed about this division. The experiment will be conducted via Browser. There will be no direct contact between participants and experimenters.
 
-**Study Design:** We will use a 2x2 between subjects design, so we will have two independent variables with two levels each.
+**Study Design:** We will use a 2x2 between subjects design, so we will have two independent variables (`both_norms_shown` and `ingroup_descriptive_norm`)  with two levels each.
 
 **Randomization:** All participants will be randomly assigned to one of four conditions, which will determine the descriptive norm they will be shown. (only ingroup _(reporting the robber)_, only ingroup _(not reporting the robber)_, ingroup and outgroup _(reporting the robber)_, ingroup and outgroup _(not reporting the robber)_)
 ## Sampling Plan
 **Existing data:** Data from the pilot study (N = 4) was only used to handle the construction of the analyses script and will not be included in the final analyses. No data was collected for the main experiment, before the time of preregistration for this study.
 
-**Data Collection procedures:** Participants will be drafted through the experimenters on social media and through the mailing list of the University of Osnabrueck. Participation is voluntary and will not be compensated. Every participant is allowed to take part only once. We will wait 7 days after initial invitations went out until we close data collection.
+**Data Collection procedures:** Participants will be drafted through the experimenters on social media and through the mailing list of the University of Osnabrueck. Participation is voluntary and will not be compensated. Every participant is allowed to take part only once. We will wait 7 days after initial invitations went out until we close data collection. Our experiment will run on javascript and html code and uses the "magpie-departure_point" as a template. For deployment of the experiment we will use the web host "Netlify". 
 
 **Sample Size:** Our goal is to draft as many participants as possible.
 
