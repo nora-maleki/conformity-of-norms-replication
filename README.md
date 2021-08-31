@@ -27,7 +27,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://html
 >All the notes that were taken during our meetings
 
 #### [![supplementary_material](https://img.shields.io/badge/supplementary_material--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
->Supplementary materials including plots, graphics and html outputs of analysis scripts
+>Supplementary materials including plots, html outputs of analysis scripts and text materials
 
 #### [![writing](https://img.shields.io/badge/writing--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/writing)
 >The Final Report as well as the Preregistration and the Experimental Design
