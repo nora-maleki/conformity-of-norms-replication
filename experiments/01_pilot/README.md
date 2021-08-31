@@ -1,4 +1,4 @@
-# *01_pilot* folder
+# *experiments/01_pilot* folder
 
 ### images
 * contains images from depature point and consent form (not used in the main experiment)
