@@ -5,7 +5,7 @@
 
 This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a final project for the course Experimental Psychology Lab taught by Prof. Dr. Michael Franke at University of Osnabrück, SoSe2021
 
-**Contributers**: Tjark Darius, Nora Maleki, Steffen Roeber and Felix Selenka
+**Contributers**: [Tjark Darius](https://github.com/tjayada), [Nora Maleki](https://github.com/nora-maleki), [Steffen Roeber](https://github.com/Stroeber) and [Felix Selenka](https://github.com/Felix-Selenka)
 
 **_Note_:** This repository was created from the template of the ["Basic template for an experimental project"](https://github.com/nora-maleki/basic-template-for-an-experimental-project) repository which was also a project of the same Experimental Psychology Lab course
 
