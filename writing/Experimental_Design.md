@@ -81,12 +81,14 @@ In the end participants will be thanked for their participation
 
 
 
-Following the identity check we will be doing another understanding check that is exploratory and will be more directed towards the perception of the responses from the experimental trail. We will ask the participant “Which of the following statements is true?” and present to options:  
+Following the identity check we will be doing another understanding check that is exploratory and will be more directed towards the perception of the responses from the experimental trail. We will ask the participant “Which of the following statements is true?” and present two options:  
 1. The majority of people who agreed with you on [topic] chose to leave the robber alone.
 2. The majority of people who agreed with you on [topic] chose to call the police.  
 
-The correct answer depends on the condition the participant was in.  
-Next the participant will be presented another exploratory question where they have to rate on a likert scale from 1 to 7 how much they agree with the following statement:  
+The correct answer depends on the condition the participant was in. This understanding checks aims to test the participants understanding of the bit of information that is most central for the success of the experiment.  
+Next, the participant will be presented another exploratory question where they have to rate on a likert scale from 1 to 7 how much they agree with the following statement:  
 1. I would prefer the company of someone who agrees with me on [topic] over the company of someone who disagrees with me on [topic].  
 
-Then the participant will have reached the last page on which they will provide demographic information about them including only age and gender, since other demographic details are not necessary and won’t be analysed anyway. For the pilot there will also be a comment section. In the end participants will be thanked for their participation.
+With this question we try to measure the participants antipathy towards their outgroup.
+
+After that, the participant will have reached the last page on which they will provide demographic information about them including only age and gender, since other demographic details are not necessary and won’t be analysed anyway. For the pilot there will also be a comment section. In the end participants will be thanked for their participation.
