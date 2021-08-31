@@ -1,4 +1,4 @@
-[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://en.wikipedia.org/wiki/MIT_License)
 
 # Conformity to the descriptive norms of people with opposing political or social beliefs - replication
 
@@ -19,8 +19,8 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 >Raw and preprocessed data of our experiment and pilot
 
 #### [![experiments](https://img.shields.io/badge/experiments--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/experiments)
->Code for our experiment [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-teal.svg)](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)
-and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.shields.io/badge/HTML-1f425f.svg) using [![_magpie](https://img.shields.io/badge/__magpie-departure%20point-teal.svg)](https://github.com/magpie-ea/magpie-departure-point "departure point github repository")
+>Code for our experiment [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-teal.svg)](https://www.javascript.com/)
+and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://html.com/) using [![_magpie](https://img.shields.io/badge/__magpie-departure%20point-teal.svg)](https://github.com/magpie-ea/magpie-departure-point "departure point github repository")
 
 
 #### [![notes](https://img.shields.io/badge/notes--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/notes)
