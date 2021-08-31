@@ -33,7 +33,12 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 <br>
 
 ##### To run the current version of the experiment click the button below:
+
+
+
 [![running_experiment](https://img.shields.io/badge/go%20to%20experiment-Netlify-brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
+
+[![running_experiment](https://img.shields.io/badge/powered%20from%20the%20submodule-01_pilot-darkgreen.svg)](https://github.com/nora-maleki/01_pilot)
 
 ## Software and Versions
 
