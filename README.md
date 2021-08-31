@@ -1,28 +1,34 @@
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+
 # Conformity to the descriptive norms of people with opposing political or social beliefs - replication
 
 
-This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a final project for the course Experimental Psychology Lab taught by Prof. Dr. Michael Franke at University of Osnabrück, SoSe2021  
-**Authors**: Tjark Darius, Nora Maleki, Steffen Roeber and Felix Selenka
+This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a final project for the course Experimental Psychology Lab taught by Prof. Dr. Michael Franke at University of Osnabrück, SoSe2021
+
+**Contributers**: Tjark Darius, Nora Maleki, Steffen Roeber and Felix Selenka
+
+**_Note_:** This repository was created from the template of the ["Basic template for an experimental project"](https://github.com/nora-maleki/basic-template-for-an-experimental-project) repository which was also a project of the same Experimental Psychology Lab course
+
+## **Folder structure**
+####  [![analyses](https://img.shields.io/badge/analyses-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/analyses)
+>All the analysis scripts that where used for the statistical analysis
+
+#### [![data](https://img.shields.io/badge/data-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/data)
+>Raw and preprocessed data of our experiment and pilot
+
+#### [![experiments](https://img.shields.io/badge/experiments-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/experiments)
+>Code for our experiment [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-teal.svg)](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)
+and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.shields.io/badge/HTML-1f425f.svg) using [![_magpie](https://img.shields.io/badge/_magpie-departure%20point-teal.svg)](https://github.com/magpie-ea/magpie-departure-point "departure point github repository")
 
 
-## Folder structure
-#### analyses
-* All the analysis scripts that where used for the statistical analysis
+#### [![notes](https://img.shields.io/badge/notes-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/notes)
+>All the notes that were taken during our meetings
 
-#### data
-* Raw and preprocessed data of our experiment and pilot
+#### [![supplementary_material](https://img.shields.io/badge/supplementary_material-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
+>Supplementary materials including plots, graphics and html outputs of analysis scripts
 
-#### experiments
-* Code for our experiment written in HTML and JavaScript using [_magpie](https://magpie-ea.github.io/magpie-site/ "_magpie Homepage")
-
-#### notes
-* All the notes that were taken during our meetings
-
-#### supplementary_material
-* Supplementary materials like plots, graphics and html outputs of analysis scripts
-
-#### writing
-* The Final Report as well as the Preregistration and the Experimental Design
+#### [![writing](https://img.shields.io/badge/writing-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/writing)
+>The Final Report as well as the Preregistration and the Experimental Design
 
 ## Software and Versions
 
@@ -43,7 +49,11 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 
  ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-orange.svg)
 
-* Git was used as the version control system
+* [![git](https://img.shields.io/badge/--F05032?logo=git&logoColor=ffffff)](http://git-scm.com/)
+Git was used as the version control system
+
+## License
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 ## References
 
