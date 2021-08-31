@@ -38,7 +38,7 @@ The topics in our experiment are:
 * **AfD:** "AfD winning the next federal election will be good for Germany"
     * Changed from: Donald Trump: “Donald Trump being president is good for the United States at this time”  
     * Reason: Donald Trump is a very controversial American politician, but not everybody in Germany is interested in American politics and has a strong opinion on him, so we changed the question to what we think is the equally controversial German equivalent, the AfD.
-* **Refugees:** “Should Refugees be allowed come to Germany?”
+* **Refugees:** "Germany should open its borders for all refugees"
     * Changed from: Immigration and Dreamers: "Dreamers (undocumented immigrants who came to the US as children) should be allowed to stay in the United States"
     * Reason: The term "Dreamers" does not exist in Germany, but for the past years there where a lot of controversial discussions around the topic of refugees, which is similar the topic of immigration and Dreamers.
 * **Transgender rights:** “Transgender people should be allowed to use the bathrooms of the gender they identify as"
