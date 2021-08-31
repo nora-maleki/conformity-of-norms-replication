@@ -6,5 +6,8 @@
 ### 02_main
 * html outputs and plots from the main experiment
 
-### 01_experiment_design_flowchart
+### experiment_design_flowchart
 * Flowchart of experimental design for quick overview of our first iteration of the experimental design. (this is not updated)
+
+### Text_Materials
+* This includes relevant text materials that were shown to the participants during the experiment (e.g. political/social topics, moral dilemma)
