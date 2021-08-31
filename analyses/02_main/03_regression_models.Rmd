@@ -1,0 +1,190 @@
+---
+title: "Conformity of Norms Replication Analysis"
+author: "Group 5"
+date: "August 27,2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = F, message = F, warning = F)
+```
+
+### Analysis based on the original analysis scripts of 
+
+> Pryor C, Perfors A, Howe PDL (2019)
+Conformity to the descriptive norms of people with
+opposing political or social beliefs. PLoS ONE 14
+(7): e0219464. https://doi.org/10.1371/journal.
+pone.0219464
+
+### Their original repository can be found [here](https://osf.io/tgf96/?view_only=7dc67fcc0c1f4fdea8fe1dfe5d492480)
+
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+
+library(ordinal)
+library(tidyverse)
+library(rstan)
+library(bridgesampling)
+library(shinystan)
+library(dplyr)
+library(brms)
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+set.seed(123)
+
+# global color scheme / non-optimized
+project_colors = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+# setting theme colors globally
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = project_colors)
+}
+scale_fill_discrete <- function(...) {
+   scale_fill_manual(..., values = project_colors)
+} 
+
+# nicer global knitr options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      cache = TRUE, fig.align = 'center')
+
+```
+
+
+### Importing the data
+
+```{r, results='hide'}
+
+df_cleaned <- read_csv("02_clean_data.csv")
+
+```
+
+### Glimps at the data
+
+```{r}
+
+df_cleaned %>% 
+  head()
+
+```
+```{r}
+
+df_cleaned %>% 
+  glimpse()
+
+```
+
+### Frequentist Analysis: ` Effect sizes `
+
+```{r}
+
+# cumulative link models
+ordinal <- clm(as.factor(response)~ingroupNorm*bothShown, data=df_cleaned)
+
+# coefficients
+coefs <- exp(coef(ordinal))
+
+# confidence intervals
+CI <- exp(confint(ordinal))
+
+```
+
+```{r}
+
+coefs
+
+```
+```{r}
+
+CI
+
+```
+
+### Bayesian analysis
+#### Setting up data for stan
+
+```{r}
+
+useable_data <- 
+  df_cleaned %>%
+  select(
+    response, 
+    ingroupNorm, 
+    bothShown, 
+    ingroupAgree, 
+    outgroupDisagree
+    ) %>% #select relevant columns
+  mutate(
+    ingroupAgree = 
+      ifelse(is.na(ingroupAgree), 1, ingroupAgree), 
+    outgroupDisagree = 
+      ifelse(is.na(outgroupDisagree), 1, outgroupDisagree)
+    ) # We assumed that participants identified with the ingroup and not with the outgroup.
+
+stan_data <- as.list(
+  c(
+    useable_data, 
+    N = dim(useable_data)[1]
+    )
+  )
+
+```
+
+
+### Fitting ` Self-categorization theory ` model
+
+```{r}
+
+fit_SCT <- 
+  stan(
+    file = "stan_models/SCT.stan", 
+    data=stan_data, 
+    iter=10000, 
+    chains=4, 
+    seed=123, 
+    control=
+      list(
+        adapt_delta = 0.99
+        )
+    )
+
+```
+
+### Fitting the ` alternative ` model
+
+```{r}
+
+fit_herding <- 
+  stan(
+    file = "stan_models/herding.stan", 
+    data=stan_data, 
+    iter=10000, 
+    chains=4, 
+    control=
+      list(
+        adapt_delta = 0.99
+        )
+    )
+
+```
+
+### ` Model comparison ` using Bayes Factors
+
+```{r}
+
+marg_lik_SCT <- 
+  bridge_sampler(
+    samples = fit_SCT
+    )
+
+marg_lik_herding <- 
+  bridge_sampler(
+    samples = fit_herding
+    )
+
+bridgesampling::bf(
+  marg_lik_herding,
+  marg_lik_SCT
+  )
+
+```
+
