@@ -10,30 +10,35 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 **_Note_:** This repository was created from the template of the ["Basic template for an experimental project"](https://github.com/nora-maleki/basic-template-for-an-experimental-project) repository which was also a project of the same Experimental Psychology Lab course
 
 ## **Folder structure**
-####  [![analyses](https://img.shields.io/badge/analyses-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/analyses)
+####  [![analyses](https://img.shields.io/badge/analyses--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/analyses)
 >All the analysis scripts that where used for the statistical analysis
 
-#### [![data](https://img.shields.io/badge/data-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/data)
+#### [![data](https://img.shields.io/badge/data--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/data)
 >Raw and preprocessed data of our experiment and pilot
 
-#### [![experiments](https://img.shields.io/badge/experiments-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/experiments)
+#### [![experiments](https://img.shields.io/badge/experiments--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/experiments)
 >Code for our experiment [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-teal.svg)](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)
 and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.shields.io/badge/HTML-1f425f.svg) using [![_magpie](https://img.shields.io/badge/_magpie-departure%20point-teal.svg)](https://github.com/magpie-ea/magpie-departure-point "departure point github repository")
 
 
-#### [![notes](https://img.shields.io/badge/notes-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/notes)
+#### [![notes](https://img.shields.io/badge/notes--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/notes)
 >All the notes that were taken during our meetings
 
-#### [![supplementary_material](https://img.shields.io/badge/supplementary_material-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
+#### [![supplementary_material](https://img.shields.io/badge/supplementary_material--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
 >Supplementary materials including plots, graphics and html outputs of analysis scripts
 
-#### [![writing](https://img.shields.io/badge/writing-open-1f425f.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/writing)
+#### [![writing](https://img.shields.io/badge/writing--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/writing)
 >The Final Report as well as the Preregistration and the Experimental Design
+
+<br>
+
+##### To run the current version of the experiment click the button below:
+[![running_experiment](https://img.shields.io/badge/go%20to%20experiment-Netlify-brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
 
 ## Software and Versions
 
-![R version](https://img.shields.io/badge/R-4.0.3-brightgreen.svg)
-![RStudio version](https://img.shields.io/badge/RStudio-1.4.1103-brightgreen.svg)
+![R version](https://img.shields.io/badge/R-4.0.3-teal.svg)
+![RStudio version](https://img.shields.io/badge/RStudio-1.4.1103-teal.svg)
 
   * R Packages for Analysis:
 
@@ -47,7 +52,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 
 * Implementation of the experiment:
 
- ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-orange.svg)
+ ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-purp.svg)
 
 * [![git](https://img.shields.io/badge/--F05032?logo=git&logoColor=ffffff)](http://git-scm.com/)
 Git was used as the version control system
