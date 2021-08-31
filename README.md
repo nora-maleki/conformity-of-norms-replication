@@ -9,6 +9,8 @@ This repository is a replication of experiment 1 of **Pryor et al. (2019)** as a
 
 **_Note_:** This repository was created from the template of the ["Basic template for an experimental project"](https://github.com/nora-maleki/basic-template-for-an-experimental-project) repository which was also a project of the same Experimental Psychology Lab course
 
+<br>
+
 ## **Folder structure**
 ####  [![analyses](https://img.shields.io/badge/analyses--brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/analyses)
 >All the analysis scripts that where used for the statistical analysis
@@ -38,7 +40,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 
 [![running_experiment](https://img.shields.io/badge/go%20to%20experiment-Netlify-brightgreen.svg)](https://github.com/nora-maleki/conformity-of-norms-replication/tree/workflow/supplementary_material)
 
-[![running_experiment](https://img.shields.io/badge/powered%20from%20the%20submodule-01_pilot-darkgreen.svg)](https://github.com/nora-maleki/01_pilot)
+[![submodule](https://img.shields.io/badge/experiment%20is%20powered%20from%20the%20submodule-01_pilot-darkgreen.svg)](https://github.com/nora-maleki/01_pilot)
 
 ## Software and Versions
 
@@ -57,7 +59,7 @@ and [![made-with-HTML](https://img.shields.io/badge/HTML-teal.svg)](https://img.
 
 * Implementation of the experiment:
 
- ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-purp.svg)
+ ![_magpie version](https://img.shields.io/badge/_magpie-0.2.3-purple.svg)
 
 * [![git](https://img.shields.io/badge/--F05032?logo=git&logoColor=ffffff)](http://git-scm.com/)
 Git was used as the version control system
