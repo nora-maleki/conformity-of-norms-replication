@@ -59,7 +59,7 @@ b<sub>both</sub> ~ normal( 0, 0.5 )    <br>
 
 | Self-Categorization Theory Model  | Descriptive Norm Model (alternative model)  |
 |---|---|
-| b<sub>out</sub> ~ normal(0, 0.5) | - (0.85 / 0.6) * b<sub>in</sub> |
+| b<sub>out</sub> ~ half-normal(0, 0.5) | b<sub>out</sub> = - (0.85 / 0.6) * b<sub>in</sub> |
 
 
 We utilize the programming language R for our
